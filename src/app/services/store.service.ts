@@ -7,13 +7,13 @@ import { Item } from '../models/item';
 @Injectable({
   providedIn: 'root',
 })
-export class TodoService {
+export class StoreService {
   constructor(private readonly http: HttpClient) {
   this.getAllItems().then((chars) => (this.itemsList = chars));}
   
   private itemsList: Item[] = [];
 
-    async getAllItems(): Promise<Item[]> {
+  async getAllItems(): Promise<Item[]> {
     const response = await firstValueFrom(
       this.http.get<Item[]>(`${environment.apiUrl}`)
     );
@@ -23,5 +23,7 @@ export class TodoService {
     return response;
   }
 
-  items: Promise<Item[]> = Promise.resolve(this.itemsList);
+  items: Promise<Item[]> = Promise.resolve(this.getAllItems());
+
+  itemsInCart: Item[] = [];
 }
