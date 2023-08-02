@@ -1,0 +1,57 @@
+.cart-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+}
+
+.item-name {
+  padding-right: 10px;
+  min-width: 30%;
+}
+
+.item-icon {
+  display: flex;
+  align-items: center;
+  margin-right: 10px;
+}
+
+.quantity-container {
+  display: flex;
+  align-items: center;
+}
+
+button {
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  padding: 5px 10px;
+}
+
+.increment-button {
+  background-color: red;
+  color: white;
+  margin-right: 5px;
+}
+
+.decrement-button {
+  background-color: green;
+  color: white;
+  margin-left: 5px;
+}
+
+.remove-button {
+  background-color: black;
+  color: white;
+  font-weight: bold;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-left: 8px;
+  margin-right: 8px
+}
+
+

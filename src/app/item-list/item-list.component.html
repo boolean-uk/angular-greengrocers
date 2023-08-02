@@ -4,7 +4,7 @@
   <div class="item" *ngFor="let item of items">
     <h3>{{ item.name }}</h3>
     <mat-icon class="custom-icon" svgIcon="{{ item.id }}"></mat-icon>
-    <button (click)="addToCart(item, 1)">Add to Cart</button>
+    <button class="add-to-cart" (click)="addToCart(item, 1)">Add to Cart</button>
   </div>
 </div>
 

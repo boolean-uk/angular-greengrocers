@@ -1,0 +1,16 @@
+<div *ngFor="let cartItem of cartItems | keyvalue">
+  <div class="cart-item">
+    <div class="item-icon">
+      <mat-icon svgIcon="{{ cartItem.key.id }}" class="custom-icon"></mat-icon>
+    </div>
+    <span class="item-name">{{ cartItem.key.name }}</span>
+    <div class="quantity-container">
+      <button class="increment-button" (click)="decrementItem(cartItem.key)">-</button>
+      <span class="quantity">{{ cartItem.value }}</span>
+      <button class="decrement-button" (click)="incrementItem(cartItem.key)">+</button>
+    </div>
+    <button class="remove-button" (click)="removeItem(cartItem.key)">Remove</button>
+  </div>
+</div>
+
+

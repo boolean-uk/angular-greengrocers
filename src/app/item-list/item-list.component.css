@@ -26,3 +26,15 @@ mat-icon {
   width: 48px;
   height: 48px;
 }
+
+.add-to-cart{
+  background-color: darkgreen;
+  color: white;
+  font-weight: bold;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 7px
+}
+

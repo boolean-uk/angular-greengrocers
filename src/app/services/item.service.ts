@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {environment} from "../../environments/environment";
 import {HttpClient} from "@angular/common/http";
 import {Item} from "../models/item";
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -10,6 +11,10 @@ export class ItemService {
 
   private apiUrl = environment.apiUrl;
   private cart: Map<Item, number> = new Map();
+  private total: number =0;
+
+  private cartUpdatedSubject = new BehaviorSubject<void>(undefined);
+  cartUpdated$ = this.cartUpdatedSubject.asObservable();
 
   constructor(private http: HttpClient) {}
 
@@ -27,31 +32,48 @@ export class ItemService {
       this.cart.set(item, quantity);
     }
     console.log(this.cart)
+    this.cartUpdatedSubject.next();
+
   }
 
   clearCart() {
     this.cart.clear();
+    this.cartUpdatedSubject.next();
+
   }
 
-  deleteFromCart(item: Item, quantity: number) {
-    const existingQuantity = this.cart.get(item);
-    if (existingQuantity && quantity <= existingQuantity) {
-      const newQuantity = existingQuantity - quantity;
-      if (newQuantity <= 0) {
-        this.cart.delete(item);
-      } else {
-        this.cart.set(item, newQuantity);
+  deleteFromCart(item: Item, quantity?: number) {
+    if (quantity) {
+      const existingQuantity = this.cart.get(item);
+      if (existingQuantity && quantity <= existingQuantity) {
+        const newQuantity = existingQuantity - quantity;
+        if (newQuantity === 0) {
+          this.cart.delete(item);
+        } else {
+          this.cart.set(item, newQuantity);
+        }
       }
+    } else {
+      this.cart.delete(item);
     }
-    console.log(this.cart)
+    this.cartUpdatedSubject.next();
+
   }
 
   calculateTotal(): number {
-    let total = 0;
+    this.total =0;
     this.cart.forEach((quantity, item) => {
-      total += item.price * quantity;
+      this.total += item.price * quantity;
     });
-    return total;
+    return this.total;
+  }
+
+  getTotal(){
+    return this.total
+  }
+
+  getCartItems(): Map<Item, number>{
+    return this.cart;
   }
 
 
