@@ -2,7 +2,7 @@
     <ul class="item-list cart--item-list">
     <div *ngIf="itemsInCart">
         <div *ngFor="let item of items | async">
-            <ng-container *ngIf="this.itemsInCart[item.name] !== 0">
+            <ng-container *ngIf="this.itemsInCart.hasOwnProperty(item.name)">
                 <app-cart-item [item]="item" [quantity]="this.itemsInCart[item.name]" 
                 (addToCart)="addToCart($event)" (removeFromCart)="removeFromCart($event)"/>
             </ng-container>

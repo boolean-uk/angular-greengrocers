@@ -11,10 +11,9 @@ import { Item } from '../models/item';
 export class StoreService {
   constructor(private readonly http: HttpClient) {
   this.getAllItems().then((chars) => (this.itemsList = chars));
-  this.initialiseCart()
 }
   
-  itemsList: Item[] = [];
+  private itemsList: Item[] = [];
 
   async getAllItems(): Promise<Item[]> {
     const response = await firstValueFrom(
@@ -32,17 +31,12 @@ export class StoreService {
 
   total = 0;
 
-  sortItemsByPrice() {
-    this.itemsList.sort((a, b) => a.price - b.price);
+  async showFruits(){
+    return   (await this.items).filter((el) => el.type === "fruit");
   }
 
-  sortItemsByName(){
-    this.itemsList.sort((a, b) => a.name.localeCompare(b.name));
-  }
-
-  async initialiseCart() {
-    for (const item of await this.items)
-      this.itemsInCart[item.name] = 0;
+  async showVegetables(){
+    return   (await this.items).filter((el) => el.type === "vegetable");
   }
 }
 
