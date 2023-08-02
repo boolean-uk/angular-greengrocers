@@ -16,7 +16,6 @@ export class GreengrocersComponent {
   addItem(newItem: Item){
     this.groceryService.putToCart(newItem)
     console.log('added to cart', newItem)
-    console.log('my cart', this.groceryService.cart)
   }
 
 }

@@ -15,4 +15,14 @@ export class CartComponent {
     this.cart = this.groceryService.cart
   }
 
+  minusItem(item: Item){
+    this.groceryService.removeFromCart(item)
+    console.log("item deleted", this.cart)
+  }
+
+  plusItem(item: Item){
+    this.groceryService.putToCart(item)
+    console.log("item added", this.cart)
+  }
+
 }

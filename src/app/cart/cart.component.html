@@ -1,4 +1,4 @@
-<div *ngIf="(cart | json) == ({} | json)">
+<div *ngIf="(cart | json) == '{}'">
   <p>Cart is empty</p>
 </div>
 <div *ngIf="(cart | json) != '{}'">
@@ -6,6 +6,11 @@
     <img src='assets\icons\{{id.key}}.svg' alt='{{ id.key }}'
     height="15px"
     width="15px">
-    {{ id.value[0].name }} {{ id.value.length }}
+    {{ id.value[0].name }}
+    <span class="item-quantity">
+      <button (click)="minusItem(id.value[0])">-</button>
+      {{ id.value.length }}
+      <button (click)="plusItem(id.value[0])">+</button>
+    </span>
  </div>
 </div>

@@ -29,6 +29,17 @@ export class GroceryService {
     }
   }
 
+  removeFromCart(item: Item){
+    if(item){
+      let id = item.id
+      if(this.myCart[id].length === 1){
+        delete this.myCart[id]
+      } else if (this.myCart[id].length > 1){
+        this.myCart[id].pop()
+      }
+    }
+  }
+
   get cart(): {[key: string]: Item[]}{
     return this.myCart
   }
