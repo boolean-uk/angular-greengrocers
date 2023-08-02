@@ -8,9 +8,10 @@ export class CartService {
 
   constructor() { }
 
-  cart: Item[] = []
+  cart = new Map<Item, Number>()
 
   addItemToCart(item: Item) {
-    this.cart.push(item)
+    if (!this.cart.has(item)) this.cart.set(item, 1) 
+    else this.cart.set(item, 1 + Number(this.cart.get(item)))
   }
 }
