@@ -1,10 +1,24 @@
-<!--<p>{{items | json}}</p>-->
+<header id="store">
+  <h1>Greengrocers</h1>
 
-<div class="item-list">
+  <div class="item-list">
+  <mat-button-toggle-group name="sort" [(ngModel)]="selectedSort">
+    <h3>Sort</h3>
+    <mat-button-toggle value="name" (click)="handleSortingFiltering()">Sort by Name</mat-button-toggle>
+    <mat-button-toggle value="price" (click)="handleSortingFiltering()">Sort by Price</mat-button-toggle>
+  </mat-button-toggle-group>
+
+  <mat-button-toggle-group name="sort" [(ngModel)]="selectedFilter">
+    <h3>Filter</h3>
+    <mat-button-toggle value="all" (click)="handleSortingFiltering()">All</mat-button-toggle>
+    <mat-button-toggle value="fruit" (click)="handleSortingFiltering()">Fruit</mat-button-toggle>
+    <mat-button-toggle value="vegetable" (click)="handleSortingFiltering()">Vegetable</mat-button-toggle>
+  </mat-button-toggle-group>
+
   <div class="item" *ngFor="let item of items">
-    <h3>{{ item.name }}</h3>
-    <mat-icon class="custom-icon" svgIcon="{{ item.id }}"></mat-icon>
+    <h3>{{ item.name }}  {{item.price | currency}}</h3>
+    <mat-icon class="custom-icon" svgIcon="{{ item.id }}" ></mat-icon>
     <button class="add-to-cart" (click)="addToCart(item, 1)">Add to Cart</button>
   </div>
 </div>
-
+</header>

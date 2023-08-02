@@ -1,9 +1,17 @@
-<header id="store">
-  <h1>Greengrocers</h1>
-  <app-item-list></app-item-list>
-</header>
-<main id="cart">
-  <h2>Your Cart</h2>
-  <app-cart></app-cart>
-  <div class="total">Total: {{ total | currency }}</div>
-</main>
+<!--<header id="store">-->
+<!--  <h1>Greengrocers</h1>-->
+<!--  <app-item-list></app-item-list>-->
+<!--</header>-->
+<!--<main id="cart">-->
+<!--  <h2>Your Cart</h2>-->
+<!--  <app-cart></app-cart>-->
+<!--  <div class="total">Total: {{ total | currency }}</div>-->
+<!--</main>-->
+<div>
+<mat-button-toggle-group name="sort" [(ngModel)]="selectedPage">
+  <mat-button-toggle value="/store" (click)="toggleRouting()">Store</mat-button-toggle>
+  <mat-button-toggle value="/checkout" (click)="toggleRouting()">Checkout</mat-button-toggle>
+</mat-button-toggle-group>
+</div>
+<div class="total">Total: {{ total | currency }}</div>
+<router-outlet></router-outlet>

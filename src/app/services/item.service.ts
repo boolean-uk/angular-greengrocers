@@ -68,13 +68,24 @@ export class ItemService {
     return this.total;
   }
 
-  getTotal(){
-    return this.total
-  }
-
   getCartItems(): Map<Item, number>{
     return this.cart;
   }
 
+  async getItemsByType(type: string): Promise<Item[]> {
+    try {
+      const response = await this.http.get<Item[]>(`${this.apiUrl}groceries`).toPromise();
+      if (Array.isArray(response)) {
+        const itemsByType = response.filter((item) => item.type === type);
+        return itemsByType;
+      } else {
+        console.error('Invalid response format or no data returned.');
+        return [];
+      }
+    } catch (error) {
+      console.error('Error while fetching items:', error);
+      return [];
+    }
+  }
 
 }

@@ -1,3 +1,5 @@
+<h2>Your Cart</h2>
+
 <div *ngFor="let cartItem of cartItems | keyvalue">
   <div class="cart-item">
     <div class="item-icon">
@@ -12,5 +14,6 @@
     <button class="remove-button" (click)="removeItem(cartItem.key)">Remove</button>
   </div>
 </div>
+
 
 

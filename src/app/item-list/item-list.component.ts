@@ -3,18 +3,19 @@ import {ItemService} from "../services/item.service";
 import {Item} from "../models/item";
 import {Subscription} from "rxjs";
 import {IconLoaderService} from "../services/icon-loader.service";
-
+import {MatButtonToggleModule} from '@angular/material/button-toggle';
 
 @Component({
   selector: 'app-item-list',
   templateUrl: './item-list.component.html',
-  styleUrls: ['./item-list.component.css']
+  styleUrls: ['./item-list.component.css'],
 })
 export class ItemListComponent implements OnInit{
   items: Item[] = [];
   private itemSubscription!: Subscription;
   iconNames: string[] = [];
-
+  selectedFilter: string = 'all';
+  selectedSort: string = 'name';
 
   constructor(private itemService: ItemService, private iconLoaderService: IconLoaderService) {}
 
@@ -22,8 +23,8 @@ export class ItemListComponent implements OnInit{
     this.loadItemsAndIcons();
   }
 
-  async loadItemsAndIcons() {
-    this.items = await this.itemService.getItems();
+  private async loadItemsAndIcons() {
+    await this.handleSortingFiltering()
     console.log(this.items);
     const iconNames = this.items.map((obj) => obj.id);
     this.iconLoaderService.registerIcons(iconNames);
@@ -31,6 +32,27 @@ export class ItemListComponent implements OnInit{
 
   addToCart(item: Item, count: number){
     this.itemService.addToCart(item, count);
+  }
+
+  async handleSortingFiltering(){
+    await this.filterItemsByType();
+    this.sortItems();
+  }
+
+  private async filterItemsByType() {
+    if (this.selectedFilter === 'all') {
+      this.items = await this.itemService.getItems();
+    } else {
+      this.items = await this.itemService.getItemsByType(this.selectedFilter);
+    }
+  }
+
+  private sortItems() {
+    if (this.selectedSort === 'name') {
+      this.items.sort((a, b) => a.name.localeCompare(b.name));
+    } else if (this.selectedSort === 'price') {
+      this.items.sort((a, b) => a.price - b.price);
+    }
   }
 
 }

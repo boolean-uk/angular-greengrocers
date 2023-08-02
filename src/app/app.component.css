@@ -1,0 +1,32 @@
+.mat-button-toggle-group{
+  margin-right: 20px;
+  margin-left: 20px;
+}
+
+.mat-button-toggle {
+  background-color: white !important;
+  color: brown !important;
+  padding: 8px 16px;
+  margin-right: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.mat-button-toggle:hover {
+  background-color: gray !important;
+  color: white !important ;
+}
+
+.mat-button-toggle-checked {
+  background-color: brown !important;
+  color: white !important;
+}
+
+.total {
+  margin-left: 20px;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  font-family: 'YourCustomFont', sans-serif;
+  font-size: 20px;
+}
+
