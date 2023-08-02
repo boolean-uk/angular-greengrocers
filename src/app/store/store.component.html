@@ -1,6 +1,22 @@
 <header id="store">
   <h1>Greengrocers</h1>
+
+  <select [(ngModel)]="filter" (ngModelChange)="filterChanged()">
+    <option value="all">All</option>
+    <option value="vegetable">Vegetables</option>
+    <option value="fruit">Fruits</option>
+  </select>
+
+  <select [(ngModel)]="sorting" (ngModelChange)="filterChanged()">
+    <option value="dont">Don't sort</option>
+    <option value="byName">Sort by name</option>
+    <option value="byPrice">Sort by price</option>
+  </select>
+
   <ul class="item-list store--item-list">
-    <app-store-item *ngFor="let item of store" [item]="item"></app-store-item>
+    <app-store-item
+      *ngFor="let item of filterChanged()"
+      [item]="item"
+    ></app-store-item>
   </ul>
 </header>

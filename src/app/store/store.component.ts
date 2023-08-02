@@ -9,6 +9,8 @@ import { Subscription } from 'rxjs';
   styleUrls: ['./store.component.css'],
 })
 export class StoreComponent implements OnInit, OnDestroy {
+  filter: string = 'all';
+  sorting: string = 'dont';
   store: Item[] = [];
   groceriesServiceSubscription!: Subscription;
 
@@ -25,5 +27,30 @@ export class StoreComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
     this.groceriesServiceSubscription.unsubscribe();
+  }
+
+  filterChanged() {
+    let result = this.store.filter((element) => element.type === this.filter);
+    if (!result.length) result = this.store;
+
+    if (this.sorting === 'byPrice')
+      result = result.sort((a, b) => a.price - b.price);
+    else if (this.sorting === 'byName')
+      result = result.sort((a, b) => {
+        let fa = a.name.toLowerCase(),
+          fb = b.name.toLowerCase();
+
+        if (fa < fb) {
+          return -1;
+        }
+        if (fa > fb) {
+          return 1;
+        }
+        return 0;
+      });
+
+    console.log(result);
+
+    return result;
   }
 }

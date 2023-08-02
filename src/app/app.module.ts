@@ -10,6 +10,7 @@ import { CartItemComponent } from './cart-item/cart-item.component';
 import { TotalComponent } from './total/total.component';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { AppRoutingModule } from './app-routing.module';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,7 @@ import { AppRoutingModule } from './app-routing.module';
     TotalComponent,
     CheckoutComponent,
   ],
-  imports: [BrowserModule, HttpClientModule, AppRoutingModule],
+  imports: [BrowserModule, HttpClientModule, AppRoutingModule, FormsModule],
   providers: [],
   bootstrap: [AppComponent],
 })
