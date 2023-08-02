@@ -29,29 +29,4 @@ export class CartComponent implements OnInit{
   decreaseQ(IteminCart: IteminCart){
     this.greengrocersService.decreaseQuantity(IteminCart);
   }
-  sortItemByPriceInCart(){
-    this.greengrocersService.sortCart();
-    this.ngOnInit();  
-  }
-
-  sortItemByNameInCart(){
-    this.greengrocersService.sortCartByName();
-    this.ngOnInit(); 
-  }
-
-  showVegetables(){
-    this.greengrocersService.showVegetables();
-  }
-  showFruits(){
-
-  }
-
-
-
-
-  
-
-
-
-
 }

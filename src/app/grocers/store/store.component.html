@@ -1,3 +1,4 @@
+
 <ul class="item-list store--item-list">
     <li *ngFor="let item of items">
       <div class="store--item-icon">
@@ -9,5 +10,12 @@
       <ul>
       
       </ul>
+
   </ul>
+  <div class="item-list store--item-list">
+  <button (click)="sortItemByPriceInStore()">Sort by price</button>
+  <button (click)="sortItemByNameInCart()">Sort by name</button>
+  <button (click)="showVegetables()">show Vegetables</button>
+  <button (click)="showFruits()">show fruits</button>
+</div>
   

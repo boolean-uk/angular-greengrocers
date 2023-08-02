@@ -15,13 +15,31 @@ export class StoreComponent implements OnInit{
   items :Item[] | null =null;
 
   async ngOnInit() {
-   this.items = await this.greengrocersService.getAllGroceries();
-   console.log(this.items);
+    this.items = await this.greengrocersService.getItems()
   }
 
   async addItemToCart(item :Item){
     console.log(item);
     this.greengrocersService.addItemToCart(item);
+  }
+
+  async sortItemByPriceInStore(){
+    this.greengrocersService.sortItemsByPrice();
+    this.ngOnInit();  
+  }
+
+  sortItemByNameInCart(){
+    this.greengrocersService.sortCartByName();
+    this.ngOnInit(); 
+  }
+
+   showVegetables(){
+   this.greengrocersService.showVegetables();
+    this.ngOnInit();
+  }
+  showFruits(){
+    this.greengrocersService.showFruits();
+    this.ngOnInit();
   }
 
 }

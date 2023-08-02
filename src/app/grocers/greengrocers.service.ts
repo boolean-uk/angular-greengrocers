@@ -26,6 +26,11 @@ export class GreengrocersService {
     return response;
   }
 
+  async getItems():Promise<Item[]>{
+    return this.items;
+  }
+  
+
   addItemToCart(itemToAdd : Item){
     const existingCartItem = this.cart.find((cartItem) => cartItem.item === itemToAdd);
     if(existingCartItem){
@@ -50,7 +55,7 @@ export class GreengrocersService {
       const indexToRemove = this.cart.findIndex((cartItem) => cartItem === iteminCart);
       this.cart.splice(indexToRemove, 1);
     }
-    iteminCart.quantity-=1;
+    iteminCart.quantity--;
   }
 
   getTotal() : number{
@@ -61,19 +66,24 @@ export class GreengrocersService {
     return total;
   }
 
-  sortCart() {
-    this.cart.sort((a, b) => a.item.price - b.item.price);
+  async sortItemsByPrice() {
+   // this.cart.sort((a, b) => a.item.price - b.item.price);
+  (await this.items).sort((a, b) => a.price - b.price);
+
+
+   
     
   }
-  sortCartByName(){
-    this.cart.sort((a, b) => a.item.name.localeCompare(b.item.name));
+  async sortCartByName(){
+   
+    (await this.items).sort((a, b) => a.name.localeCompare(b.name));
   }
 
-  showFruits(){
-
+  async showFruits(){
+    return   (await this.items).sort((a, b) => a.type.localeCompare(b.type));
   }
-  showVegetables(){
-    
+  async showVegetables(){
+    return   (await this.items).sort((a, b) => a.type.localeCompare(b.type)).reverse();
   }
 
 
