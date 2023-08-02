@@ -13,4 +13,7 @@ export class GroceriesItemComponent implements OnInit {
   constructor(private readonly groceryService: GroceriesService) {}
 
   ngOnInit(): void {}
+  generateImagePath(item: Item): string {
+    return `assets/icons/${item.id.toLowerCase()}.svg`;
+  }
 }

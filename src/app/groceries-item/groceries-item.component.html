@@ -1,3 +1,8 @@
 <ng-template [ngIf]="grocery">
-  <div>{{ grocery.name }}</div>
+  <li>
+    <div class="store--item-icon">
+      <img [src]="generateImagePath(grocery)" [alt]="grocery.name" />
+    </div>
+    <p>{{ grocery.name }}</p>
+  </li>
 </ng-template>

@@ -14,9 +14,9 @@ export class GroceriesListComponent implements OnInit {
   constructor(private readonly groceriesService: GroceriesService) {}
 
   ngOnInit(): void {
-    this.updateTodos();
+    this.updateGroceries();
   }
-  private updateTodos() {
+  private updateGroceries() {
     this.groceriesService.getAllGroceries().subscribe((grocery) => {
       this.groceriesRefresh$.next(grocery);
     });
