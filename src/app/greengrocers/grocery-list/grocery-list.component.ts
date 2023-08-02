@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { GreengrocersService } from 'src/app/services/greengrocers.service';
+import { GreengrocersService } from '../greengrocers.service';
 
 @Component({
   selector: 'app-grocery-list',
