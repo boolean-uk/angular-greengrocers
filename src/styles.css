@@ -21,7 +21,7 @@ button {
 /* Store */
 
 #store {
-  height: 40vh;
+  height: 80vh;
   padding: 1rem;
 
   overflow-y: scroll;
