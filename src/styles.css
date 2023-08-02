@@ -187,3 +187,13 @@ app-total {
     border-bottom: 2px solid #00675b;
   }
 }
+
+.sort--buttons {
+  padding: 2px 0 0 0 ;
+  background-color: #e7f4ea;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+}
