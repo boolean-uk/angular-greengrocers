@@ -13,6 +13,10 @@ export class AppComponent implements OnInit {
   isFruitButtonClicked = false;
   isVegetableButtonClicked = false;
   isEverythingButtonClicked = true;
+  isSortedByPrice = false;
+  isSortedByName = false;
+  priceSorting:string = "Price ▲"
+  nameSorting:string = "Name ▲"
   buttons = [this.isEverythingButtonClicked,this.isFruitButtonClicked, this.isVegetableButtonClicked]
   constructor(
     private readonly fruitService: FruitService,
@@ -36,7 +40,7 @@ export class AppComponent implements OnInit {
     this.vegetables = await this.fruitService.getVegetables();
     this.fruits = await this.fruitService.getFruits();
     this.groceries = await [...this.vegetables, ...this.fruits];
-    this.groceriesToShow=this.groceries
+      this.groceriesToShow= await this.groceries
     console.log(this.vegetables);
     console.log(this.fruits);
     console.log(this.groceries);
@@ -62,5 +66,52 @@ export class AppComponent implements OnInit {
   this.isEverythingButtonClicked = true;
   this.isVegetableButtonClicked=false;
   this.isFruitButtonClicked = false;
+  }
+  priceSortingButton()
+  {
+    if(this.isSortedByPrice)
+    {
+      this.priceSorting ="Price ▲"
+    }
+    else{
+     this.priceSorting="Price ▼"
+    }
+  }
+
+  async sortByPrice()
+  {
+    this.priceSortingButton()
+    if(this.isSortedByPrice){
+       this.isSortedByPrice= !this.isSortedByPrice
+       this.groceriesToShow.sort((a:Item,b:Item) => a.price-b.price)
+    }
+    else
+    {
+      this.isSortedByPrice= !this.isSortedByPrice
+      this.groceriesToShow.sort((a:Item,b:Item) => b.price-a.price)
+    }
+  }
+  nameSortingButton()
+  {
+    if(this.isSortedByName)
+    {
+      this.nameSorting ="Name ▲"
+    }
+    else{
+     this.nameSorting="Name ▼"
+    }
+  }
+ async sortByName()
+  {
+    this.nameSortingButton()
+    if(this.isSortedByName){
+       this.isSortedByName= !this.isSortedByName
+       this.groceriesToShow.sort((a:Item,b:Item) => a.name.localeCompare(b.name))
+    }
+    else
+    {
+      this.isSortedByName= !this.isSortedByName
+      this.groceriesToShow.sort((a:Item,b:Item) => b.name.localeCompare(a.name))
+    }
   }
 }

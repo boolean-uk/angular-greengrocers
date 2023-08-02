@@ -7,6 +7,7 @@ justify-content: center;
 }
 header{
   width: fit-content;
+ 
 }
 
 
@@ -81,6 +82,7 @@ button {
 #store {
   height: 40vh;
   padding: 1rem;
+  padding-top: 0;
   margin-bottom: 0.5rem;
 
   overflow-y: scroll;
@@ -90,6 +92,7 @@ button {
 
 #store h1 {
   text-align: center;
+  margin-top:0;
 }
 
 .store--item-list {
@@ -134,7 +137,7 @@ main {
 }
 
 .cart-section {
-  height: 35vh;
+  height: 30vh;
   width: 100%;
   max-width: 450px; 
   
