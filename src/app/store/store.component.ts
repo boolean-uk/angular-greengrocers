@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { StoreService } from '../services/store.service';
+import { Item } from '../models/item';
+import { CartService } from '../services/cart.service';
 
 @Component({
   selector: 'app-store',
@@ -8,8 +10,11 @@ import { StoreService } from '../services/store.service';
 })
 export class StoreComponent {
   
-  constructor(private readonly storeService: StoreService) {}
+  constructor(private readonly storeService: StoreService, private readonly cartService: CartService) {}
 
   items = this.storeService.items
 
+  addToCart(item: Item) {
+    this.cartService.addItemToCart(item)
+  }
 }
