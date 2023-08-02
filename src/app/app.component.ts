@@ -67,6 +67,27 @@ export class AppComponent implements OnInit {
   //Extension 1: Filter the store items by type
   filterByType(type: string | null): void {
     this.selectedType = type;
+    this.sortGroceriesByType();
+  }
+
+  sortGroceriesByType(): void {
+    this.groceries.sort((a, b) => {
+      // Check if the selected type matches the item type
+      if (this.selectedType && a.type === this.selectedType) {
+        return -1; 
+      } else if (this.selectedType && b.type === this.selectedType) {
+        return 1; 
+      }
+  
+      // For non-selected types, sort normally
+      if (a.type === 'fruit' && b.type === 'vegetable') {
+        return -1; 
+      } else if (a.type === 'vegetable' && b.type === 'fruit') {
+        return 1; 
+      } else {
+        return 0; 
+      }
+    });
   }
 
   removeFromCart(item: Item): void {

@@ -10,12 +10,14 @@
   <!-- your store here -->
   <ul class="store--item-list">
     <li *ngFor="let item of groceries">
+      <ng-container *ngIf="!selectedType || item.type === selectedType">
       <div class="store--item-icon">
         <img [src]="'assets/icons/' + item.id + '.svg'" alt="{{ item.name }}" />
       </div>
       <div>{{ item.name }}</div>
       <div>{{ item.price | currency: 'USD': 'symbol' }}</div>
       <button (click)="addToCart(item)">Add to Cart</button>
+    </ng-container>
     </li>
   </ul>
 </header>
