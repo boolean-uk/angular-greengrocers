@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Observable } from 'rxjs';
+import { ItemsService } from './services/items.service';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +9,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'angular-green-grocers';
+  costOfBasket$: Observable<number> = this.itemsService.getCostOfBasket()
+
+  constructor(private readonly itemsService: ItemsService) { }
 }

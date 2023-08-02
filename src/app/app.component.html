@@ -2,7 +2,7 @@
   <h1>Greengrocers</h1>
   <nav>
     <a class="button" routerLink="/">Browse items</a> |
-    <a class="button" routerLink="/checkout">Checkout</a>
+    <a class="button" routerLink="/checkout">Checkout {{ costOfBasket$ | async | currency}}</a>
   </nav>
 </div>
 <router-outlet></router-outlet>

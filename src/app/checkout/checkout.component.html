@@ -1,0 +1,10 @@
+<main id="cart">
+    <ng-container *ngFor="let itemNameWithCount of itemNamesWithCount$ | async | keyvalue">
+        <div class="item">
+            <p>{{ itemNameWithCount.key }}</p>
+            <a class="button">➖</a>
+            <p>{{itemNameWithCount.value }}</p>
+            <a class="button">➕</a>
+        </div>
+    </ng-container>
+</main>

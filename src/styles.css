@@ -187,3 +187,7 @@ app-total {
     border-bottom: 2px solid #00675b;
   }
 }
+
+.button {
+  cursor: pointer;
+}
