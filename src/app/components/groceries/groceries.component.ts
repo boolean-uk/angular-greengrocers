@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {GroceriesService} from "../../services/groceries.service";
-import {map, Observable} from "rxjs";
+import {Observable} from "rxjs";
 import {Groceries, GroceryType} from "../../models/groceries";
 
 @Component({
