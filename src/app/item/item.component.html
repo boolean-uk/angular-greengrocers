@@ -1,0 +1,6 @@
+<ng-template [ngIf]="item">
+  <div class="grocery_container">
+    <img [src]='"/assets/icons/" + item.id + ".svg"'/>
+    <button (click)="clicked()">ADD TO CART</button>
+  </div>
+</ng-template>

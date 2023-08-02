@@ -1,0 +1,12 @@
+.grocery_container {
+  display: flex;
+  flex-direction: column;
+}
+
+.grocery_container img {
+  width: 100px;
+}
+
+.grocery_container button {
+  margin-top: 0.5rem;
+}
