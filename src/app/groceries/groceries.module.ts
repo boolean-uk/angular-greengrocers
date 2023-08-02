@@ -10,6 +10,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
 import { MatMenuModule } from '@angular/material/menu';
 import { FilterPipe } from './filter.pipe';
+import { SortPipe } from './sort.pipe';
 
 
 
@@ -18,7 +19,8 @@ import { FilterPipe } from './filter.pipe';
   declarations: [
     GroceryComponent,
     GroceryListComponent,
-    FilterPipe
+    FilterPipe,
+    SortPipe
   ],
   imports: [
     CommonModule,

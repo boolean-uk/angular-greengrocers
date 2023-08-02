@@ -3,5 +3,6 @@ export interface Item {
   name: string;
   price: number;
   type: string;
+  [key: string]: any;
 }
 

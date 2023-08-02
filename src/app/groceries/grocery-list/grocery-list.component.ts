@@ -13,8 +13,13 @@ export class GroceryListComponent {
   constructor(private readonly service: GroceryService) { }
   groceries$: Observable<Item[]> = this.service.groceries$
   type: string = 'all'
+  property: string = 'name'
 
   setFilterType(type: string) {
     this.type = type
+  }
+
+  setProperty(property: string) {
+    this.property = property
   }
 }
