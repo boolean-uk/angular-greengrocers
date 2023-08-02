@@ -3,5 +3,5 @@
 </div>
 
 <div>
-  <span class="total-number">£0.00</span>
+  <span class="total-number">{{ totalCost$ | async | currency : "GBP" }}</span>
 </div>
