@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { GroceriesService } from '../services/groceries.service';
-import { Item } from 'src/app/models/item';
+import { Item, ItemType } from 'src/app/models/item';
 
 @Component({
   selector: 'app-store',
@@ -8,11 +8,28 @@ import { Item } from 'src/app/models/item';
   styleUrls: ['./store.component.css'],
 })
 export class StoreComponent implements OnInit {
+  type: ItemType | null = null;
+
   constructor(private readonly groceriesService: GroceriesService) {}
 
   groceries: Item[] | null = null;
 
   async ngOnInit(): Promise<void> {
-    this.groceries = await this.groceriesService.getAllGroceries();
+    await this.getGroceries();
+  }
+
+  async getGroceries() {
+    this.groceries = await this.groceriesService.getGroceriesByType(this.type);
+  }
+
+  async filterByType(): Promise<void> {
+    if (this.type === null) {
+      this.type = ItemType.fruit;
+    } else if (this.type === ItemType.fruit) {
+      this.type = ItemType.vegetable;
+    } else {
+      this.type = null;
+    }
+    await this.getGroceries();
   }
 }
