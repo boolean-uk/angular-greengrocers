@@ -40,7 +40,15 @@
   <div>
     <h3>Total</h3>
   </div>
-
+  <div>
+    <button (click)="filterByType()">Filter by type</button>
+  </div>
+  <div>
+    <button (click)="sortByName()">Sort by name</button>
+  </div>
+  <div>
+    <button (click)="sortByPrice()">Sort by price</button>
+  </div>
   <div>
     <span class="total-number">{{ this.totalPrice() | currency }}</span>
   </div>

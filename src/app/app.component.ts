@@ -12,9 +12,10 @@ import { Subscription } from 'rxjs';
 export class AppComponent implements OnInit, OnDestroy {
   title = 'angular-green-grocers';
 
-  itemList: Item[] | null = null;
+  itemList: Item[] = [];
   shoppingCart: CartItem[] = [];
   subscription: Subscription | null = null;
+  filterItems: boolean = true;
   constructor(private shoppingService: ShoppingService) {}
 
   getItems(): void {
@@ -22,7 +23,25 @@ export class AppComponent implements OnInit, OnDestroy {
       .getItems()
       .subscribe((items) => (this.itemList = items));
   }
-
+  filterByType() {
+    this.subscription = this.shoppingService
+      .getItems()
+      .subscribe(
+        (items) =>
+          (this.itemList = items.filter((item) =>
+            this.filterItems ? item.type === 'fruit' : item.type == 'vegetable'
+          ))
+      );
+    this.filterItems = !this.filterItems;
+  }
+  sortByName() {
+    this.itemList = this.itemList.sort((a, b) => a.name.localeCompare(b.name));
+  }
+  sortByPrice() {
+    this.itemList = this.itemList.sort((a, b) =>
+      a.price.toLocaleString().localeCompare(b.price.toLocaleString())
+    );
+  }
   getShoppingCart() {
     return this.shoppingCart;
   }
