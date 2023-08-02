@@ -1,0 +1,16 @@
+<!-- cart-item.component.html -->
+<mat-card class="cart-item-card">
+    <mat-card-content>
+      <div class="cart-item-details">
+        <p><strong>{{ item.item.name }} </strong> x {{item.quantity}}</p>
+        <p>Price: {{ item.item.price * item.quantity | currency}}</p>
+      </div>
+      <div class="quantity-container">
+        <mat-form-field appearance="outline">
+
+          <input type="number" matInput [(ngModel)]="item.quantity" (ngModelChange)="onQuantityChange()">
+        </mat-form-field>
+      </div>
+    </mat-card-content>
+  </mat-card>
+  

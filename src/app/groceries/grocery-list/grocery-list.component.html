@@ -1,0 +1,20 @@
+<div *ngIf="groceries$ | async as groceries">
+<div style="display: flex; justify-content: center;">
+    <button mat-raised-button>
+        Sort By price
+    </button>
+    <button mat-raised-button>
+        Sort by name
+    </button>
+    <button mat-raised-button [matMenuTriggerFor]="typeMenu">Filter by:</button>
+    <mat-menu #typeMenu="matMenu">
+      <button mat-menu-item (click)="setFilterType('vegetable')">Vegetables</button>
+      <button mat-menu-item (click)="setFilterType('fruit')">Fruits</button>
+      <button mat-menu-item (click)="setFilterType('all')">All</button>
+    </mat-menu>
+  
+</div>
+    <div class="item-card-list">
+        <app-grocery *ngFor="let item of groceries | filter: type" [item]="item"></app-grocery>
+      </div>
+  </div>
