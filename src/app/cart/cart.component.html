@@ -1,12 +1,12 @@
 <div class="cart--item-list-container">
     <ul class="item-list cart--item-list">
-      <li>
+      <li *ngFor="let item of itemsInCart">
         <img
           class="cart--item-icon"
-          src="assets/icons/001-beetroot.svg"
+          src="assets/icons/{{item.id}}.svg"
           alt="beetroot"
         />
-        <p>beetroot</p>
+        <p>{{item.name}}</p>
         <button class="quantity-btn remove-btn center">-</button>
         <span class="quantity-text center">1</span>
         <button class="quantity-btn add-btn center">+</button>

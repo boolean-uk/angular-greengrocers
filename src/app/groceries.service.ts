@@ -10,6 +10,7 @@ import { environment } from 'src/environments/environment';
 export class GroceriesService {
 
   items: Promise<Item[]> = this.fetchItems()
+  itemsInCart: Item[] = []
   constructor(private readonly http: HttpClient) {
   }
 
@@ -22,5 +23,10 @@ export class GroceriesService {
       this.http.get<Item[]>(`${environment.apiUrl}`));
       //console.log(response)
       return response
+  }
+
+  addItemToCart(item: Item) {
+    this.itemsInCart.push(item)
+    //console.log(this.itemsInCart)
   }
 }

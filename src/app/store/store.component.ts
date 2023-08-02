@@ -16,4 +16,8 @@ export class StoreComponent implements OnInit{
     this.items = await this.groceriesService.getItemsArray()
   }
 
+  addToCart(item: Item) {
+    this.groceriesService.addItemToCart(item)
+  }
+
 }
