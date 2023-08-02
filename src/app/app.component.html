@@ -1,9 +1,10 @@
-<header id="store">
-  <h1>Greengrocers</h1>
-  <!-- your store here -->
-</header>
-<main id="cart">
-  <h2>Your Cart</h2>
-  <!-- your cart here -->
-  <!-- your total here -->
-</main>
+<div class="header">
+  <div class="button-container">
+    <a class="store-btn" routerLink="/store">Store</a>
+    <a class="checkout-btn" routerLink="/checkout">Checkout</a>
+  </div>
+</div>
+
+<div class="content-container">
+  <router-outlet></router-outlet>
+</div>
