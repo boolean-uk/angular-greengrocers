@@ -18,11 +18,25 @@ export class CartService {
       currentCartItems.set(item, 1);
     }
     this.cartItems.next(currentCartItems);
-    console.log(this.cartItems);
   }
 
   getCartItems(): Observable<Map<Item, number>> {
     return this.cartItems;
+  }
+
+  incrementQuantity(item: Item): void {
+    let currentCartItems = this.cartItems.value;
+    const currentQuantity = currentCartItems.get(item)!;
+    currentCartItems.set(item, currentQuantity + 1);
+    this.cartItems.next(currentCartItems);
+  }
+
+  decrementQuantity(item: Item): void {
+    let currentCartItems = this.cartItems.value;
+    const currentQuantity = currentCartItems.get(item)!;
+    if (currentQuantity > 1) currentCartItems.set(item, currentQuantity - 1);
+    else currentCartItems.delete(item);
+    this.cartItems.next(currentCartItems);
   }
 
   clearCart(): void {

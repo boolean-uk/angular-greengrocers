@@ -21,4 +21,16 @@ export class CartItemComponent implements OnInit {
   generateImagePath(item: Item): string {
     return this.imageService.generateImagePath(item);
   }
+
+  decrementQuantity(): void {
+    if (this.cartItem) {
+      this.cartService.decrementQuantity(this.cartItem[0]);
+    }
+  }
+
+  incrementQuantity(): void {
+    if (this.cartItem) {
+      this.cartService.incrementQuantity(this.cartItem[0]);
+    }
+  }
 }

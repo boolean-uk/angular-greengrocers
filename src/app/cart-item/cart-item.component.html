@@ -7,8 +7,8 @@
     />
     <p>{{ cartItem[0].name }}</p>
 
-    <button class="remove-btn">-</button>
+    <button class="remove-btn" (click)="decrementQuantity()">-</button>
     <p class="quantity-text center">{{ cartItem[1] }}</p>
-    <button class="add-btn">+</button>
+    <button class="add-btn" (click)="incrementQuantity()">+</button>
   </li>
 </ng-template>
