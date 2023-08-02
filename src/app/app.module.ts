@@ -9,7 +9,7 @@ import {GroceryItemComponent} from './components/groceries/grocery-item/grocery-
 import {NgOptimizedImage} from "@angular/common";
 import {CartItemComponent} from './components/cart/cart-item/cart-item.component';
 import { AppRoutingModule } from './app-routing.module';
-import { StoreComponent } from './store/store.component';
+import { StoreComponent } from './components/store/store.component';
 
 @NgModule({
   declarations: [AppComponent, GroceriesComponent, CartComponent, GroceryItemComponent, CartItemComponent, StoreComponent],
