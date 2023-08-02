@@ -14,7 +14,6 @@ export class StoreComponent {
   items = this.storeService.items;
 
   addToCart(item: Item) {
-    this.storeService.itemsInCart.push(item)
-    console.log(this.storeService.itemsInCart)
+    this.storeService.itemsInCart[item.name]++
   }
 }

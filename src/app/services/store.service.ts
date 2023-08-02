@@ -7,9 +7,12 @@ import { Item } from '../models/item';
 @Injectable({
   providedIn: 'root',
 })
+
 export class StoreService {
   constructor(private readonly http: HttpClient) {
-  this.getAllItems().then((chars) => (this.itemsList = chars));}
+  this.getAllItems().then((chars) => (this.itemsList = chars));
+  this.initialiseCart()
+}
   
   private itemsList: Item[] = [];
 
@@ -25,5 +28,12 @@ export class StoreService {
 
   items: Promise<Item[]> = Promise.resolve(this.getAllItems());
 
-  itemsInCart: Item[] = [];
+  itemsInCart: ItemsInCart = {};
+
+  async initialiseCart() {
+    for (const item of await this.items)
+      this.itemsInCart[item.name] = 0;
+  }
 }
+
+export type ItemsInCart = Record<string, number>;

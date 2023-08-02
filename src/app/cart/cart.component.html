@@ -1,11 +1,12 @@
 <div class="cart--item-list-container">
     <ul class="item-list cart--item-list">
-        <li>
-            <img class="cart--item-icon" src="assets/icons/001-beetroot.svg" alt="beetroot" />
-            <p>beetroot</p>
-            <button class="quantity-btn remove-btn center">-</button>
-            <span class="quantity-text center">1</span>
-            <button class="quantity-btn add-btn center">+</button>
-        </li>
+    <div *ngIf="itemsInCart">
+        <div *ngFor="let item of items | async">
+            <ng-container *ngIf="this.itemsInCart[item.name] !== 0">
+                <app-cart-item [item]="item" [quantity]="this.itemsInCart[item.name]" 
+                (addToCart)="addToCart($event)" (removeFromCart)="removeFromCart($event)"/>
+            </ng-container>
+        </div>
+    </div>
     </ul>
 </div>
