@@ -8,6 +8,7 @@ import { CartServiceService, ItemInCart } from '../cart-service.service';
 })
 export class CartComponent implements OnInit{
   cartItems: ItemInCart[] = [];
+  total = 0
 
   constructor(private readonly cartService: CartServiceService) { }
 
@@ -15,6 +16,9 @@ export class CartComponent implements OnInit{
     this.cartService.cartItems$.subscribe((items) => {
       this.cartItems = items;
     });
+    this.cartService.totalPrice$.subscribe((total) => {
+      this.total = total
+    })
   }
 
 }

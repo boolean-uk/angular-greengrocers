@@ -6,16 +6,16 @@ import { CartServiceService } from './cart/cart-service.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit {
+export class AppComponent implements OnInit{
   title = 'angular-green-grocers';
+  number = 0
   constructor(private readonly cartService: CartServiceService) { }
 
-  total = 0
-
   ngOnInit(): void {
-    this.cartService.totalPrice$.subscribe((total) => {
-      this.total = total
-    })
+    this.cartService.cartItems$.subscribe((items) => {
+      this.number = items.length;
+    });
+
   }
 
 }

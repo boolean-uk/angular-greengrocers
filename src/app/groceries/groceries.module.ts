@@ -11,6 +11,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatMenuModule } from '@angular/material/menu';
 import { FilterPipe } from './filter.pipe';
 import { SortPipe } from './sort.pipe';
+import { RouterModule } from '@angular/router';
 
 
 
@@ -30,7 +31,8 @@ import { SortPipe } from './sort.pipe';
     MatButtonToggleModule,
     MatFormFieldModule,
     MatSelectModule,
-    MatMenuModule
+    MatMenuModule,
+    RouterModule
   ],
   exports: [
     GroceryListComponent
