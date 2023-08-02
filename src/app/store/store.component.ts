@@ -10,6 +10,8 @@ import { Item } from '../models/item';
 export class StoreComponent implements OnInit {
   items: any | null = null;
   chosenProperty: string = 'name';
+  chosenTypeInd: number = 0;
+  availableTypes: string[] = ['all', 'fruit', 'vegetable'];
 
   constructor(private readonly itemsService: ItemsService) { }
 
@@ -19,6 +21,10 @@ export class StoreComponent implements OnInit {
 
   changeChosenProperty(property: string) {
     this.chosenProperty = property;
+  }
+
+  changeType(): void {
+    this.chosenTypeInd = (this.chosenTypeInd + 1) % 3;
   }
 
   addItem(item: Item): void {
