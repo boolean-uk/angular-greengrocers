@@ -9,7 +9,6 @@ import { CartService } from 'src/app/service/cart.service';
 })
 export class CartComponent {
   cartItems$ = this.cartService.cartItems$;
-  totalPrice$ = this.cartService.totalPrice$;
   
   constructor(private readonly cartService: CartService) { }
 

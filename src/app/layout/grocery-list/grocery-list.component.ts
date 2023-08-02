@@ -4,6 +4,7 @@ import { Item } from 'src/app/models/item';
 import { CartService } from 'src/app/service/cart.service';
 import { GroceriesService } from 'src/app/service/groceries.service';
 import { map } from 'rxjs/operators';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-grocery-list',
@@ -17,7 +18,8 @@ export class GroceryListComponent {
 
   constructor(
     private readonly groceriesService: GroceriesService,
-    private readonly cartService: CartService
+    private readonly cartService: CartService,
+    private readonly router: Router
   ) {
     this.allItems$ = this.groceriesService.getItems();
     this.items$ = this.allItems$; 
@@ -58,6 +60,10 @@ export class GroceryListComponent {
     this.items$ = this.items$.pipe(
       map(items => items.sort((a, b) => a.name.localeCompare(b.name)))
     );
+  }
+
+  goTocheckout(){
+    this.router.navigate(['/checkout']);
   }
 
   addToCart(item: Item) {

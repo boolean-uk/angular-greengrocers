@@ -9,11 +9,13 @@ export class CartService {
   private cartItems: BehaviorSubject<Map<Item, number>> = new BehaviorSubject<Map<Item, number>>(new Map());
   cartItems$ = this.cartItems.asObservable();
 
-  private totalPrice: BehaviorSubject<number> = new BehaviorSubject<number>(0);
+  totalPrice: BehaviorSubject<number> = new BehaviorSubject<number>(0);
   totalPrice$ = this.totalPrice.asObservable();
 
 
-  constructor() { }
+  constructor() {
+    this.totalPrice.next(0);
+  }
 
   addToCart(item: Item) {
     const currentItems = this.cartItems.value;
@@ -34,14 +36,6 @@ export class CartService {
       currentItems.delete(item);
       this.cartItems.next(new Map(currentItems));
     }
-    this.updateTotalPrice();
-  }
-
-  addToCarCart(item: Item) {
-    const currentItems = this.cartItems.value;
-    const itemCount = currentItems.get(item) || 0;
-    currentItems.set(item, itemCount + 1);
-    this.cartItems.next(new Map(currentItems));
     this.updateTotalPrice();
   }
 
