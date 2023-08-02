@@ -1,0 +1,7 @@
+<header id="store">
+  <h1>Greengrocers</h1>
+  <ul>
+    <li *ngFor="let grocery of groceries$ | async"> {{grocery.name}}</li>
+  </ul>
+</header>
+
