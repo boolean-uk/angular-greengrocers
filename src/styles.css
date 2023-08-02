@@ -35,12 +35,11 @@ button {
 
 .store--item-list {
   display: grid;
-  grid-template-columns: repeat(4, 125px);
   grid-gap: 1rem;
   justify-content: center;
 }
 
-.store--item-list li {
+.store--item-list {
   display: grid;
   place-items: center;
   grid-row-gap: 0.5rem;
