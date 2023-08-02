@@ -1,1 +1,13 @@
-<p>store works!</p>
+<ul class="item-list store--item-list">
+    <li *ngFor="let item of items">
+      <div class="store--item-icon">
+        <img src="assets/icons/{{item.id}}.svg" alt="{{item.name}}" />
+        <!--  <img src="assets/icons/{{item.id}}001-beetroot.svg" alt="beetroot" /> -->
+      </div>
+      <button (click)="addItemToCart(item)">Add to cart</button>
+    </li>
+      <ul>
+      
+      </ul>
+  </ul>
+  

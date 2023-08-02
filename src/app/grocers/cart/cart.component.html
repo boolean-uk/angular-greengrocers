@@ -1,1 +1,21 @@
-<p>cart works!</p>
+<button (click)="sortItemByPriceInCart()">Sort by price</button>
+<button (click)="sortItemByNameInCart()">Sort by name</button>
+<button (click)="showVegetables()">show Vegetables</button>
+<button (click)="showFruits()">show fruits</button>
+<div class="cart--item-list-container">
+    
+    <ul class="item-list cart--item-list">
+      <li *ngFor="let itemInCart of cart">
+        <img
+          class="cart--item-icon"
+          src="assets/icons/{{itemInCart.item.id}}.svg"
+          alt="beetroot"
+        />
+        <p>{{itemInCart.item.name}}</p>
+        <button (click)="decreaseQ(itemInCart)" class="quantity-btn remove-btn center">-</button>
+        <span class="quantity-text center">{{itemInCart.quantity}}</span>
+        <button (click)="increaseQ(itemInCart)" class="quantity-btn add-btn center">+</button>
+      </li>
+    </ul>
+  </div>
+  
