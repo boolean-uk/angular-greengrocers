@@ -3,6 +3,6 @@
     <div class="store--item-icon">
       <img [src]="generateImagePath(grocery)" [alt]="grocery.name" />
     </div>
-    <p>{{ grocery.name }}</p>
+    <button class="add-to-cart-btn" (click)="addToCart()">Add to cart</button>
   </li>
 </ng-template>
