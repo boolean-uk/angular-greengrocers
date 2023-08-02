@@ -6,9 +6,10 @@ import { AppComponent } from './app.component';
 import { ShopModule } from './shop/shop.module';
 import { CartComponent } from './cart/cart.component';
 import { CartItemComponent } from './cart-item/cart-item.component';
+import { TotalComponent } from './total/total.component';
 
 @NgModule({
-  declarations: [AppComponent, CartComponent, CartItemComponent],
+  declarations: [AppComponent, CartComponent, CartItemComponent, TotalComponent],
   imports: [BrowserModule, HttpClientModule, ShopModule],
   providers: [],
   bootstrap: [AppComponent],

@@ -11,13 +11,13 @@ import { BehaviorSubject, Observable, Subject, switchMap } from 'rxjs';
 export class CartComponent implements OnInit {
   cartItems$: [Item, number][] = [];
 
-  constructor(private readonly cartService: CartService) {
+  constructor(private readonly cartService: CartService) {}
+
+  ngOnInit(): void {
     this.cartService
       .getCartItems()
       .subscribe((items) => (this.cartItems$ = Array.from(items)));
   }
-
-  ngOnInit(): void {}
 
   clearCart() {
     this.cartService.clearCart();
