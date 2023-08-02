@@ -13,7 +13,7 @@ export class AppComponent implements OnInit{
 
   ngOnInit(): void {
     this.cartService.cartItems$.subscribe((items) => {
-      this.number = items.length;
+      this.number = items.reduce((sum, item) => sum + item.quantity, 0);
     });
 
   }
