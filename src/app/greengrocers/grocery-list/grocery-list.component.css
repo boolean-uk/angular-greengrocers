@@ -5,3 +5,10 @@
     margin: 0 auto;
     gap: 1rem;
 }
+
+.options {
+    display: flex;
+    justify-content: space-between;
+    width: 75%;
+    margin: 1rem auto;
+}

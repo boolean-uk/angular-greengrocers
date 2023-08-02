@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
 import { GreengrocersService } from '../greengrocers.service';
 import { FilterType } from '../grocery-filter/grocery-filter.component';
-import { Observable } from 'rxjs';
+import { Observable, map } from 'rxjs';
 import { Item } from 'src/app/models/item';
+import { GrocerySorter } from '../grocery-sorter/grocery-sorter.component';
 
 @Component({
   selector: 'app-grocery-list',
@@ -28,6 +29,10 @@ export class GroceryListComponent {
 
   filterGroceries(filter: FilterType) {
     this.groceries$ = this.getGroceries(filter)
+  }
+
+  sortGroceries(items: Item[], sorter: GrocerySorter) {
+    items.sort(sorter)
   }
 
 }

@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { GroceryListComponent } from './grocery-list/grocery-list.component';
 import { GroceryItemComponent } from './grocery-item/grocery-item.component';
 import { GroceryFilterComponent } from './grocery-filter/grocery-filter.component';
+import { GrocerySorterComponent } from './grocery-sorter/grocery-sorter.component';
 
 
 
@@ -10,7 +11,8 @@ import { GroceryFilterComponent } from './grocery-filter/grocery-filter.componen
   declarations: [
     GroceryListComponent,
     GroceryItemComponent,
-    GroceryFilterComponent
+    GroceryFilterComponent,
+    GrocerySorterComponent
   ],
   imports: [
     CommonModule

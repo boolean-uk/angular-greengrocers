@@ -1,7 +1,16 @@
-<app-grocery-filter (onChange)="filterGroceries($event)"></app-grocery-filter>
-<div class="items">
-  <app-grocery-item
-    *ngFor="let item of groceries$ | async"
-    [item]="item"
-  ></app-grocery-item>
-</div>
+<ng-container *ngIf="groceries$ | async as groceries">
+  <div class="options">
+    <app-grocery-filter
+      (onChange)="filterGroceries($event)"
+    ></app-grocery-filter>
+    <app-grocery-sorter
+      (onChange)="sortGroceries(groceries, $event)"
+    ></app-grocery-sorter>
+  </div>
+  <div class="items">
+    <app-grocery-item
+      *ngFor="let item of groceries"
+      [item]="item"
+    ></app-grocery-item>
+  </div>
+</ng-container>
