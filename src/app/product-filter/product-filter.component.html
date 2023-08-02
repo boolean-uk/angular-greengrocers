@@ -1,0 +1,9 @@
+<select
+  class="select-box"
+  [(ngModel)]="selectedProductType"
+  (ngModelChange)="onTypeChange()"
+>
+  <option [value]="ProductType.ALL">All</option>
+  <option [value]="ProductType.VEGETABLE">Vegetable</option>
+  <option [value]="ProductType.FRUIT">Fruit</option>
+</select>

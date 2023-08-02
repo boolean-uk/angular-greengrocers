@@ -8,16 +8,16 @@ import { Item } from '../models/item';
   providedIn: 'root',
 })
 export class GroceriesService {
-  private refresh$ = new BehaviorSubject<void>(undefined);
-
   private url = `${env.apiUrl}`;
-  private groceries$ = this.refresh$.pipe(
-    switchMap(() => this.http.get<Item[]>(this.url))
-  );
+  private groceries$ = this.http.get<Item[]>(this.url);
 
   constructor(private readonly http: HttpClient) {}
 
   getAllGroceries(): Observable<Item[]> {
+    return this.groceries$;
+  }
+
+  get groceries() {
     return this.groceries$;
   }
 }

@@ -1,9 +1,13 @@
 <header id="store">
   <h1>Greengrocers</h1>
-  <app-groceries-list />
+  <div class="store--filter">
+    <app-product-filter />
+    <app-groceries-list />
+  </div>
 </header>
 <main id="cart">
   <h2>Your Cart</h2>
+
   <app-cart />
   <app-total />
 </main>
