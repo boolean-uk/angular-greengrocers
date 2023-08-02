@@ -1,0 +1,11 @@
+<div *ngIf="(cart | json) == ({} | json)">
+  <p>Cart is empty</p>
+</div>
+<div *ngIf="(cart | json) != '{}'">
+  <div *ngFor="let id of cart | keyvalue">
+    <img src='assets\icons\{{id.key}}.svg' alt='{{ id.key }}'
+    height="15px"
+    width="15px">
+    {{ id.value[0].name }} {{ id.value.length }}
+ </div>
+</div>

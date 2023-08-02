@@ -11,10 +11,26 @@ export class GroceryService {
 
   constructor(private readonly http: HttpClient) { }
 
+  myCart: {[key: string]: Item[]} = {}
+
   //get groceries
   async getGrocers(): Promise<Item[]>{
     const response = await firstValueFrom(this.http.get<Item[]>(`${environment.apiUrl}groceries`))
     console.log('getting list of groceries', response)
     return response;
   }
+
+  putToCart(item: Item){
+    if(item){
+      let id = item.id
+      if(this.myCart[id]){
+        this.myCart[id].push(item)
+      } else this.myCart[id] = [item]
+    }
+  }
+
+  get cart(): {[key: string]: Item[]}{
+    return this.myCart
+  }
+
 }
