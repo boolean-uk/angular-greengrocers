@@ -1,29 +1,31 @@
 import { Injectable } from '@angular/core';
 import { Item } from '../models/item';
-
+import { BehaviorSubject, Observable, Subject, switchMap } from 'rxjs';
 @Injectable({
   providedIn: 'root',
 })
 export class CartService {
-  private cartItems: Map<Item, number> = new Map<Item, number>();
+  private cartItems = new BehaviorSubject<Map<Item, number>>(new Map());
 
   constructor() {}
 
   addToCart(item: Item): void {
-    if (this.cartItems.has(item)) {
-      const currentQuantity = this.cartItems.get(item)!;
-      this.cartItems.set(item, currentQuantity + 1);
+    let currentCartItems = this.cartItems.value;
+    if (currentCartItems.has(item)) {
+      const currentQuantity = currentCartItems.get(item)!;
+      currentCartItems.set(item, currentQuantity + 1);
     } else {
-      this.cartItems.set(item, 1);
+      currentCartItems.set(item, 1);
     }
+    this.cartItems.next(currentCartItems);
     console.log(this.cartItems);
   }
 
-  getCartItems(): Map<Item, number> {
+  getCartItems(): Observable<Map<Item, number>> {
     return this.cartItems;
   }
 
   clearCart(): void {
-    this.cartItems.clear();
+    this.cartItems.next(new Map());
   }
 }

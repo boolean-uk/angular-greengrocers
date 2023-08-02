@@ -9,7 +9,7 @@ import { Item } from '../models/item';
 })
 export class GroceriesService {
   private refresh$ = new BehaviorSubject<void>(undefined);
-  private update$ = new Subject<Item>();
+
   private url = `${env.apiUrl}`;
   private groceries$ = this.refresh$.pipe(
     switchMap(() => this.http.get<Item[]>(this.url))

@@ -1,0 +1,7 @@
+<ng-template [ngIf]="cartItem">
+  <div class="item-details">
+    <p>{{ cartItem[0].name }}</p>
+    <p>Quantity: {{ cartItem[1] }}</p>
+    <p>Price: {{ cartItem[0].price }}</p>
+  </div>
+</ng-template>
