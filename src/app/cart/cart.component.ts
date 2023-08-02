@@ -9,7 +9,7 @@ import { BehaviorSubject, Observable, Subject, switchMap } from 'rxjs';
   styleUrls: ['./cart.component.css'],
 })
 export class CartComponent implements OnInit {
-  cartItems$: [Item, number][] = []; // Observable of array of [Item, quantity] pairs
+  cartItems$: [Item, number][] = [];
 
   constructor(private readonly cartService: CartService) {
     this.cartService
@@ -17,9 +17,7 @@ export class CartComponent implements OnInit {
       .subscribe((items) => (this.cartItems$ = Array.from(items)));
   }
 
-  ngOnInit(): void {
-    // You can call other initialization methods here if needed
-  }
+  ngOnInit(): void {}
 
   clearCart() {
     this.cartService.clearCart();

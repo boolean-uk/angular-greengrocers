@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { GroceriesService } from '../services/groceries.service';
 import { Item } from '../models/item';
 import { CartService } from '../services/cart.service';
+import { ImageService } from '../utilities/generateImagePath.service.';
 
 @Component({
   selector: 'app-groceries-item',
@@ -13,12 +14,14 @@ export class GroceriesItemComponent implements OnInit {
 
   constructor(
     private readonly groceryService: GroceriesService,
-    private readonly cartService: CartService
+    private readonly cartService: CartService,
+    private readonly imageService: ImageService
   ) {}
 
   ngOnInit(): void {}
+
   generateImagePath(item: Item): string {
-    return `assets/icons/${item.id.toLowerCase()}.svg`;
+    return this.imageService.generateImagePath(item);
   }
 
   addToCart(): void {

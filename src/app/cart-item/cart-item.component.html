@@ -1,7 +1,14 @@
 <ng-template [ngIf]="cartItem">
-  <div class="item-details">
+  <li class="item-details">
+    <img
+      class="cart--item-icon"
+      [src]="generateImagePath(cartItem[0])"
+      [alt]="cartItem[0].name"
+    />
     <p>{{ cartItem[0].name }}</p>
-    <p>Quantity: {{ cartItem[1] }}</p>
-    <p>Price: {{ cartItem[0].price }}</p>
-  </div>
+
+    <button class="remove-btn">-</button>
+    <p class="quantity-text center">{{ cartItem[1] }}</p>
+    <button class="add-btn">+</button>
+  </li>
 </ng-template>
