@@ -20,11 +20,16 @@ export class GroceriesService {
   }
 
   addToCart(item: Item) {
-    const itemToAdd = {
-      item: item,
-      quantity: 1,
-    };
-    this.cart.push(itemToAdd);
+    let founedItem = this.cart.find((element) => element.item.id == item.id);
+    if (founedItem) {
+      this.increaseQuantity(founedItem);
+    } else {
+      const itemToAdd = {
+        item: item,
+        quantity: 1,
+      };
+      this.cart.push(itemToAdd);
+    }
 
     this.calculateTotal();
   }
