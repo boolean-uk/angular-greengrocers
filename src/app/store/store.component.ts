@@ -15,10 +15,12 @@ export class StoreComponent implements OnInit, OnDestroy {
   constructor(private readonly groceriesService: GroceriesService) {}
 
   ngOnInit(): void {
-    this.groceriesService.getGroceries().subscribe((response) => {
-      console.log(response);
-      this.store = response;
-    });
+    this.groceriesServiceSubscription = this.groceriesService
+      .getGroceries()
+      .subscribe((response) => {
+        console.log(response);
+        this.store = response;
+      });
   }
 
   ngOnDestroy(): void {

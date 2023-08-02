@@ -8,6 +8,8 @@ import { StoreItemComponent } from './store-item/store-item.component';
 import { CartComponent } from './cart/cart.component';
 import { CartItemComponent } from './cart-item/cart-item.component';
 import { TotalComponent } from './total/total.component';
+import { CheckoutComponent } from './checkout/checkout.component';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
@@ -17,8 +19,9 @@ import { TotalComponent } from './total/total.component';
     CartComponent,
     CartItemComponent,
     TotalComponent,
+    CheckoutComponent,
   ],
-  imports: [BrowserModule, HttpClientModule],
+  imports: [BrowserModule, HttpClientModule, AppRoutingModule],
   providers: [],
   bootstrap: [AppComponent],
 })
