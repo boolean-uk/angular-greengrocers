@@ -14,7 +14,7 @@ export class StoreService {
   this.initialiseCart()
 }
   
-  private itemsList: Item[] = [];
+  itemsList: Item[] = [];
 
   async getAllItems(): Promise<Item[]> {
     const response = await firstValueFrom(
@@ -31,6 +31,14 @@ export class StoreService {
   itemsInCart: ItemsInCart = {};
 
   total = 0;
+
+  sortItemsByPrice() {
+    this.itemsList.sort((a, b) => a.price - b.price);
+  }
+
+  sortItemsByName(){
+    this.itemsList.sort((a, b) => a.name.localeCompare(b.name));
+  }
 
   async initialiseCart() {
     for (const item of await this.items)

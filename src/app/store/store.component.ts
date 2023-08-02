@@ -11,10 +11,34 @@ import { Item } from '../models/item';
 export class StoreComponent {
   constructor(private readonly storeService: StoreService) {}
 
+  itemsChanged: Item[] = [];
   items = this.storeService.items;
+  
 
   addToCart(item: Item) {
     this.storeService.itemsInCart[item.name]++
     this.storeService.total += item.price
+  }
+
+  refreshStore() {
+     this.itemsChanged = this.storeService.itemsList
+  }
+
+  sortItemsByPrice() {
+    this.storeService.sortItemsByPrice()
+    this.refreshStore()
+  }
+
+  sortItemsByName() {
+    this.storeService.sortItemsByName()
+    this.refreshStore()
+  }
+
+  showVegetables() {
+
+  }
+
+  showFruits() {
+
   }
 }
