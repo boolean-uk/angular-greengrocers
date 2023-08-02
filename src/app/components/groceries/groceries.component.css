@@ -1,0 +1,8 @@
+.groceries{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.groceries-item{
+  width: 20%;
+}
