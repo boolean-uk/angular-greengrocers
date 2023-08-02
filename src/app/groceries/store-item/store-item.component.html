@@ -2,6 +2,6 @@
   <p class="store--item-icon">
     <img [src]="getImagePath()" alt="{{ grocery.name }}" />
   </p>
-  {{ grocery.name }} - {{ grocery.price | currency }}
+  {{ grocery.name }}
   <button (click)="addToCart()">Add to Cart</button>
 </li>
