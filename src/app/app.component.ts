@@ -10,18 +10,19 @@ import { Item } from './models/item';
 export class AppComponent implements OnInit {
   title = 'angular-green-grocers';
   groceries: Item[] = [
-    { id: '001-beetroot', name: 'Beetroot', price: 1.99 },
-    { id: '002-carrot', name: 'Carrot', price: 0.89 },
-    { id: '003-apple', name: 'Apple', price: 2.49 },
-    { id: '004-apricot', name: 'Apricot', price: 0.75 },
-    { id: '005-avocado', name: 'Avocado', price: 3.99 },
-    { id: '006-bananas', name: 'Bananas', price: 1.25 },
-    { id: '007-bell-pepper', name: 'Bell Pepper', price: 0.65 },
-    { id: '008-berry', name: 'Berry', price: 1.95 },
-    { id: '009-blueberry', name: 'Blueberry', price: 1.10 },
-    { id: '010-eggplant', name: 'Eggplant', price: 1.49 },
+    { id: '001-beetroot', name: 'Beetroot', price: 1.99, type: 'vegetable' },
+    { id: '002-carrot', name: 'Carrot', price: 0.89, type: 'vegetable' },
+    { id: '003-apple', name: 'Apple', price: 2.49, type: 'fruit' },
+    { id: '004-apricot', name: 'Apricot', price: 0.75, type: 'fruit' },
+    { id: '005-avocado', name: 'Avocado', price: 3.99, type: 'vegetable' },
+    { id: '006-bananas', name: 'Bananas', price: 1.25, type: 'fruit' },
+    { id: '007-bell-pepper', name: 'Bell Pepper', price: 0.65, type: 'vegetable' },
+    { id: '008-berry', name: 'Berry', price: 1.95, type: 'fruit' },
+    { id: '009-blueberry', name: 'Blueberry', price: 1.10, type: 'fruit' },
+    { id: '010-eggplant', name: 'Eggplant', price: 1.49, type: 'vegetable' },
   ];
   cart: any[] = [];
+  selectedType: string | null = null;
 
   constructor(private http: HttpClient) {}
 
@@ -61,6 +62,11 @@ export class AppComponent implements OnInit {
         this.removeFromCart(item);
       }
     }
+  }
+
+  //Extension 1: Filter the store items by type
+  filterByType(type: string | null): void {
+    this.selectedType = type;
   }
 
   removeFromCart(item: Item): void {

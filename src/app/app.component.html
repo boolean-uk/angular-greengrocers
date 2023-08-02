@@ -1,3 +1,10 @@
+<!-- Add the filtering button -->
+<div class="filter-buttons">
+  <button (click)="filterByType(null)">Show All</button>
+  <button (click)="filterByType('fruit')">Fruits</button>
+  <button (click)="filterByType('vegetable')">Vegetables</button>
+</div>
+
 <header id="store">
   <h1>Greengrocers</h1>
   <!-- your store here -->
@@ -33,6 +40,7 @@
         <div>{{ item.price | currency: 'USD': 'symbol' }}</div>
       </li>
     </ul>
+      
       <!-- your total here -->
     <div class="total-section">
       <app-total [total]="getTotalPrice()"></app-total>
