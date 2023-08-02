@@ -1,7 +1,8 @@
-<main id="cart">
+<div class="cart">
   <h2>Your Cart</h2>
-  <!-- your cart here -->
-  <!-- your total here -->
+  <div *ngIf="cart().length===0">Cart is empty</div>
+  <app-cart-item *ngFor="let item of cart()" [cart-item]="item"></app-cart-item>
 
-  {{total() | currency:"USD"}}
-</main>
+  <p style="font-weight: bold">Total: {{total() | currency:"USD"}}</p>
+</div>
+

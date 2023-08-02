@@ -1,0 +1,45 @@
+img {
+  width: 20px;
+  height: 20px;
+}
+
+.cart-item {
+  width: 300px;
+  padding: 1%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: bold;
+}
+
+.quantity-manipulation {
+  display: flex;
+  flex-direction: row;
+  width: 100px;
+}
+
+.quantity {
+  border: 1px solid black;
+  width: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 2px 0 2px;
+
+}
+
+button {
+  font-weight: bolder;
+  width: 30px;
+}
+
+.button-subtraction {
+  background-color: #ff8080;
+  border: red 2px solid;
+}
+
+.button-addition {
+  background-color: #80ff80;
+  border: green 2px solid;
+}

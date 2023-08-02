@@ -8,6 +8,11 @@ export class CartComponent {
   constructor(private readonly cartService: CartSummaryService) {
   }
 
+
+  cart(){
+    return this.cartService.cart
+  }
+
   total(): number {
     return this.cartService.total()
   }
