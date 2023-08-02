@@ -1,9 +1,17 @@
 <header id="store">
   <h1>Greengrocers</h1>
   <!-- your store here -->
+  <app-store></app-store>
+  <!-- <ul *ngIf="fruit$">
+    <li *ngFor="let fruit of fruit$ | async">{{ fruit.name }}</li>
+  </ul>
+  
+  <button (click)="refresh()">Refresh fruit</button> -->
 </header>
 <main id="cart">
   <h2>Your Cart</h2>
   <!-- your cart here -->
+  <app-cart></app-cart>
   <!-- your total here -->
+  <app-total></app-total>
 </main>

@@ -21,3 +21,12 @@ You will be fetching a list of groceries from an external API. [You can read the
 - Clone your forked repo
 - Open the project in VSCode
 - Open a terminal and run the command `npm install` to install the dependencies
+
+# Extensions
+
+- Add a button to Filter the store items by type
+- Add a button to Sort the store items by price
+- Add a button to Sort the store items by name
+- Covert the app to be multipage.
+  - A page for the store
+  - A checkout page
