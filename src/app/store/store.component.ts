@@ -36,18 +36,7 @@ export class StoreComponent implements OnInit, OnDestroy {
     if (this.sorting === 'byPrice')
       result = result.sort((a, b) => a.price - b.price);
     else if (this.sorting === 'byName')
-      result = result.sort((a, b) => {
-        let fa = a.name.toLowerCase(),
-          fb = b.name.toLowerCase();
-
-        if (fa < fb) {
-          return -1;
-        }
-        if (fa > fb) {
-          return 1;
-        }
-        return 0;
-      });
+      result = result.sort((a, b) => a.name.localeCompare(b.name));
 
     console.log(result);
 
