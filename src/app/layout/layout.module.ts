@@ -3,13 +3,15 @@ import { CommonModule } from '@angular/common';
 import { GroceryListComponent } from './grocery-list/grocery-list.component';
 import { HttpClientModule } from '@angular/common/http';
 import { CartComponent } from './cart/cart.component';
+import { TotalComponent } from './total/total.component';
 
 
 
 @NgModule({
   declarations: [
     GroceryListComponent,
-    CartComponent
+    CartComponent,
+    TotalComponent
   ],
   imports: [
     CommonModule,

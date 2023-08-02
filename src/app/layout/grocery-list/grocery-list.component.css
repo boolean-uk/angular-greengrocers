@@ -23,4 +23,24 @@
     display: flex;
     justify-content: center; 
     align-items: center; 
-   }
+}
+
+.container-total {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5vh;
+    margin-top: 5vh;
+}
+
+.button-checkout{
+    height: 50px;
+    background-color: #1c3f9e;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.button-checkout:hover {
+    background-color: #6371c2;
+}

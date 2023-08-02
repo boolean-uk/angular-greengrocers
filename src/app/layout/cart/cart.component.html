@@ -13,14 +13,3 @@
       </li>
     </ul>
 </div>
-
-<div>
-  <div>
-    <h3>Total</h3>
-  </div>
-
-  <div *ngIf="(totalPrice$ | async) as totalPrice">
-    <span class="total-number">{{ totalPrice | currency: 'GBP' }}</span>
-  </div>
-</div>
-

@@ -12,16 +12,24 @@
         <button class="custom-button" (click)="sortByName()">Sort By name</button>
     </div>
 </div>
-<ul  class="item-list store--item-list" >
-  <li *ngFor="let item of items$ | async ">
-        <div class="store--item-name">{{item.name}}</div>
-        <div class="store--item-price">{{item.price | currency}}</div>
-    <div class="store--item-icon">
-        <img [src]="'assets/icons/' + item.id + '.svg'" [alt]="item.name" />
-      </div>
-      <button (click)="addToCart(item)" >Add to cart</button>
-  </li>
-</ul>
+<div>
+    <ul  class="item-list store--item-list" >
+    <li *ngFor="let item of items$ | async ">
+            <div class="store--item-name">{{item.name}}</div>
+            <div class="store--item-price">{{item.price | currency}}</div>
+        <div class="store--item-icon">
+            <img [src]="'assets/icons/' + item.id + '.svg'" [alt]="item.name" />
+        </div>
+        <button (click)="addToCart(item)" >Add to cart</button>
+    </li>
+    </ul>
+</div>
+
+<div class="container-total">
+    <app-total/>
+    <button class="button-checkout">Go to checkout</button>
+<div>
+
 
 
   
