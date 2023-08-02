@@ -45,4 +45,8 @@ export class ItemsService {
       this.chosenItems.delete(item)
     console.log(this.chosenItems);
   }
+
+  getTotalPrice(): number {
+    return [...this.chosenItems].reduce((totalCost, [item, quantity]) => totalCost + item.price * quantity, 0);
+  }
 }

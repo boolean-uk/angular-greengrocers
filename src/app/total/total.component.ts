@@ -9,13 +9,9 @@ import { ItemsService } from '../items.service';
 })
 
 export class TotalComponent {
-  chosenItems: Map<Item, number>;
-
-  constructor(private readonly itemsService: ItemsService) {
-    this.chosenItems = this.itemsService.getChosenItems();
-  }
+  constructor(private readonly itemsService: ItemsService) { }
 
   getTotalPrice(): number {
-    return [...this.chosenItems].reduce((totalCost, [item, quantity]) => totalCost + item.price * quantity, 0);
+    return this.itemsService.getTotalPrice();
   }
 } 
