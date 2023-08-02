@@ -70,6 +70,15 @@ export class AppComponent implements OnInit {
     this.sortGroceriesByType();
   }
 
+  //Extension 2: Add a button to Sort the store items by price
+  sortGroceriesByPrice(): void {
+    this.groceries.sort((a, b) => a.price - b.price);
+  }
+  //Extension 3: Add a button to Sort the store items by name
+  sortGroceriesByName(): void {
+    this.groceries.sort((a, b) => a.name.localeCompare(b.name));
+  }
+
   sortGroceriesByType(): void {
     this.groceries.sort((a, b) => {
       // Check if the selected type matches the item type

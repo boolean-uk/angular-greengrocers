@@ -1,8 +1,11 @@
-<!-- Add the filtering button -->
-<div class="filter-buttons">
+<div class="filter-and-sort-buttons">
+  <!-- filter buttons by the type -->
   <button (click)="filterByType(null)">Show All</button>
   <button (click)="filterByType('fruit')">Fruits</button>
   <button (click)="filterByType('vegetable')">Vegetables</button>
+  <!-- sort buttons by the price and name -->
+  <button (click)="sortGroceriesByName()">Sort by Name</button>
+  <button (click)="sortGroceriesByPrice()">Sort by Price</button>
 </div>
 
 <header id="store">
