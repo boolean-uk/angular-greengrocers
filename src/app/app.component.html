@@ -1,8 +1,10 @@
 <header id="store">
   <h1>Greengrocers</h1>
-  <!-- your store here -->
+  <button (click)="changeType('fruit')">Fruits</button>
+  <button (click)="changeType('vegetable')">Vegetables</button>
+  <button (click)="changeType('')">All</button>
   <ul class="item-list store--item-list">
-    <li *ngFor="let grocery of groceries">
+    <li *ngFor="let grocery of displayedGroceries">
       <div class="store--item-icon">
         <img [src]="'assets/icons/' + grocery.id + '.svg'" [alt]="grocery.name" />
       </div>
@@ -12,7 +14,6 @@
 </header>
 <main id="cart">
   <h2>Your Cart</h2>
-  <!-- your cart here -->
   <div class="cart--item-list-container">
     <ul class="item-list cart--item-list" *ngIf="cart.length > 0; else emptyCart">
       <li *ngFor="let cartItem of cart">
@@ -31,7 +32,6 @@
       <div>Cart is empty</div>
     </ng-template>
   </div>
-  <!-- your total here -->
   <div>
     <h3>Total</h3>
   </div>

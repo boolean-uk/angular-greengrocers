@@ -9,8 +9,10 @@ import { GroceryService } from './grocery.service';
 })
 export class AppComponent implements OnInit{
   groceries: Item[] = [];
+  displayedGroceries: Item[] = [];
   title = 'angular-green-grocers';
   cart: { item: Item, quantity: number }[] = [];
+  selectedType: string = '';
   
   constructor(private groceryService: GroceryService) { }
 
@@ -23,12 +25,14 @@ export class AppComponent implements OnInit{
     this.groceryService.getGroceries().subscribe({
       next: (data: Item[]) => {
         this.groceries = data;
+        this.displayedGroceries = [...this.groceries];
       },
       error: (error) => {
         console.error('Error fetching groceries:', error);
       }
     });
   }
+  
 
   addToCart(item: Item) {
     const foundItem = this.cart.find(i => i.item.id === item.id);
@@ -75,7 +79,14 @@ export class AppComponent implements OnInit{
     }
     return total.toFixed(2);
   }
-  
-  
 
+  changeType(type: string) {
+    this.selectedType = type;
+    if (type === '') {
+      this.displayedGroceries = this.groceries;
+    } else {
+      this.displayedGroceries = this.groceries.filter(grocery => grocery.type === type);
+    }
+  }
+  
 }
