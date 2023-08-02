@@ -26,7 +26,12 @@ export class GroceriesService {
   }
 
   addItemToCart(item: Item) {
-    this.itemsInCart.push(item)
+    if(this.itemsInCart.includes(item)){
+      item.quantity += 1
+    } else {
+      item.quantity = 1
+      this.itemsInCart.push(item)
+    }
     //console.log(this.itemsInCart)
   }
 }
