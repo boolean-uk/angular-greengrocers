@@ -15,10 +15,11 @@ export class CartComponent {
 
   addToCart(item: Item) {
     this.storeService.itemsInCart[item.name]++
+    this.storeService.total += item.price
   }
 
   removeFromCart(item: Item) {
     this.storeService.itemsInCart[item.name]--
-    console.log(this.storeService.itemsInCart)
+    this.storeService.total -= item.price
   }
 }

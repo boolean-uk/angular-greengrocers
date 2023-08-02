@@ -15,5 +15,6 @@ export class StoreComponent {
 
   addToCart(item: Item) {
     this.storeService.itemsInCart[item.name]++
+    this.storeService.total += item.price
   }
 }

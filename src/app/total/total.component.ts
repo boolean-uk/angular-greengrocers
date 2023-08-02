@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { StoreService } from '../services/store.service';
 
 @Component({
   selector: 'app-total',
@@ -6,5 +7,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./total.component.css']
 })
 export class TotalComponent {
+  constructor(private readonly storeService: StoreService) {}
 
+  getTotal() {
+    return this.storeService.total
+  }
 }

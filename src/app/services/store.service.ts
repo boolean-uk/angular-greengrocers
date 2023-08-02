@@ -30,6 +30,8 @@ export class StoreService {
 
   itemsInCart: ItemsInCart = {};
 
+  total = 0;
+
   async initialiseCart() {
     for (const item of await this.items)
       this.itemsInCart[item.name] = 0;
