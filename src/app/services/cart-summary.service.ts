@@ -17,7 +17,7 @@ export class CartSummaryService {
   }
 
   add(item: Vegetable) {
-    const index: number = this.cart.findIndex((cartItem: CartItem): boolean => cartItem.item === item);
+    const index: number = this.cart.findIndex((cartItem: CartItem): boolean => cartItem.item.name === item.name);
 
     if (index === -1) {
       this.cart.push(<CartItem>{

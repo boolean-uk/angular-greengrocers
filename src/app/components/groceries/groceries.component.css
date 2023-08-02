@@ -7,4 +7,9 @@
   width: 20%;
 }
 
+.filters{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
 

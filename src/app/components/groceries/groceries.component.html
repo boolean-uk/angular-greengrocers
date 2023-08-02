@@ -1,7 +1,12 @@
-
+<div class="filters">
   <h1>Greengrocers</h1>
-  <div class="groceries">
-    <app-grocery-item class="groceries-item" *ngFor="let grocery of groceries$ | async" [item]="grocery"></app-grocery-item>
+  <div>
+    <button (click)="sortByPrice()">sort by price {{priceAscendingOrder ? "↓" : "↑"  }}</button>
+    <button (click)="sortByName()">sort by name {{nameAscendingOrder ? "↓" : "↑"  }}</button>
   </div>
+</div>
 
-
+<div class="groceries">
+  <app-grocery-item *ngFor="let grocery of groceries$ | async" [item]="grocery"
+                    class="groceries-item"></app-grocery-item>
+</div>
