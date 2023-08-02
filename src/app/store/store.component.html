@@ -1,8 +1,36 @@
-<ul class="item-list store--item-list">
-  <li *ngFor="let item of items">
-    <div class="store--item-icon">
-      <img src="assets/icons/{{ item.id }}.svg" alt="{{ item.name }}" />
-    </div>
-    <button (click)="addToCart(item)">Add to cart</button>
-  </li>
-</ul>
+<header id="store">
+  <h1>Greengrocers</h1>
+
+  <div>
+    <label for="filtering">Filter:</label>
+    <select
+      id="filtering"
+      [(ngModel)]="selectedFilterOption"
+      (ngModelChange)="onFilterChange()"
+    >
+      <option value="empty"></option>
+      <option value="vegetable">Vegetable</option>
+      <option value="fruit">Fruit</option>
+    </select>
+  </div>
+  <div>
+    <label for="sorting">Sort:</label>
+    <select
+      id="sorting"
+      [(ngModel)]="selectedSortOption"
+      (ngModelChange)="onSortChange()"
+    >
+      <option value="empty"></option>
+      <option value="price">Price</option>
+      <option value="name">Name</option>
+    </select>
+  </div>
+  <ul class="item-list store--item-list">
+    <li *ngFor="let item of itemsToShow">
+      <div class="store--item-icon">
+        <img src="assets/icons/{{ item.id }}.svg" alt="{{ item.name }}" />
+      </div>
+      <button (click)="addToCart(item)">Add to cart</button>
+    </li>
+  </ul>
+</header>
