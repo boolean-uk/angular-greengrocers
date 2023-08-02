@@ -1,0 +1,10 @@
+<ul class="cart--item-list">
+  <app-cart-item
+    *ngFor="let item of cartItemList!"
+    [cartItem]="item[0]"
+    [quantity]="item[1]"
+    (increment)="onIncrement($event)"
+    (decrement)="onDecrement($event)"
+  ></app-cart-item>
+  <p *ngIf="!cartItemList || cartItemList.length === 0">Cart is empty</p>
+</ul>

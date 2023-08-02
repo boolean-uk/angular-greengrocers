@@ -1,10 +1,20 @@
 body {
   font-family: "Trebuchet MS", "Lucida Sans", Arial, sans-serif;
+  margin: 0;
+  /* padding: 0; */
 }
 
 h1,
 h2 {
   margin-bottom: 1rem;
+}
+
+h1 {
+  font-size: 70px;
+  background-image: linear-gradient(to left, #89df97, #326344);
+  color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
 }
 
 /* Buttons */
@@ -24,13 +34,26 @@ button {
   height: 40vh;
   padding: 1rem;
 
-  overflow-y: scroll;
+  overflow-y: auto;
 
   background-color: #e7f4ea;
 }
 
 #store h1 {
   text-align: center;
+}
+
+#store button {
+  color: #326344;
+  font-weight: bold;
+  border-color: #326344;
+  background-color: #89df97;
+  border-radius: 5px;
+}
+
+#store button:hover {
+  color: white;
+  background-color: #326344;
 }
 
 .store--item-list {
@@ -46,9 +69,21 @@ button {
   grid-row-gap: 0.5rem;
 }
 
+.store--item-list li:hover {
+  margin: -5px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+  transition: box-shadow 0.3s ease-in-out;
+}
+
 .store--item-icon img {
   width: 125px;
   height: 125px;
+}
+
+@media only screen and (min-width: 800px) {
+  .store--item-list {
+    grid-template-columns: repeat(5, 125px);
+  }
 }
 
 @media only screen and (max-width: 600px) {
@@ -77,14 +112,14 @@ button {
   border-top: 2px solid #e7f4ea;
 }
 
-app-cart {
+app-cart-item-list {
   display: block;
   box-sizing: border-box;
   min-width: 320px;
   height: 100%;
   padding: 0 1rem;
 
-  overflow-y: scroll;
+  overflow-y: auto;
 
   border-radius: 0.5rem;
   border: 2px solid #757575;
@@ -139,7 +174,11 @@ app-cart {
 
   border-radius: 0.25rem;
 
+  font-size: 1.25rem;
   font-weight: bold;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .remove-btn {
@@ -148,10 +187,20 @@ app-cart {
   color: #d32f2f;
 }
 
+.remove-btn:hover {
+  background-color: #d32f2f;
+  color: white;
+}
+
 .add-btn {
   border: 2px solid #388e3c;
   background-color: #c8e6c9;
   color: #388e3c;
+}
+
+.add-btn:hover {
+  background-color: #388e3c;
+  color: white;
 }
 
 .quantity-text {
@@ -162,22 +211,22 @@ app-cart {
   border: 2px solid #757575;
   color: #757575;
 
-  text-align: center;
-  font-size: 0.75rem;
+  font-size: 1rem;
   font-weight: bold;
+
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
 }
 
 /* Total */
 
-app-total {
+app-cart-total {
   padding: 0.5rem 1rem;
 
   display: grid;
   grid-template-columns: 1fr auto;
   align-items: center;
-}
-
-.total-number {
   font-weight: bold;
 }
 
