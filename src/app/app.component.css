@@ -1,0 +1,23 @@
+.grocers-icons-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  justify-items: center;
+}
+
+.grocers-icons {
+  display: flex;
+  align-items: center;
+  margin-right: 10px;
+  padding: 10px;
+}
+
+.grocers-icon {
+  align-items: center;
+  display: block;
+  padding: 5px 10px
+}
+
+.add-to-cart button{
+ align-self: auto;
+}

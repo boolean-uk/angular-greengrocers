@@ -1,0 +1,11 @@
+<div class="grocers-icons-container">
+  <div class="grocers-icons">
+    <span *ngIf="!items">loading...</span>
+    <span class="grocers-icon" *ngFor="let item of items | async">
+      <img src='assets\icons\{{item.id}}.svg' alt='{{ item.id }}'
+      height="150px"
+      width="150px">
+      <button class="add-to-cart">ADD TO CART</button>
+    </span>
+  </div>
+</div>
