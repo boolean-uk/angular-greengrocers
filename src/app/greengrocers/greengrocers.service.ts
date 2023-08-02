@@ -14,4 +14,12 @@ export class GreengrocersService {
   getGroceries(): Observable<Item[]> {
     return this.http.get<Item[]>(`${environment.apiUrl}/groceries`)
   }
+
+  getFruits(): Observable<Item[]> {
+    return this.http.get<Item[]>(`${environment.apiUrl}/groceries?type=fruit`)
+  }
+
+  getVegetables(): Observable<Item[]> {
+    return this.http.get<Item[]>(`${environment.apiUrl}/groceries?type=vegetable`)
+  }
 }

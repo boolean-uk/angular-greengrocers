@@ -1,0 +1,18 @@
+<button
+  [ngClass]="filter == filters.ALL ? 'selected' : ''"
+  (click)="setFilter(filters.ALL)"
+>
+  All
+</button>
+<button
+  [ngClass]="filter == filters.FRUITS ? 'selected' : ''"
+  (click)="setFilter(filters.FRUITS)"
+>
+  Fruits
+</button>
+<button
+  [ngClass]="filter == filters.VEGETABLES ? 'selected' : ''"
+  (click)="setFilter(filters.VEGETABLES)"
+>
+  Vegetables
+</button>
