@@ -38,6 +38,14 @@ export class CartServiceService {
     this.refresh$.next([...this.cartItems]);
   }
 
+  delete(item: Item) {
+    const existingItemIndex = this.cartItems.findIndex(cartItem => cartItem.item.id === item.id);
+    if (existingItemIndex !== -1) {
+      this.cartItems.splice(existingItemIndex, 1)
+      this.refresh$.next([...this.cartItems]);
+    }
+  }
+
 
 
 

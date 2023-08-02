@@ -2,6 +2,8 @@
 <mat-card class="cart-item-card">
     <mat-card-content>
       <div class="cart-item-details">
+        <mat-icon class="delete-icon" (click)="deleteItem()">delete</mat-icon>
+    
         <p><strong>{{ item.item.name }} </strong> x {{item.quantity}}</p>
         <p>Price: {{ item.item.price * item.quantity | currency}}</p>
       </div>

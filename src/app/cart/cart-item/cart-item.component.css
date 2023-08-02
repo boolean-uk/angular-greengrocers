@@ -17,5 +17,9 @@
     width: 100px;
   }
 
+  .delete-icon{
+    cursor: pointer;
+  }
+
 
   

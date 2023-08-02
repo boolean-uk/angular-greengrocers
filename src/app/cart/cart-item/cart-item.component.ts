@@ -16,4 +16,8 @@ export class CartItemComponent {
   onQuantityChange() {
     this.service.changeQuantity()
   }
+
+  deleteItem() {
+    this.service.delete(this.item.item)
+  }
 }
