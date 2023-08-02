@@ -12,7 +12,15 @@ export class AppComponent implements OnInit {
   groceries: Item[] = [
     { id: '001-beetroot', name: 'Beetroot', price: 1.99 },
     { id: '002-carrot', name: 'Carrot', price: 0.89 },
-  ]
+    { id: '003-apple', name: 'Apple', price: 2.49 },
+    { id: '004-apricot', name: 'Apricot', price: 0.75 },
+    { id: '005-avocado', name: 'Avocado', price: 3.99 },
+    { id: '006-bananas', name: 'Bananas', price: 1.25 },
+    { id: '007-bell-pepper', name: 'Bell Pepper', price: 0.65 },
+    { id: '008-berry', name: 'Berry', price: 1.95 },
+    { id: '009-blueberry', name: 'Blueberry', price: 1.10 },
+    { id: '010-eggplant', name: 'Eggplant', price: 1.49 },
+  ];
   cart: any[] = [];
 
   constructor(private http: HttpClient) {}
@@ -44,12 +52,19 @@ export class AppComponent implements OnInit {
     }
   }
 
-  decreaseQuantity(item: any) {
+  decreaseQuantity(item: any): void {
     const existingItem = this.cart.find((cartItem) => cartItem.id === item.id);
-
-    if (existingItem && existingItem.quantity > 1) {
+  
+    if (existingItem && existingItem.quantity > 0) {
       existingItem.quantity--;
+      if (existingItem.quantity === 0) {
+        this.removeFromCart(item);
+      }
     }
+  }
+
+  removeFromCart(item: Item): void {
+    this.cart = this.cart.filter((cartItem) => cartItem.id !== item.id);
   }
 
   increaseQuantity(item: any) {
@@ -59,6 +74,7 @@ export class AppComponent implements OnInit {
       existingItem.quantity++;
     }
   }
+  
 
   getTotalPrice() {
     return this.cart.reduce((total, item) => total + item.price * item.quantity, 0);

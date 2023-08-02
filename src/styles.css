@@ -46,9 +46,10 @@ button {
   grid-row-gap: 0.5rem;
 }
 
-.store--item-icon img {
-  width: 125px;
-  height: 125px;
+.store--item-icon img,
+.cart--item-icon img {
+  max-width: 100%;
+  max-height: 100%;
 }
 
 @media only screen and (max-width: 600px) {
@@ -118,13 +119,25 @@ app-cart {
 
   font-size: 1.25rem;
 }
+.cart--item-list li div {
+  display: flex;
+  align-items: center;
+}
+
+.quantity-btn,
+.quantity-text {
+  margin: 0 5px; 
+}
 
 .cart--item-list li:last-child {
   border-bottom: none;
 }
 
-.cart--item-icon {
-  width: 24px;
+.empty-cart {
+  text-align: center;
+  font-size: 1.2rem;
+  color: #757575;
+  padding: 2rem 0;
 }
 
 .center {
