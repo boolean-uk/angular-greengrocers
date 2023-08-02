@@ -1,0 +1,28 @@
+.item-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+  width: calc(33.33% - 10px);
+}
+
+.item h3 {
+  margin: 0;
+}
+
+mat-icon {
+  font-size: 48px;
+}
+
+.custom-icon {
+  width: 48px;
+  height: 48px;
+}
