@@ -34,4 +34,14 @@ export class GroceriesService {
     }
     //console.log(this.itemsInCart)
   }
+
+  removeItemFromCart(item: Item) {
+    if(item.quantity>1){
+      item.quantity -= 1
+    } else {
+      this.itemsInCart.splice(this.itemsInCart.indexOf(item), 1)
+    }
+    // console.log(this.itemsInCart)
+  }
+  
 }

@@ -16,4 +16,12 @@ export class CartComponent implements OnInit {
     this.itemsInCart = this.groceriesService.itemsInCart
   }
 
+  addItem(item: Item) {
+    this.groceriesService.addItemToCart(item)
+  }
+
+  removeItem(item: Item) {
+    this.groceriesService.removeItemFromCart(item)
+  }
+
 }
