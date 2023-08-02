@@ -1,0 +1,46 @@
+.button-group {
+    display: flex;
+    margin-right: 10px; 
+}
+
+.custom-button {
+    padding: 10px 20px;
+    margin-bottom: 10px; 
+    background-color: #17a81f;
+    margin-left: 10px;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 200px;
+}
+
+.custom-button:hover {
+    background-color: #86d3a0;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+}
+
+.container-total {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5vh;
+    margin-top: 5vh;
+}
+
+.button-checkout{
+    height: 50px;
+    background-color: #1c3f9e;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.button-checkout:hover {
+    background-color: #6371c2;
+}

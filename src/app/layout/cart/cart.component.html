@@ -1,0 +1,20 @@
+<div class="cart--item-list-container">
+    <ul class="item-list cart--item-list">
+      <li *ngFor="let cartItem of cartItems$ | async | keyvalue">
+        <img
+          class="cart--item-icon"
+          [src]="'assets/icons/' + cartItem.key.id + '.svg'"
+          [alt]="cartItem.key.name"
+        />
+        <p>{{ cartItem.key.name }}</p>
+        <button class="quantity-btn remove-btn center" (click)="removeFromCart(cartItem.key)">-</button>
+        <span class="quantity-text center">{{ cartItem.value }}</span>
+        <button class="quantity-btn add-btn center" (click)="addToCart(cartItem.key)">+</button>
+      </li>
+    </ul>
+</div>
+
+
+
+
+

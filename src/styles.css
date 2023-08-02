@@ -21,11 +21,8 @@ button {
 /* Store */
 
 #store {
-  height: 40vh;
+  height: 8vh;
   padding: 1rem;
-
-  overflow-y: scroll;
-
   background-color: #e7f4ea;
 }
 
@@ -83,6 +80,7 @@ app-cart {
   min-width: 320px;
   height: 100%;
   padding: 0 1rem;
+  max-height: 400.89px;
 
   overflow-y: scroll;
 
