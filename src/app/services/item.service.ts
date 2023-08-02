@@ -88,4 +88,13 @@ export class ItemService {
     }
   }
 
+  getItemCount(): number {
+    let count = 0;
+    this.cart.forEach(quantity => {
+      count += quantity;
+    });
+    return count;
+  }
+
+
 }

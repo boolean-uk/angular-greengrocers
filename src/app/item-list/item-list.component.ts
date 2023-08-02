@@ -55,4 +55,8 @@ export class ItemListComponent implements OnInit{
     }
   }
 
+  getItemCount(): number{
+    return this.itemService.getItemCount();
+  }
+
 }
