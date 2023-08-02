@@ -8,41 +8,35 @@ import {Groceries, GroceryType} from "../../models/groceries";
 })
 export class GroceriesComponent implements OnInit {
   groceries$: Observable<Groceries[]> | null = null
-  filteredGroceries$: Observable<Groceries[]> | null = null;
-  nameAscendingOrder: boolean = true
-  priceAscendingOrder: boolean = true
+
   groceryTypes: GroceryType[] = [GroceryType.fruit, GroceryType.vegetable]
-  selectedTypes: Set<GroceryType> = new Set<GroceryType>(this.groceryTypes);
+
 
   constructor(private readonly groceriesService: GroceriesService) {
   }
 
   ngOnInit(): void {
     this.groceries$ = this.groceriesService.groceries$
-    this.filteredGroceries$ = this.groceries$
   }
 
   sortByName() {
-    this.groceries$ = this.groceriesService.sortByName(this.nameAscendingOrder)
-    this.nameAscendingOrder = !this.nameAscendingOrder
+    this.groceries$ = this.groceriesService.sortByName()
+
   }
 
   sortByPrice() {
-    this.groceries$ = this.groceriesService.sortByPrice(this.priceAscendingOrder)
-    this.priceAscendingOrder = !this.priceAscendingOrder
+    this.groceries$ = this.groceriesService.sortByPrice()
+  }
+
+  priceAscending(): boolean {
+    return this.groceriesService.priceAscendingOrder
   }
 
   toggleFilterByType(type: GroceryType) {
-    if (this.selectedTypes.has(type)) {
-      this.selectedTypes.delete(type);
-    } else {
-      this.selectedTypes.add(type);
-    }
+    this.groceries$ = this.groceriesService.filterByType(type)
+  }
 
-    // if (this.selectedTypes.size === 0) {
-    //   this.filteredGroceries$ = this.groceries$;
-    // } else {
-    this.filteredGroceries$ = this.groceries$!.pipe(map((groceries: Groceries[]) => groceries.filter((grocery: Groceries) => this.selectedTypes.has(grocery.type))));
-    // }
+  nameAscending() {
+    return this.groceriesService.nameAscendingOrder
   }
 }

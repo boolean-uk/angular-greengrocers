@@ -13,14 +13,14 @@
 
   <div class="sorting">
     Sort by:
-    <button (click)="sortByPrice()">sort by price {{priceAscendingOrder ? "↓" : "↑"  }}</button>
-    <button (click)="sortByName()">sort by name {{nameAscendingOrder ? "↓" : "↑"  }}</button>
+    <button (click)="sortByPrice()">sort by price {{priceAscending() ? "↓" : "↑"  }}</button>
+    <button (click)="sortByName()">sort by name {{nameAscending() ? "↓" : "↑"  }}</button>
   </div>
 </div>
 
 <div class="groceries">
   <app-grocery-item
-    *ngFor="let grocery of filteredGroceries$ | async"
+    *ngFor="let grocery of groceries$ | async"
     [item]="grocery"
     class="groceries-item">
   </app-grocery-item>

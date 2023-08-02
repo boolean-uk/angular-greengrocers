@@ -8,10 +8,11 @@ import {HttpClientModule} from "@angular/common/http";
 import {GroceryItemComponent} from './components/groceries/grocery-item/grocery-item.component';
 import {NgOptimizedImage} from "@angular/common";
 import {CartItemComponent} from './components/cart/cart-item/cart-item.component';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [AppComponent, GroceriesComponent, CartComponent, GroceryItemComponent, CartItemComponent],
-  imports: [BrowserModule, HttpClientModule, NgOptimizedImage],
+  imports: [BrowserModule, HttpClientModule, NgOptimizedImage, AppRoutingModule],
   providers: [],
   bootstrap: [AppComponent],
 })
