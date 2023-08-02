@@ -45,4 +45,10 @@ export class CartService {
     this.cartSubject$.next(this.cart)
   }
 
+  getTotal(): number {
+    return this.cart.items
+      .map(cartItem => cartItem.item.price * cartItem.quantity)
+      .reduce((sum, price) => sum + price, 0)
+  }
+
 }
