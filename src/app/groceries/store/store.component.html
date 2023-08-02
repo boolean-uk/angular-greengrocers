@@ -1,0 +1,6 @@
+<div class="store--item-list" *ngIf="groceries">
+  <app-store-item
+    *ngFor="let grocery of groceries"
+    [grocery]="grocery"
+  ></app-store-item>
+</div>
