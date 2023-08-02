@@ -7,9 +7,19 @@
   width: 20%;
 }
 
-.filters{
+.settings{
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
 }
 
+.filters{
+  padding: 0 5% 0 5%;
+  display: flex;
+  flex-direction: column;
+}
+
+.sorting{
+  padding: 0 5% 0 5%;
+  display: flex;
+  flex-direction: column;
+}

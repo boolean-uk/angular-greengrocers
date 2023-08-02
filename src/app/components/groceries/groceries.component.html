@@ -1,12 +1,27 @@
-<div class="filters">
-  <h1>Greengrocers</h1>
-  <div>
+<h1>Greengrocers</h1>
+<div class="settings">
+
+  <div class="filters">
+
+    Filter by:
+    <div *ngFor="let groceryType of groceryTypes">
+      <input (change)="toggleFilterByType(groceryType)" [id]="groceryType" [value]="groceryType" checked
+             type="checkbox"/>
+      <label [for]="groceryType">{{ groceryType }}</label>
+    </div>
+  </div>
+
+  <div class="sorting">
+    Sort by:
     <button (click)="sortByPrice()">sort by price {{priceAscendingOrder ? "↓" : "↑"  }}</button>
     <button (click)="sortByName()">sort by name {{nameAscendingOrder ? "↓" : "↑"  }}</button>
   </div>
 </div>
 
 <div class="groceries">
-  <app-grocery-item *ngFor="let grocery of groceries$ | async" [item]="grocery"
-                    class="groceries-item"></app-grocery-item>
+  <app-grocery-item
+    *ngFor="let grocery of filteredGroceries$ | async"
+    [item]="grocery"
+    class="groceries-item">
+  </app-grocery-item>
 </div>

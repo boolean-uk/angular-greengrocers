@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {Vegetable} from "../models/vegetable";
+import {Groceries} from "../models/groceries";
 
 @Injectable({
   providedIn: 'root'
@@ -16,7 +16,7 @@ export class CartSummaryService {
       .reduce((sum, current) => sum + current, 0)
   }
 
-  add(item: Vegetable) {
+  add(item: Groceries) {
     const index: number = this.cart.findIndex((cartItem: CartItem): boolean => cartItem.item.name === item.name);
 
     if (index === -1) {
@@ -44,6 +44,6 @@ export class CartSummaryService {
 
 
 export interface CartItem {
-  item: Vegetable
+  item: Groceries
   quantity: number
 }

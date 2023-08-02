@@ -1,5 +1,5 @@
 import {Component, Input} from '@angular/core';
-import {Vegetable} from "../../../models/vegetable";
+import {Groceries} from "../../../models/groceries";
 import {CartSummaryService} from "../../../services/cart-summary.service";
 
 @Component({
@@ -8,7 +8,7 @@ import {CartSummaryService} from "../../../services/cart-summary.service";
   styleUrls: ['./grocery-item.component.css']
 })
 export class GroceryItemComponent {
-  @Input('item') item: Vegetable | null = null
+  @Input('item') item: Groceries | null = null
 
   constructor(private readonly cartService: CartSummaryService) {
   }
