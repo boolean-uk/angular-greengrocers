@@ -1,9 +1,8 @@
-<header id="store">
+<div class="header">
   <h1>Greengrocers</h1>
-  <!-- your store here -->
-</header>
-<main id="cart">
-  <h2>Your Cart</h2>
-  <!-- your cart here -->
-  <!-- your total here -->
-</main>
+  <nav>
+    <a class="button" routerLink="/">Browse items</a> |
+    <a class="button" routerLink="/checkout">Checkout {{ costOfBasket$ | async | currency}}</a>
+  </nav>
+</div>
+<router-outlet></router-outlet>

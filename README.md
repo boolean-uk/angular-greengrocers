@@ -1,5 +1,18 @@
 # Angular Greengrocers
 
+## task status
+
+### base
+    Fetch a list of groceries from an API ✔️
+    Allow users to add their desired items to their cart ✔️
+    Allow users to ammend the quanitity of each item ✔️
+    Display a total price of the users cart ✔️
+
+### extension
+    Covert the app to be multipage. ✔️
+
+
+
 ![Angular Greengrocers](./images/angular-greengrocers.gif)
 
 ## Objectives

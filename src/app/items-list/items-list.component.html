@@ -1,0 +1,4 @@
+<header id="store">
+    <app-item *ngFor="let item of items$ | async" [item]="item" (addToCard)="addToCard($event)">
+    </app-item>
+</header>

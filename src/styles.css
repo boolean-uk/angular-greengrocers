@@ -21,7 +21,7 @@ button {
 /* Store */
 
 #store {
-  height: 40vh;
+  height: 80vh;
   padding: 1rem;
 
   overflow-y: scroll;
@@ -186,4 +186,8 @@ app-total {
     border-top: 2px solid #00675b;
     border-bottom: 2px solid #00675b;
   }
+}
+
+.button {
+  cursor: pointer;
 }

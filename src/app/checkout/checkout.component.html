@@ -1,0 +1,10 @@
+<main id="cart">
+    <ng-container *ngFor="let itemCount of itemCounts$ | async | keyvalue">
+        <div class="item">
+            <p>{{ itemCount.key }}</p>
+            <a class="button" (click)="removeFromCard(itemCount.key)">➖</a>
+            <input #count type="string" (change)="setCount(itemCount.key, count.value)" [value]="itemCount.value">
+            <a class="button" (click)="addToCard(itemCount.key)">➕</a>
+        </div>
+    </ng-container>
+</main>
