@@ -9,11 +9,14 @@ import { GroceriesService } from '../groceries.service';
 })
 export class StoreComponent implements OnInit{
   items: Item[] | null = null
+  shouldShowFruits = false
+  copyOfItems: Item[] | null = null 
 
   constructor(private readonly groceriesService: GroceriesService) {}
   
   async ngOnInit() {
     this.items = await this.groceriesService.getItemsArray()
+    this.copyOfItems = this.items
   }
 
   addToCart(item: Item) {
@@ -29,6 +32,19 @@ export class StoreComponent implements OnInit{
   sortItemsByName() {
     if(this.items !== null) {
       this.items = this.items.sort((a, b) => a.name.localeCompare(b.name))
+    }
+  }
+
+  filterByType() {
+    this.shouldShowFruits = !this.shouldShowFruits
+    this.items = this.copyOfItems
+
+    let type = ''
+    if ( this.shouldShowFruits ) { type = 'fruit'} 
+    else { type = 'vegetable' }
+    
+    if(this.items !== null) {
+      this.items = this.items.filter((item) => item.type === type)
     }
   }
 
