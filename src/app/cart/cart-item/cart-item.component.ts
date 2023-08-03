@@ -13,7 +13,8 @@ export class CartItemComponent {
   constructor(private cartService: CartService) {}
 
   add() {
-    this.cartService.addToCart(this.cartItem.item)
+    if(this.cartItem.quantity < 99)
+      this.cartService.addToCart(this.cartItem.item)
   }
   
   subtract() {

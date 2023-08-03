@@ -1,3 +1,10 @@
+:host {
+    display: block;
+    padding: 1rem;
+    background-color: #e7f4ea;
+    height: calc(100vh - 2rem);
+}
+
 img {
     max-width: 64px;
     margin-right: 0.5rem;
