@@ -6,8 +6,8 @@
             alt="beetroot"
         />
         <p>{{item.name}}</p>
-        <button class="quantity-btn remove-btn center">-</button>
+        <button (click)="removeOneElementFromCart(item)" class="quantity-btn remove-btn center">-</button>
         <span class="quantity-text center">{{cartItems.get(item)}}</span>
-        <button class="quantity-btn add-btn center">+</button>
+        <button (click)="addOneElementToCart(item)" class="quantity-btn add-btn center">+</button>
     </li>
 </ul>
