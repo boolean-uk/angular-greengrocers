@@ -11,6 +11,9 @@ import { FormsModule } from '@angular/forms';
 import { SortByPriceComponent } from './sort-by-price/sort-by-price.component';
 import { StoreComponent } from './store/store.component';
 import { SortByNameComponent } from './sort-by-name/sort-by-name.component';
+import { CheckoutComponent } from './checkout/checkout.component';
+import { AppRoutingModule } from './app-routing.module';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 @NgModule({
   declarations: [
@@ -22,8 +25,10 @@ import { SortByNameComponent } from './sort-by-name/sort-by-name.component';
     SortByPriceComponent,
     StoreComponent,
     SortByNameComponent,
+    CheckoutComponent,
+    NotFoundComponent,
   ],
-  imports: [BrowserModule, HttpClientModule, ShopModule, FormsModule],
+  imports: [BrowserModule, HttpClientModule, ShopModule, FormsModule, AppRoutingModule],
   providers: [],
   bootstrap: [AppComponent],
 })

@@ -1,5 +1,27 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
 body {
   font-family: "Trebuchet MS", "Lucida Sans", Arial, sans-serif;
+}
+
+nav {
+  justify-content: right;
+  display: flex;
+  margin-right: 1rem;
+}
+
+nav > li {
+  list-style: none;
+  margin-left: 2rem;
+}
+
+nav > li > a {
+  text-decoration: none;
+  font-size: 20px;
 }
 
 h1,
@@ -19,7 +41,8 @@ button {
 }
 
 .sorting--btn {
-  padding: 8px;
+  width: 143px;
+  height: 45px;
   font-size: 14px;
   background-color: #91c492;
   color: white;
@@ -37,11 +60,9 @@ button {
 /* Store */
 
 #store {
-  height: 50vh;
+  height: 100vh;
   padding: 1rem;
-
   overflow-y: scroll;
-
   background-color: #e7f4ea;
 }
 
