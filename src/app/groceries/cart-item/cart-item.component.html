@@ -1,0 +1,17 @@
+<li *ngIf="cartItem">
+  <img
+    class="cart--item-icon"
+    [src]="getImagePath()"
+    alt="{{ cartItem.item.name }}"
+  />
+
+  {{ cartItem.item.name }}
+  <button class="remove-btn" (click)="removeFromCart()">-</button>
+  <input
+    type="number"
+    class="quantity-text"
+    [(ngModel)]="cartItem.quantity"
+    (change)="changeQuantity(cartItem.quantity)"
+  />
+  <button class="add-btn" (click)="addToCart()">+</button>
+</li>
