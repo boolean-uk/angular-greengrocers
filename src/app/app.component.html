@@ -1,9 +1,51 @@
 <header id="store">
   <h1>Greengrocers</h1>
-  <!-- your store here -->
+  <div>
+    <button (click)="filterByType(null)">Show All</button>
+    <button (click)="filterByType('vegetable')">Vegetables</button>
+    <button (click)="filterByType('fruit')">Fruits</button>
+    <div>
+      <button (click)="sortByPrice()">Sort by Price</button>
+      <button (click)="sortByName()">Sort by Name</button>
+    </div>
+  </div>
+  <div class="store--item-list-container">
+    <ul class="item-list store--item-list">
+      <li *ngFor="let grocery of groceries">
+        <div class="store--item-icon">
+          <img [src]="'assets/icons/' + grocery.id + '.svg'" [alt]="grocery.name" />
+        </div>
+        <button (click)="addToCart(grocery)">Add to cart</button>
+      </li>
+    </ul>
+  </div>
 </header>
 <main id="cart">
   <h2>Your Cart</h2>
-  <!-- your cart here -->
-  <!-- your total here -->
+  <div *ngIf="cart.length === 0">
+    <p>Cart is empty</p>
+  </div>
+  <div class="cart--item-list-container">
+    <ul class="item-list cart--item-list">
+      <li *ngFor="let cartItem of cart">
+        <img class="cart--item-icon" [src]="'assets/icons/' + cartItem.item.id + '.svg'" [alt]="cartItem.item.name" />
+        <p>{{ cartItem.item.name }}</p>
+        <button class="quantity-btn remove-btn center" (click)="updateQuantity(cartItem, cartItem.quantity - 1)">
+          -
+        </button>
+        <span class="quantity-text center">{{ cartItem.quantity }}</span>
+        <button class="quantity-btn add-btn center" (click)="updateQuantity(cartItem, cartItem.quantity + 1)">
+          +
+        </button>
+      </li>
+    </ul>
+  </div>
+
+  <div>
+    <h3>Total</h3>
+  </div>
+
+  <div>
+    <span class="total-number">£{{ getTotalPrice().toFixed(2) }}</span>
+  </div>
 </main>
