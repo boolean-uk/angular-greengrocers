@@ -36,6 +36,10 @@ button {
 .store--filter {
   display: grid;
   justify-content: center;
+  align-items: center;
+  width: 500px;
+  grid-template-columns: repeat(3, 1fr);
+  margin: 0 auto;
 }
 
 .store--item-list {

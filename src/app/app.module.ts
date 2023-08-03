@@ -8,6 +8,8 @@ import { CartItemComponent } from './cart-item/cart-item.component';
 import { TotalComponent } from './total/total.component';
 import { ProductFilterComponent } from './product-filter/product-filter.component';
 import { FormsModule } from '@angular/forms';
+import { SortByPriceComponent } from './sort-by-price/sort-by-price.component';
+import { StoreComponent } from './store/store.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +18,8 @@ import { FormsModule } from '@angular/forms';
     CartItemComponent,
     TotalComponent,
     ProductFilterComponent,
+    SortByPriceComponent,
+    StoreComponent,
   ],
   imports: [BrowserModule, HttpClientModule, ShopModule, FormsModule],
   providers: [],
