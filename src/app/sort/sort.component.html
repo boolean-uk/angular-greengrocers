@@ -1,0 +1,11 @@
+<ng-container>
+  <select name="sort-grocers" id="sort" value="grocers" [(ngModel)]="selectedSortOption" (change)="grocersChange()">
+    <option value="grocers">Sort by</option>
+    <optgroup label="Type">
+        <option value="fruit">Fruits</option>
+        <option value="vegetable">Vegetable</option>
+    </optgroup>
+    <option value="price">Price</option>
+    <option value="name">Name</option>
+  </select>
+</ng-container>

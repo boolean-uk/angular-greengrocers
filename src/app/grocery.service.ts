@@ -13,6 +13,7 @@ export class GroceryService {
 
   myCart: {[key: string]: Item[]} = {}
   total: number = 0
+  grocersList: Item[] = []
 
   private totalSubject = new BehaviorSubject<number>(this.total);
   total$ = this.totalSubject.asObservable();
@@ -28,6 +29,13 @@ export class GroceryService {
   //get groceries
   async getGrocers(): Promise<Item[]>{
     const response = await firstValueFrom(this.http.get<Item[]>(`${environment.apiUrl}groceries`))
+    console.log('getting list of groceries', response)
+    return response;
+  }
+
+  //get grocers by type
+  async getGrocersByType(type: string): Promise<Item[]>{
+    const response = await firstValueFrom(this.http.get<Item[]>(`${environment.apiUrl}groceries?type=` + type))
     console.log('getting list of groceries', response)
     return response;
   }
@@ -70,6 +78,31 @@ export class GroceryService {
 
   isCartEmpty(): boolean{
     return Object.keys(this.myCart).length === 0
+  }
+
+  async sortGrocers(option: string): Promise<Item[]> {
+    let groceries = await this.getGrocers()
+    if (option === 'price') {
+      //sort by price
+      groceries.sort((a, b) => a.price - b.price);
+      console.log('sorte by price')
+    } else if (option === 'name') {
+      //sort by name
+      groceries.sort((a, b) => a.name.localeCompare(b.name))
+      console.log('sorte by name')
+    } else if (option === 'fruit' || option === 'vegetable') {
+      //sort by type
+      groceries = await this.sortGrocersType(option)
+      console.log('sorte by type')
+    } else {
+      console.log('sorte by default')
+    }
+    this.grocersList = groceries
+    return this.grocersList
+  }
+
+  async sortGrocersType(type: string): Promise<Item[]> {
+    return this.getGrocersByType(type)
   }
 
 }
