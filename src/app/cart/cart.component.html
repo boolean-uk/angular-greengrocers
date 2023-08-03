@@ -1,0 +1,22 @@
+<ng-container *ngIf="isCartEmpty()">
+  <p>Cart is empty</p>
+</ng-container>
+
+<ng-container *ngIf="!isCartEmpty()">
+    <div *ngFor="let id of cart | keyvalue" class="cart">
+      <span>
+        <img src='assets\icons\{{id.key}}.svg' alt='{{ id.key }}'
+        height="15px"
+        width="15px">
+        {{ id.value[0].name }}
+      </span>
+      <span class="item-quantity">
+        <button (click)="minusItem(id.value[0])" id="minus">-</button>
+        <span class="item-quantity-box">
+          {{ id.value.length }}
+        </span>
+        <button (click)="plusItem(id.value[0])" id="plus">+</button>
+      </span>
+   </div>
+</ng-container>
+

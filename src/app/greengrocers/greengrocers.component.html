@@ -1,0 +1,18 @@
+<app-sort (sortOptionChange)="updateDisplay($event)"></app-sort>
+
+<ng-container *ngIf="items">
+  <div class="grocers-icons-container">
+    <div class="grocers-icons">
+      <span class="grocers-icon" *ngFor="let item of items">
+        <img src='assets\icons\{{item.id}}.svg' alt='{{ item.id }}'
+        height="150px"
+        width="150px">
+        <button class="add-to-cart" (click)="addItem(item)">ADD TO CART</button>
+      </span>
+    </div>
+  </div>
+</ng-container>
+
+<ng-container *ngIf="!items">
+  <p>Loading...</p>
+</ng-container>
