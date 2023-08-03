@@ -1,4 +1,4 @@
-import { firstValueFrom } from 'rxjs';
+import { Observable, firstValueFrom, shareReplay } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { type Item } from '../models/item';
@@ -9,15 +9,14 @@ import { environment } from 'src/environments/environment.development';
 })
 export class GroceriesService {
   private readonly apiURL = environment.apiUrl;
+  private items$: Observable<Item[]> | undefined;
 
   constructor(private http: HttpClient) {}
 
-  async getItems(): Promise<Item[]> {
-    try {
-      return firstValueFrom(this.http.get<Item[]>(this.apiURL));
-    } catch (error) {
-      console.log('error in getTodos', error);
+  getItems(): Observable<Item[]> {
+    if (!this.items$) {
+      this.items$ = this.http.get<Item[]>(this.apiURL).pipe(shareReplay(1));
     }
-    return [];
+    return this.items$;
   }
 }
