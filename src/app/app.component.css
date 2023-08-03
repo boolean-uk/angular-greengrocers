@@ -85,5 +85,13 @@
     margin-bottom: 0;
   }
   
+  .delete-button {
+    background-color: #ff4d4d;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    margin-left: 10px;
+  }
   
   

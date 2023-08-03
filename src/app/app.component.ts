@@ -78,4 +78,10 @@ export class AppComponent implements OnInit {
   sortByName() {
     this.filteredItems.sort((a, b) => a.name.localeCompare(b.name));
   }
+
+  // Adding a Delete button:
+
+  removeFromCart(index: number) {
+    this.cart.splice(index, 1);
+  }
 }

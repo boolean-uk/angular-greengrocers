@@ -30,12 +30,13 @@
 </header>
 <main id="cart">
   <h2>Your Cart</h2>
-  <div *ngFor="let cartItem of cart" class="cart-item">
+  <div *ngFor="let cartItem of cart; let i = index" class="cart-item">
     <div class="cart-item-details">
       <p>{{ cartItem.item.name }} - ${{ cartItem.item.price }} x {{ cartItem.quantity }}</p>
       <button (click)="changeQuantity(cartItem, -1)">-</button>
       <button (click)="changeQuantity(cartItem, 1)">+</button>
     </div>
+    <button class="delete-button" (click)="removeFromCart(i)">Delete</button> <!-- Add this line -->
   </div>
   <p>Total: ${{ calculateTotal().toFixed(2) }}</p>
 </main>
