@@ -3,7 +3,7 @@ import { GroceriesService } from '../services/groceries.service';
 import { ShoppingBasketService } from '../services/shopping-basket.service';
 import { type BasketItem } from '../models/basket';
 import { Item } from '../models/item';
-import { Observable, map } from 'rxjs';
+import { Observable, catchError, map, of } from 'rxjs';
 
 @Component({
   selector: 'app-groceries-list',
@@ -11,16 +11,17 @@ import { Observable, map } from 'rxjs';
   styleUrls: ['./groceries-list.component.css'],
 })
 export class GroceriesListComponent implements OnChanges {
-  @Input() filterType: string = ''; // Define the Input property to receive the filter value
+  @Input() filterType: string = '';
+  @Input() sortType: string = '';
+
+  public filteredGroceries$: Observable<Item[]> | undefined;
 
   constructor(
     private readonly groceriesService: GroceriesService,
     private readonly shoppingBasketService: ShoppingBasketService
   ) {}
 
-  filteredGroceries$: Observable<Item[]> | undefined;
-
-  addToCart(item: Item) {
+  public addToCart(item: Item) {
     const newItem: BasketItem = {
       ...item,
       quantity: 1,
@@ -30,13 +31,40 @@ export class GroceriesListComponent implements OnChanges {
   }
 
   ngOnChanges(changes: SimpleChanges) {
-    if (changes['filterType']) {
-      this.filteredGroceries$ = this.groceriesService.getItems().pipe(
-        map((items) => {
-          if (!this.filterType) return items;
-          return items.filter((item) => item.type === this.filterType);
-        })
-      );
+    if (changes['filterType'] || changes['sortType']) {
+      this.filterAndSortItems();
     }
+  }
+
+  private filterItems(items: Item[]): Item[] {
+    if (!this.filterType) {
+      return items;
+    }
+    return items.filter((item) => item.type === this.filterType);
+  }
+
+  private sortItems(items: Item[]): Item[] {
+    if (!this.sortType) {
+      return items;
+    }
+    if (this.sortType === 'name') {
+      return items.sort((a, b) => a.name.localeCompare(b.name));
+    } else if (this.sortType === 'price') {
+      return items.sort((a, b) => a.price - b.price);
+    }
+    return items;
+  }
+
+  private filterAndSortItems() {
+    this.groceriesService
+      .getItems()
+      .pipe(
+        map((items) => this.filterItems(items)),
+        map((filteredItems) => this.sortItems(filteredItems)),
+        catchError(() => of([]))
+      )
+      .subscribe((sortedItems) => {
+        this.filteredGroceries$ = of(sortedItems);
+      });
   }
 }

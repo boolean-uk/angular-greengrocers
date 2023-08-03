@@ -6,7 +6,9 @@
         alt="{{ grocery.name }}"
       />
     </div>
+
     {{ grocery.name }}
+    <p>{{ grocery.price | currency }}</p>
 
     <button (click)="addToCart(grocery)">Add to cart</button>
   </li>

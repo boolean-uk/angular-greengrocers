@@ -9,6 +9,7 @@ import { ShoppingBasket } from './groceries/models/basket';
 export class AppComponent {
   title = 'angular-green-grocers';
   selectedFilter: string = '';
+  selectedSort: string = '';
 
   shoppingBasket: ShoppingBasket = { items: [], total: 0 };
 
@@ -18,5 +19,12 @@ export class AppComponent {
 
   filterByType(filterType: string) {
     this.selectedFilter = filterType;
+  }
+
+  sortBy(event: Event) {
+    const target = event.target as HTMLSelectElement;
+    if (target) {
+      this.selectedSort = target.value;
+    }
   }
 }

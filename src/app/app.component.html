@@ -5,7 +5,20 @@
     <button (click)="filterByType('fruit')">Fruits</button>
     <button (click)="filterByType('vegetable')">Vegetables</button>
   </div>
-  <app-groceries-list [filterType]="selectedFilter"></app-groceries-list>
+
+  <div class="filter-buttons">
+    <p>Sort by:</p>
+    <select (change)="sortBy($event)">
+      <option value="none">None</option>
+      <option value="name">Name</option>
+      <option value="price">Price</option>
+    </select>
+  </div>
+
+  <app-groceries-list
+    [filterType]="selectedFilter"
+    [sortType]="selectedSort"
+  ></app-groceries-list>
 </header>
 <main id="cart">
   <h2>Your Cart</h2>
