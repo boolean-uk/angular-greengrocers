@@ -9,7 +9,7 @@ import {Item} from "../models/item";
 })
 export class GroceryCartComponent {
 
-  constructor(private groceryService: GroceryService) {}
+  constructor(private readonly groceryService: GroceryService) {}
 
   cart = this.groceryService.groceryCart
 

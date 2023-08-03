@@ -11,5 +11,6 @@
       <span class="quantity-text center">{{cart.get(item)}}</span>
       <button class="quantity-btn add-btn center" (click)="moreItems(item)">+</button>
     </li>
+    <h2 *ngIf="cart.size===0">is empty</h2>
   </ul>
 </div>

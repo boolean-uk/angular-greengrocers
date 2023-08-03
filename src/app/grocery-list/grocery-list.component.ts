@@ -17,7 +17,7 @@ export class GroceryListComponent {
   addToCart(grocery: Item) {
     if(this.groceryService.groceryCart.has(grocery)) {
       // @ts-ignore
-      this.groceryService.groceryCart.set(grocery, this.cart.get(grocery)+1)
+      this.groceryService.groceryCart.set(grocery, this.groceryService.groceryCart.get(grocery)+1)
       return
     }
     this.groceryService.groceryCart.set(grocery, 1)
