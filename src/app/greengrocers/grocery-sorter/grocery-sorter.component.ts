@@ -1,5 +1,6 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Item } from 'src/app/models/item';
+import { GreengrocersService } from '../greengrocers.service';
 
 @Component({
   selector: 'app-grocery-sorter',

@@ -1,15 +1,15 @@
-<ng-container *ngIf="groceries$ | async as groceries">
+<ng-container *ngIf="{ groceries: groceries$ | async } as data">
   <div class="options">
     <app-grocery-filter
       (onChange)="filterGroceries($event)"
     ></app-grocery-filter>
     <app-grocery-sorter
-      (onChange)="sortGroceries(groceries, $event)"
+      (onChange)="sortGroceries(data.groceries, $event)"
     ></app-grocery-sorter>
   </div>
   <div class="items">
     <app-grocery-item
-      *ngFor="let item of groceries"
+      *ngFor="let item of data.groceries"
       [item]="item"
     ></app-grocery-item>
   </div>

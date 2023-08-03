@@ -31,8 +31,8 @@ export class GroceryListComponent {
     this.groceries$ = this.getGroceries(filter)
   }
 
-  sortGroceries(items: Item[], sorter: GrocerySorter) {
-    items.sort(sorter)
+  sortGroceries(items: Item[] | null, sorter: GrocerySorter) {
+    items?.sort(sorter)
   }
 
 }

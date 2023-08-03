@@ -1,0 +1,44 @@
+<h2>Checkout</h2>
+<table>
+  <thead>
+    <tr>
+      <th>Item</th>
+      <th>Price</th>
+      <th>Quantity</th>
+      <th>Total</th>
+    </tr>
+  </thead>
+  <tbody>
+    <ng-container *ngIf="(cart$ | async)?.items as cartItems">
+      <ng-container *ngIf="cartItems.length > 0; else empty">
+        <tr *ngFor="let cartItem of cartItems">
+          <td>
+            <div class="item-name">
+              <img
+                src="assets/icons/{{ cartItem.item.id }}.svg"
+                [alt]="cartItem.item.id"
+              />
+              <span>{{ cartItem.item.name | titlecase }}</span>
+            </div>
+          </td>
+          <td>{{ cartItem.item.price | currency : "GBP" }}</td>
+          <td>{{ cartItem.quantity }}</td>
+          <td>
+            {{ cartItem.item.price * cartItem.quantity | currency : "GBP" }}
+          </td>
+        </tr>
+      </ng-container>
+    </ng-container>
+    <ng-template #empty>
+      <tr>
+        <td colspan="4">Cart is empty</td>
+      </tr>
+    </ng-template>
+  </tbody>
+  <tfoot>
+    <tr>
+      <td colspan="3">Total</td>
+      <td>{{ total | currency : "GBP" }}</td>
+    </tr>
+  </tfoot>
+</table>

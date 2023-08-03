@@ -4,6 +4,9 @@ import { GroceryListComponent } from './grocery-list/grocery-list.component';
 import { GroceryItemComponent } from './grocery-item/grocery-item.component';
 import { GroceryFilterComponent } from './grocery-filter/grocery-filter.component';
 import { GrocerySorterComponent } from './grocery-sorter/grocery-sorter.component';
+import { GroceryComponent } from './grocery/grocery.component';
+import { CartModule } from '../cart/cart.module';
+import { RouterModule } from '@angular/router';
 
 
 
@@ -12,13 +15,14 @@ import { GrocerySorterComponent } from './grocery-sorter/grocery-sorter.componen
     GroceryListComponent,
     GroceryItemComponent,
     GroceryFilterComponent,
-    GrocerySorterComponent
+    GrocerySorterComponent,
+    GroceryComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    CartModule,
+    RouterModule
   ],
-  exports: [
-    GroceryListComponent
-  ]
+  exports: []
 })
 export class GreengrocersModule { }

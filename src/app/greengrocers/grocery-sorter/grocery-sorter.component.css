@@ -3,3 +3,7 @@
     gap: 0.25rem;
     align-items: center;    
 }
+
+span + span {
+    margin-left: 0.25rem;
+}
