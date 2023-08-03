@@ -1,7 +1,27 @@
 <header id="store">
   <h1>Greengrocers</h1>
+  <div class="filters">
+    <div class="dropdown">
+      <button class="dropbtn">Filters</button>
+      <div class="dropdown-content">
+        <a (click)="filterByType('all')">Show All</a>
+        <a (click)="filterByType('fruit')">Fruits</a>
+        <a (click)="filterByType('vegetable')">Vegetables</a>
+      </div>
+    </div>
+  </div>
+  <div class="sort">
+    <div class="dropdown">
+      <button class="dropbtn">Sort by...</button>
+      <div class="dropdown-content">
+        <a (click)="sortByName()">Name (A-Z)</a>
+        <a (click)="sortByPrice()">Price (Ascending)</a>
+        <a (click)="sortByPriceDescending()">Price (Descending)</a>
+      </div>
+    </div>
+  </div>
   <div class="item-container">
-    <div *ngFor="let item of items" class="item">
+    <div *ngFor="let item of filteredItems" class="item">
       <img [src]="'assets/icons/' + item.id + '.svg'" alt="{{ item.name }}" width="50" height="50">
       <p>{{ item.name }} - ${{ item.price }}</p>
       <button (click)="addToCart(item)">Add to Cart</button>
@@ -10,10 +30,12 @@
 </header>
 <main id="cart">
   <h2>Your Cart</h2>
-  <div *ngFor="let cartItem of cart">
-    <p>{{ cartItem.item.name }} - ${{ cartItem.item.price }} x {{ cartItem.quantity }}</p>
-    <button (click)="changeQuantity(cartItem, -1)">-</button>
-    <button (click)="changeQuantity(cartItem, 1)">+</button>
+  <div *ngFor="let cartItem of cart" class="cart-item">
+    <div class="cart-item-details">
+      <p>{{ cartItem.item.name }} - ${{ cartItem.item.price }} x {{ cartItem.quantity }}</p>
+      <button (click)="changeQuantity(cartItem, -1)">-</button>
+      <button (click)="changeQuantity(cartItem, 1)">+</button>
+    </div>
   </div>
-  <p>Total: ${{ calculateTotal() }}</p>
+  <p>Total: ${{ calculateTotal().toFixed(2) }}</p>
 </main>
