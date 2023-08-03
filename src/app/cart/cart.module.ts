@@ -10,6 +10,7 @@ import { RouterModule } from '@angular/router';
 import { MatIconModule } from '@angular/material/icon';
 import { EmptCartComponent } from './empt-cart/empt-cart.component'
 import { MatButtonModule } from '@angular/material/button';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 
 
@@ -27,7 +28,8 @@ import { MatButtonModule } from '@angular/material/button';
     FormsModule,
     RouterModule,
     MatIconModule,
-    MatButtonModule
+    MatButtonModule,
+    MatTooltipModule
   ],
   exports: [
     CartComponent

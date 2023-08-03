@@ -7,7 +7,7 @@
         <button mat-menu-item (click)="setProperty('price')">price</button>
       </mat-menu>
 
-      <button mat-raised-button [matMenuTriggerFor]="typeMenu">{{type}}</button>
+      <button mat-raised-button [matMenuTriggerFor]="typeMenu" style="margin-left: 10px;">{{type | styleType}}</button>
       <mat-menu #typeMenu="matMenu">
         <button mat-menu-item (click)="setFilterType('vegetable')">Vegetables</button>
         <button mat-menu-item (click)="setFilterType('fruit')">Fruits</button>

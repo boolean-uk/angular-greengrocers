@@ -1,8 +1,10 @@
 <mat-card class="cart-item-card">
   <mat-card-content>
     <div class="cart-item-details">
-      <mat-icon class="delete-icon" (click)="deleteItem()">delete</mat-icon>
-  
+      <button mat-mini-fab color="warn" (click)="deleteItem()" matTooltip="Delete from cart" style="margin-bottom: 10px;">
+        <mat-icon class="delete-icon" >delete</mat-icon>
+      </button>
+
       <p><strong>{{ item.item.name }} </strong> x {{item.quantity}}</p>
       <p>Price: {{ item.item.price * item.quantity | currency}}</p>
     </div>

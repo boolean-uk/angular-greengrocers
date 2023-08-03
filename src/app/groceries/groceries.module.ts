@@ -14,6 +14,7 @@ import { SortPipe } from './sort.pipe';
 import { RouterModule } from '@angular/router';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { StyleTypePipe } from './style-type.pipe';
 
 
 
@@ -23,7 +24,8 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     GroceryComponent,
     GroceryListComponent,
     FilterPipe,
-    SortPipe
+    SortPipe,
+    StyleTypePipe
   ],
   imports: [
     CommonModule,
