@@ -9,7 +9,7 @@
     <div class="quantity-container">
       <mat-form-field appearance="outline">
         <mat-label>Quantity</mat-label>
-        <input type="number" matInput [(ngModel)]="item.quantity" (ngModelChange)="onQuantityChange()">
+        <input type="number" min="1" matInput [(ngModel)]="item.quantity" (ngModelChange)="onQuantityChange()">
       </mat-form-field>
     </div>
   </mat-card-content>

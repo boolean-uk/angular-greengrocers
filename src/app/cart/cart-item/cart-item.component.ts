@@ -21,5 +21,4 @@ export class CartItemComponent {
     this.service.delete(this.item.item.id)
   }
 
-
 }
