@@ -12,6 +12,7 @@ import { MatMenuModule } from '@angular/material/menu';
 import { FilterPipe } from './filter.pipe';
 import { SortPipe } from './sort.pipe';
 import { RouterModule } from '@angular/router';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 
 
@@ -32,6 +33,7 @@ import { RouterModule } from '@angular/router';
     MatFormFieldModule,
     MatSelectModule,
     MatMenuModule,
+    MatSnackBarModule,
     RouterModule
   ],
   exports: [
