@@ -1,5 +1,4 @@
-<div>
-  <h1>Greengrocers</h1>
+<div id="store">  
   <div class="button-group">
     <select (change)="filterByType($event)" [value]="selectedType$ | async">
       <option *ngFor="let type of allItemTypes$ | async">{{ type }}</option>

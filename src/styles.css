@@ -1,12 +1,20 @@
 body {
   font-family: "Trebuchet MS", "Lucida Sans", Arial, sans-serif;
   margin: 0;
-  /* padding: 0; */
+  height: 40vh;
+  padding: 1rem;
+
+  overflow-y: auto;
+
+  background-color: #e7f4ea;
 }
+
+/* Headers */
 
 h1,
 h2 {
   margin-bottom: 1rem;
+  text-align: center;
 }
 
 h1 {
@@ -15,6 +23,18 @@ h1 {
   color: transparent;
   background-clip: text;
   -webkit-background-clip: text;
+}
+
+/* Navigation */
+
+nav button {
+  margin: 0 0.5rem;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+nav button:hover {
+  background-color: #326344;
+  color: white;
 }
 
 /* Buttons */
@@ -26,6 +46,18 @@ button {
   font-size: 0.725rem;
 
   cursor: pointer;
+
+  color: #326344;
+  font-weight: bold;
+  border-color: #326344;
+  background-color: #89df97;
+}
+
+#corner-button-container {
+  position: fixed;
+  top: 0;
+  right: 0;
+  padding: 1rem;
 }
 
 /* Store */
@@ -39,15 +71,15 @@ button {
   background-color: #e7f4ea;
 }
 
-#store h1 {
-  text-align: center;
-}
-
-#store button {
+#store select {
   color: #326344;
   font-weight: bold;
-  border-color: #326344;
   background-color: #89df97;
+}
+
+#store select:hover {
+  color: white;
+  background-color: #326344;
 }
 
 #store .item-button {
@@ -62,17 +94,13 @@ button {
 #store .button-group {
   display: flex;
   justify-content: center;
+  margin-top: 2rem;
   margin-bottom: 1rem;
 }
 
-#store .button-group button:first-child {
-  border-top-left-radius: 5px;
-  border-bottom-left-radius: 5px;
-}
-
-#store .button-group button:last-child {
-  border-top-right-radius: 5px;
-  border-bottom-right-radius: 5px;
+#store .button-group button {
+  border: none;
+  border: 1px inset grey;
 }
 
 .store--item-list {
@@ -142,6 +170,8 @@ app-cart-item-list {
 
   border-radius: 0.5rem;
   border: 2px solid #757575;
+
+  background-color: white;
 }
 
 #cart h2 {
