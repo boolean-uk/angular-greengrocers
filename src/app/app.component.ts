@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { GrocerService } from './services/grocer.service';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -9,7 +10,7 @@ import { GrocerService } from './services/grocer.service';
 })
 export class AppComponent implements OnInit {
 
-  constructor(private readonly grocerService: GrocerService) {}
+  constructor(private readonly grocerService: GrocerService,private router: Router) {}
   fruit$ = this.grocerService.fruit$;
   async ngOnInit() {}
   title = 'angular-green-grocers';
@@ -25,6 +26,17 @@ export class AppComponent implements OnInit {
   refresh() {
     console.log('ive been clicked');
     this.grocerService.refreshFruit$.next('apple');
+  }
+  switchPages() {
+    
+    const currentRoute = this.router.url;
+    console.log("switch")
+   
+    if (currentRoute === '/') {
+      this.router.navigate(['/cart']); 
+    } else if (currentRoute === '/cart') {
+      this.router.navigate(['/']); 
+    }
   }
 
 }

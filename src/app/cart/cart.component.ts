@@ -8,7 +8,6 @@ import { SharedDataService } from '../shared-data.service';
   styleUrls: ['./cart.component.css']
 })
 export class CartComponent {
-  //items: Item[]
   items = this.sharedDataService.getItems();
   constructor(private sharedDataService: SharedDataService) { }
   getBindedChosenItems(): Item[] {
