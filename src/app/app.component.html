@@ -3,7 +3,7 @@
   <ul class="store--item-list">
     <li *ngFor="let item of groceries">
       <div class="store--item-icon">
-        <img [src]="'./src/assets/icons/' + item.id + '.svg'" alt="{{ item.name }}" />
+        <img [src]="'assets/icons/' + item.id + '.svg'" alt="{{ item.name }}" />
       </div>
       <div>{{ item.name }}</div>
       <div>{{ item.price | currency: 'USD': 'symbol' }}</div>
@@ -17,9 +17,6 @@
     <h2>Your Cart</h2>
     <ul class="cart--item-list">
       <li *ngFor="let item of cart">
-        <div class="cart--item-icon">
-          <img [src]="'./src/assets/icons/' + item.id + '.svg'" alt="{{ item.name }}" />
-        </div>
         <div>{{ item.name }}</div>
         <div>
           <button class="quantity-btn remove-btn" (click)="decreaseQuantity(item)">-</button>

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Item } from './models/item';
 
 @Component({
   selector: 'app-root',
@@ -8,7 +9,10 @@ import { HttpClient } from '@angular/common/http';
 })
 export class AppComponent implements OnInit {
   title = 'angular-green-grocers';
-  groceries: any[] = [];
+  groceries: Item[] = [
+    { id: '001-beetroot', name: 'Beetroot', price: 1.99 },
+    { id: '002-carrot', name: 'Carrot', price: 0.89 },
+  ]
   cart: any[] = [];
 
   constructor(private http: HttpClient) {}
