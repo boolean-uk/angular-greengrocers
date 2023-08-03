@@ -17,7 +17,17 @@ export class CartItemComponent {
   }
   
   subtract() {
-    this.cartService.removeFromCart(this.cartItem.item)
+    this.cartService.removeFromCart(this.cartItem.item, 1)
+  }
+
+  validate(el: HTMLInputElement) {
+    const quantity = Number(el.value)
+
+    if(isNaN(quantity) || quantity <= 0)
+      this.cartService.removeFromCart(this.cartItem.item)
+
+    if(quantity > 99)
+      this.cartItem.quantity = 99
   }
 
 }

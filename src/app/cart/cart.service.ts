@@ -30,12 +30,16 @@ export class CartService {
     this.cartSubject$.next(this.cart)
   }
 
-  removeFromCart(item: Item) {
+  removeFromCart(item: Item, quantity: number | null = null) {
     const cartItem = this.cart.items.find(cartItem => cartItem.item.id == item.id)
     if(!cartItem)
       return
     
-    cartItem.quantity--
+    if(quantity == null)
+      cartItem.quantity = 0
+    else
+      cartItem.quantity -= quantity
+
     if(cartItem.quantity <= 0) {
       const index = this.cart.items.indexOf(cartItem)
       if(index != -1)

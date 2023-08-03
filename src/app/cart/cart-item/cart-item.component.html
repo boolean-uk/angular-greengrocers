@@ -12,12 +12,14 @@
     </svg>
   </button>
   <input
+    #quantity
     type="number"
     size="4"
     min="0"
     max="99"
     maxlength="2"
     [(ngModel)]="cartItem.quantity"
+    (change)="validate(quantity)"
   />
   <button class="subtract" (click)="subtract()">
     <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512">
