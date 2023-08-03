@@ -1,9 +1,10 @@
-<header id="store">
-  <h1>Greengrocers</h1>
-  <!-- your store here -->
-</header>
-<main id="cart">
-  <h2>Your Cart</h2>
-  <!-- your cart here -->
-  <!-- your total here -->
-</main>
+<h1>Greengrocers</h1>
+<nav>
+  <div id="corner-button-container" *ngIf="isCartRoute()">
+    <button [routerLink]="['/store']">back to store</button>
+  </div>
+  <div id="corner-button-container" *ngIf="isStoreRoute()">
+    <button id="cart-button" [routerLink]="['/cart']">see your cart</button>
+  </div>
+</nav>
+<router-outlet></router-outlet>

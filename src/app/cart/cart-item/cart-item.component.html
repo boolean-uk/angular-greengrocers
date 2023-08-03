@@ -1,0 +1,12 @@
+<li class="cart--item-list">
+  <img
+    class="cart--item-icon"
+    src="../../../assets/icons/{{ cartItem.id }}.svg"
+  />
+  {{ cartItem.name }}
+  <button class="quantity-btn add-btn" (click)="onIncrement()">+</button>
+  <div class="quantity-text">
+    <span>{{ quantity }}</span>
+  </div>
+  <button class="quantity-btn remove-btn" (click)="onDecrement()">-</button>
+</li>
