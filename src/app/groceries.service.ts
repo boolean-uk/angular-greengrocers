@@ -29,7 +29,7 @@ export class GroceriesService {
   }
 
   updateTotalPrice(change: number) {
-    this.totalPrice = Math.floor((this.totalPrice + change) * 100) / 100
+    this.totalPrice = Math.round((this.totalPrice + change) * 100) / 100
   }
 
   addToCart(item: Item) {
