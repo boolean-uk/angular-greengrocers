@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http'; // Import HttpClientModule to use HttpClient
+import { HttpClientModule } from '@angular/common/http'; 
 import { AppComponent } from './app.component';
 import { TotalComponent } from './total/total.component';
 
