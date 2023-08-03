@@ -47,4 +47,14 @@ export class GroceryListComponent {
     this.groceries = this.groceryService.getGrocery()
   }
 
+  async sortName() {
+    const sorted = await this.groceries
+    sorted.sort((a: any, b: any) => a.name.localeCompare(b.name));
+  }
+
+  async sortPrice() {
+    const sorted = await this.groceries
+    sorted.sort((a: any, b: any) => a.price-b.price);
+  }
+
 }

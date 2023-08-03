@@ -8,18 +8,20 @@
 />
 </div>
 <div>
-<span>Vegetables only
+<span>Vegetables only</span>
 <input
   type="checkbox"
   id="vegetables"
   [(ngModel)]="isVegetable"
   (change)="toggleVegetable()"
 />
-  </span>
 </div>
+<button (click)="sortName()">Sort by Name</button>
+<button (click)="sortPrice()">Sort by Price</button>
  <ul class="item-list store--item-list">
     <li *ngFor="let grocery of groceries | async">
       <div class="store--item-icon">
+        {{grocery.name}}: {{grocery.price}}$
         <img [src]="'assets/icons/' + grocery.id + '.svg'" [alt]="grocery.id" />
       </div>
       <button (click)="addToCart(grocery)">Add to cart</button>
