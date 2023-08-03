@@ -7,6 +7,10 @@ h2 {
   margin-bottom: 1rem;
 }
 
+p {
+  margin: 0;
+}
+
 /* Buttons */
 
 button {
@@ -16,6 +20,14 @@ button {
   font-size: 0.725rem;
 
   cursor: pointer;
+
+  background-color: white;
+}
+
+.centered-buttons {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
 }
 
 /* Store */
@@ -135,7 +147,7 @@ app-cart {
 .quantity-btn {
   width: 20px;
   height: 20px;
-  padding: 0;
+  padding: 10px;
 
   border-radius: 0.25rem;
 
@@ -179,6 +191,8 @@ app-total {
 
 .total-number {
   font-weight: bold;
+  text-align: center;
+  padding: 10px;
 }
 
 @media only screen and (max-width: 450px) {
