@@ -1,9 +1,19 @@
 <header id="store">
   <h1>Greengrocers</h1>
-  <!-- your store here -->
+  <div class="item-container">
+    <div *ngFor="let item of items" class="item">
+      <img [src]="'assets/icons/' + item.id + '.svg'" alt="{{ item.name }}" width="50" height="50">
+      <p>{{ item.name }} - ${{ item.price }}</p>
+      <button (click)="addToCart(item)">Add to Cart</button>
+    </div>
+  </div>
 </header>
 <main id="cart">
   <h2>Your Cart</h2>
-  <!-- your cart here -->
-  <!-- your total here -->
+  <div *ngFor="let cartItem of cart">
+    <p>{{ cartItem.item.name }} - ${{ cartItem.item.price }} x {{ cartItem.quantity }}</p>
+    <button (click)="changeQuantity(cartItem, -1)">-</button>
+    <button (click)="changeQuantity(cartItem, 1)">+</button>
+  </div>
+  <p>Total: ${{ calculateTotal() }}</p>
 </main>
