@@ -1,9 +1,42 @@
 <header id="store">
   <h1>Greengrocers</h1>
-  <!-- your store here -->
+  <button (click)="changeType('fruit')">Fruits</button>
+  <button (click)="changeType('vegetable')">Vegetables</button>
+  <button (click)="changeType('')">All</button>
+  <ul class="item-list store--item-list">
+    <li *ngFor="let grocery of displayedGroceries">
+      <div class="store--item-icon">
+        <img [src]="'assets/icons/' + grocery.id + '.svg'" [alt]="grocery.name" />
+      </div>
+      <button (click)="addToCart(grocery)">Add to cart</button>
+    </li>
+  </ul>
 </header>
 <main id="cart">
   <h2>Your Cart</h2>
-  <!-- your cart here -->
-  <!-- your total here -->
+  <div class="cart--item-list-container">
+    <ul class="item-list cart--item-list" *ngIf="cart.length > 0; else emptyCart">
+      <li *ngFor="let cartItem of cart">
+        <img
+          class="cart--item-icon"
+          [src]="'assets/icons/' + cartItem.item.id + '.svg'"
+          [alt]="cartItem.item.name"
+        />
+        <p>{{cartItem.item.name}}</p>
+        <button class="quantity-btn remove-btn center" (click)="decrementItem(cartItem.item)">-</button>
+        <span class="quantity-text center">{{cartItem.quantity}}</span>
+        <button class="quantity-btn add-btn center" (click)="incrementItem(cartItem.item)">+</button>
+      </li>
+    </ul>
+    <ng-template #emptyCart>
+      <div>Cart is empty</div>
+    </ng-template>
+  </div>
+  <div>
+    <h3>Total</h3>
+  </div>
+  
+  <div>
+    <span class="total-number">£{{ getTotal() }}</span>
+  </div>
 </main>
