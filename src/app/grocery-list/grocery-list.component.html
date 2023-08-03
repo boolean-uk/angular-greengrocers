@@ -3,7 +3,7 @@
       <div class="store--item-icon">
         <img [src]="'assets/icons/' + grocery.id + '.svg'" [alt]="grocery.id" />
       </div>
-      <button>Add to cart</button>
+      <button (click)="addToCart(grocery)">Add to cart</button>
     </li>
  </ul>
 

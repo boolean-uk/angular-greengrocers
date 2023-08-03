@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {GroceryService} from "../services/grocery.service";
+import {Item} from "../models/item";
 
 @Component({
   selector: 'app-grocery-list',
@@ -12,5 +13,14 @@ export class GroceryListComponent {
   }
 
   groceries = this.groceryService.getGrocery()
+
+  addToCart(grocery: Item) {
+    if(this.groceryService.groceryCart.has(grocery)) {
+      // @ts-ignore
+      this.groceryService.groceryCart.set(grocery, this.cart.get(grocery)+1)
+      return
+    }
+    this.groceryService.groceryCart.set(grocery, 1)
+  }
 
 }

@@ -8,15 +8,12 @@ import {environment} from "../../environments/environment";
   providedIn: 'root',
 })
 export class GroceryService {
-  constructor(private readonly http: HttpClient) {
-
-  }
-  private groceryList: Item[] = []
+  constructor(private readonly http: HttpClient) {}
+  groceryCart: Map<Item,number> = new Map<Item, number>()
 
   async getGrocery() {
     const response = await firstValueFrom(this.http.get<Item[]>(`${environment.apiUrl}`));
     console.log('res', response)
-    this.groceryList.push(...response)
 
     return response
   }
