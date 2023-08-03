@@ -13,13 +13,17 @@ export class GroceryListComponent {
   constructor(private readonly service: GroceryService) { }
   groceries$: Observable<Item[]> = this.service.groceries$
   type: string = 'all'
-  property: string = 'name'
+  property: Property = {name:'name', ascending: true }
 
   setFilterType(type: string) {
     this.type = type
   }
 
-  setProperty(property: string) {
+  setProperty(property: Property) {
     this.property = property
   }
+}
+interface Property{
+  name: string,
+  ascending: boolean
 }

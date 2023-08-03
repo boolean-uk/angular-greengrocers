@@ -1,10 +1,12 @@
 <div *ngIf="groceries$ | async as groceries">
   <div style="display: flex; justify-content: center;">
 
-      <button mat-raised-button [matMenuTriggerFor]="propertyMenu">Sort by: {{property}}</button>
+      <button mat-raised-button [matMenuTriggerFor]="propertyMenu">Sort by: {{property.name}} {{property.ascending ? 'ascending' : 'descending'}}  </button>
       <mat-menu #propertyMenu="matMenu">
-        <button mat-menu-item (click)="setProperty('name')">name</button>
-        <button mat-menu-item (click)="setProperty('price')">price</button>
+        <button mat-menu-item (click)="setProperty({name:'name',ascending:true})">name ascending</button>
+        <button mat-menu-item (click)="setProperty({name:'name',ascending:false})">name descending</button>
+        <button mat-menu-item (click)="setProperty({name:'price',ascending:true})">price ascending</button>
+        <button mat-menu-item (click)="setProperty({name:'price',ascending:false})">price descending</button>
       </mat-menu>
 
       <button mat-raised-button [matMenuTriggerFor]="typeMenu" style="margin-left: 10px;">{{type | styleType}}</button>
@@ -16,6 +18,6 @@
     
   </div>
   <div class="item-card-list">
-    <app-grocery *ngFor="let item of groceries | filter: type | sort: property" [item]="item"></app-grocery>
+    <app-grocery *ngFor="let item of groceries | filter: type | sort: property.name : property.ascending" [item]="item"></app-grocery>
   </div>
 </div>
