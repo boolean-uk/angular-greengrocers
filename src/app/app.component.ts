@@ -42,15 +42,12 @@ export class AppComponent implements OnInit {
 
   async addToCart(item: Item) {
     await this.cartService.addToCart(item);
-    console.log(this.cart);
+    
   }
 
   showFilteredGroceries(groceries: Item[]) {
     this.filteredGroceries = groceries;
-
     this.isEverythingButtonClicked = groceries === this.allGroceries;
-    console.log(this.filteredGroceries);
-    console.log(groceries === this.filteredGroceries);
     this.isVegetableButtonClicked = groceries === this.vegetables;
     this.isFruitButtonClicked = groceries === this.fruits;
   }

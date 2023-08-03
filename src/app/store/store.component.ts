@@ -23,7 +23,6 @@ export class StoreComponent implements OnInit {
   }
   addToCart() {
     {
-      console.log(this.item);
       if (!this.item) {
         throw new Error('cannot add null');
       }
