@@ -1,0 +1,74 @@
+.item-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  width: calc(33.33% - 10px);
+}
+
+.item h3 {
+  margin: 0;
+}
+
+mat-icon {
+  font-size: 48px;
+}
+
+.custom-icon {
+  width: 48px;
+  height: 48px;
+}
+
+.add-to-cart{
+  background-color: darkgreen;
+  color: white;
+  font-weight: bold;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 7px
+}
+
+.add-to-cart:hover{
+  background-color: transparent;
+  color: darkgreen;
+}
+
+
+.toggle-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.mat-button-toggle {
+  background-color: #AFE1AF;
+  color: #ffffff;
+  margin: 5px;
+  padding: 10px 20px;
+}
+
+.mat-button-toggle:hover {
+  background-color: transparent;
+  color: #355E3B;
+}
+
+/* Checked state for Toggle Buttons */
+.mat-button-toggle-checked {
+  background-color: #228B22;
+  color: white;
+}
+.special{
+  width: 70px;
+}
+
