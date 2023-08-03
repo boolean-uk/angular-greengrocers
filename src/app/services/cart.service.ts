@@ -24,4 +24,12 @@ export class CartService {
     if (this.cart.get(item) === 1) this.cart.delete(item)
     else this.cart.set(item, Number(this.cart.get(item)) - 1)
   }
+
+  calculateTotalSum(): Number {
+    let totalSum = 0
+    for (const [item, quantity] of this.cart) {
+      totalSum += item.price * Number(quantity)
+    }
+    return totalSum
+  }
 }
