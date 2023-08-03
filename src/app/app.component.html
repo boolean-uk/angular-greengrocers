@@ -1,9 +1,9 @@
-<header id="store">
-  <h1>Greengrocers</h1>
-  <!-- your store here -->
-</header>
-<main id="cart">
-  <h2>Your Cart</h2>
-  <!-- your cart here -->
+ <header  >
+  <h1 class="centered-text">Greengrocers</h1>
+  <button (click)="switchPages()">Switch Pages</button>
+</header> 
+<main >
+  <router-outlet></router-outlet>
   <!-- your total here -->
+  <app-total></app-total>
 </main>

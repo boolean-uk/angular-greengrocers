@@ -1,0 +1,13 @@
+<!-- <p>store works!</p> -->
+<ul class="item-list store--item-list">
+    <button (click)="filterItemsByType('fruit')">Filter by fruits</button>
+    <button (click)="filterItemsByType('vegetable')">Filter by vegetables</button>
+    <button (click)="sortItemsByPrice()">Sort by Price</button>
+    <button (click)="sortItemsByName()">Sort by Name</button>
+    <li *ngFor="let item of filteredAndSortedItems"> 
+        <div class="store--item-icon">
+          <img src="{{'../../assets/icons/' + item.id + '.svg'}}" alt="{{item.name}}- {{ item.price | currency }}" />
+        </div>
+        <button (click)="addItem(item)">Add to cart</button>
+      </li>
+  </ul>
