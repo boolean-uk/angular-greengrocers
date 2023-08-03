@@ -1,13 +1,13 @@
-<!-- Add the filtering button -->
-<div class="filter-buttons">
+<div class="filter-and-sort-buttons">
   <button (click)="filterByType(null)">Show All</button>
   <button (click)="filterByType('fruit')">Fruits</button>
   <button (click)="filterByType('vegetable')">Vegetables</button>
+  <button (click)="sortGroceriesByName()">Sort by Name</button>
+  <button (click)="sortGroceriesByPrice()">Sort by Price</button>
 </div>
 
 <header id="store">
   <h1>Greengrocers</h1>
-  <!-- your store here -->
   <ul class="store--item-list">
     <li *ngFor="let item of groceries">
       <ng-container *ngIf="!selectedType || item.type === selectedType">
@@ -33,7 +33,6 @@
           <img [src]="'assets/icons/' + item.id + '.svg'" alt="{{ item.name }}" />
         </div>
         <div>{{ item.name }}</div>
-        <!-- Show message when cart is empty -->
         <div>
           <button class="quantity-btn remove-btn" (click)="decreaseQuantity(item)">-</button>
           <span class="quantity-text">{{ item.quantity }}</span>
@@ -42,8 +41,7 @@
         <div>{{ item.price | currency: 'USD': 'symbol' }}</div>
       </li>
     </ul>
-      
-      <!-- your total here -->
+  
     <div class="total-section">
       <app-total [total]="getTotalPrice()"></app-total>
     </div>

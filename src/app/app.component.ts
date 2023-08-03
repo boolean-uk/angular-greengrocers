@@ -64,22 +64,26 @@ export class AppComponent implements OnInit {
     }
   }
 
-  //Extension 1: Filter the store items by type
   filterByType(type: string | null): void {
     this.selectedType = type;
     this.sortGroceriesByType();
   }
 
+  sortGroceriesByPrice(): void {
+    this.groceries.sort((a, b) => a.price - b.price);
+  }
+  sortGroceriesByName(): void {
+    this.groceries.sort((a, b) => a.name.localeCompare(b.name));
+  }
+
   sortGroceriesByType(): void {
     this.groceries.sort((a, b) => {
-      // Check if the selected type matches the item type
       if (this.selectedType && a.type === this.selectedType) {
         return -1; 
       } else if (this.selectedType && b.type === this.selectedType) {
         return 1; 
       }
   
-      // For non-selected types, sort normally
       if (a.type === 'fruit' && b.type === 'vegetable') {
         return -1; 
       } else if (a.type === 'vegetable' && b.type === 'fruit') {
@@ -101,7 +105,6 @@ export class AppComponent implements OnInit {
       existingItem.quantity++;
     }
   }
-  
 
   getTotalPrice() {
     return this.cart.reduce((total, item) => total + item.price * item.quantity, 0);
