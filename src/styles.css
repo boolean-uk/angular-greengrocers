@@ -33,6 +33,17 @@ button {
   text-align: center;
 }
 
+#store .button-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#store button.active {
+  background-color: #007bff;
+  color: #fff;
+}
+
 .store--item-list {
   display: grid;
   grid-template-columns: repeat(4, 125px);
@@ -49,6 +60,12 @@ button {
 .store--item-icon img {
   width: 125px;
   height: 125px;
+}
+
+.store--item-list h3 {
+  display: grid;
+  place-items: center;
+  grid-row-gap: 0.5rem;
 }
 
 @media only screen and (max-width: 600px) {

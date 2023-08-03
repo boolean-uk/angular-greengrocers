@@ -1,0 +1,30 @@
+<div class="cart--item-list-container">
+  <ul class="item-list cart--item-list">
+    <ng-container *ngIf="cartItems$ | async as cartItems">
+      <h2 *ngIf="cartItems.length === 0">Cart is empty</h2>
+      <li *ngFor="let cartItem of cartItems">
+        <img
+          class="cart--item-icon"
+          src="assets/icons/{{ cartItem.item.id }}.svg"
+          alt="{{ cartItem.item.name }}"
+        />
+        <p>{{ cartItem.item.name }}</p>
+        <button
+          class="quantity-btn remove-btn center"
+          (click)="removeItem(cartItem.item)"
+          type="button"
+        >
+          -
+        </button>
+        <span class="quantity-text center">{{ cartItem.quantity }}</span>
+        <button
+          class="quantity-btn add-btn center"
+          (click)="addItem(cartItem.item)"
+          type="button"
+        >
+          +
+        </button>
+      </li>
+    </ng-container>
+  </ul>
+</div>
