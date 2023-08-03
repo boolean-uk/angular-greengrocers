@@ -24,7 +24,7 @@ button {
   color: #fff;
   cursor: pointer;
   display: inline-flex;
-  font-family: system-ui,-apple-system,system-ui,"Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-family: system-ui,-apple-system,system-ui,"Helvetica buttonliNeue",Helvetica,Arial,sans-serif;
   font-size: 16px;
   font-weight: 600;
   justify-content: center;
@@ -35,8 +35,8 @@ button {
   position: relative;
   text-decoration: none;
   transition: all 250ms;
-  user-select: none;
   -webkit-user-select: none;
+  user-select: none;
   touch-action: manipulation;
   vertical-align: baseline;
   width: auto;
@@ -181,7 +181,7 @@ app-cart {
   min-width: 320px;
   height: 100%;
   padding: 0 1rem;
-  background-color:wheat ;
+  background-color:rgb(241, 206, 153) ;
 
   overflow-y: scroll;
   border-radius: 0.5rem;
@@ -231,6 +231,15 @@ app-cart {
 .center {
   display: grid;
   place-items: center;
+}
+
+.itemdiv p
+{
+  margin: 0;
+}
+.smallerPriceFont
+{
+  font-size: 15px;
 }
 
 .quantity-btn {
@@ -305,19 +314,16 @@ app-total {
     grid-template-columns: repeat(3, 125px);
   }
 }
-html {
-  --s: 82px; /* control the size */
-  --c1: #b2b2b2;
-  --c2: #ffffff;
-  --c3: #d9d9d9;
-  
-  --_g: var(--c3) 0 120deg,#0000 0;
-  background:
-    conic-gradient(from -60deg at 50% calc(100%/3),var(--_g)),
-    conic-gradient(from 120deg at 50% calc(200%/3),var(--_g)),
-    conic-gradient(from  60deg at calc(200%/3),var(--c3) 60deg,var(--c2) 0 120deg,#0000 0),
-    conic-gradient(from 180deg at calc(100%/3),var(--c1) 60deg,var(--_g)),
-    linear-gradient(90deg,var(--c1)   calc(100%/6),var(--c2) 0 50%,
-                          var(--c1) 0 calc(500%/6),var(--c2) 0);
-  background-size: calc(1.732*var(--s)) var(--s);
+html{	
+	background: 
+		linear-gradient(180deg, rgba(248, 184, 139,0) 20%, rgba(248, 184, 139,.1) 20%, rgba(248, 184, 139,.1) 40%, rgba(248, 184, 139,.2) 40%, rgba(248, 184, 139,.2) 60%, rgba(248, 184, 139,.4) 60%, rgba(248, 184, 139,.4) 80%, rgba(248, 184, 139,.5) 80%),
+    linear-gradient(45deg, rgba(250, 248, 132,.3) 20%, rgba(250, 248, 132,.4) 20%, rgba(250, 248, 132,.4) 40%, rgba(250, 248, 132,.5) 40%, rgba(250, 248, 132,.5) 60%, rgba(250, 248, 132,.6) 60%, rgba(250, 248, 132,.6) 80%, rgba(250, 248, 132,.7) 80%),
+    linear-gradient(-45deg, rgba(186, 237, 145,0) 20%, rgba(186, 237, 145,.1) 20%, rgba(186, 237, 145,.1) 40%, rgba(186, 237, 145,.2) 40%, rgba(186, 237, 145,.2) 60%, rgba(186, 237, 145,.4) 60%, rgba(186, 237, 145,.4) 80%, rgba(186, 237, 145,.6) 80%),
+		linear-gradient(90deg, rgba(178, 206, 254,0) 20%, rgba(178, 206, 254,.3) 20%, rgba(178, 206, 254,.3) 40%, rgba(178, 206, 254,.5) 40%, rgba(178, 206, 254,.5) 60%, rgba(178, 206, 254,.7) 60%, rgba(178, 206, 254,.7) 80%, rgba(178, 206, 254,.8) 80%),
+    linear-gradient(-90deg, rgba(242, 162, 232,0) 20%, rgba(242, 162, 232,.4) 20%, rgba(242, 162, 232,.4) 40%, rgba(242, 162, 232,.5) 40%, rgba(242, 162, 232,.5) 60%, rgba(242, 162, 232,.6) 60%, rgba(242, 162, 232,.6) 80%, rgba(242, 162, 232,.8) 80%),
+    linear-gradient(180deg, rgba(254, 163, 170,0) 20%, rgba(254, 163, 170,.4) 20%, rgba(254, 163, 170,.4) 40%, rgba(254, 163, 170,.6) 40%, rgba(254, 163, 170,.6) 60%, rgba(254, 163, 170,.8) 60%, rgba(254, 163, 170,.8) 80%, rgba(254, 163, 170,.9) 80%)
+;
+	background-color: rgb(254, 163, 170);
+	background-size: 100% 100%;
+	min-height: 100%;
 }
