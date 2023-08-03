@@ -2,9 +2,11 @@
 <div class="total-container">
         <strong>Total: </strong>{{ total | currency }}
 </div>
-
+<div *ngIf="!cartItems || cartItems.length === 0">
+        <app-empt-cart />
+</div>
 <div class="item-card-list">
-        <app-cart-item *ngFor="let item of cartItems" [item]="item"></app-cart-item>
+        <app-cart-item *ngFor="let item of cartItems" [item]="item" />
 </div>
       
 

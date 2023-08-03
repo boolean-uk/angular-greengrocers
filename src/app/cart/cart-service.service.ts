@@ -11,7 +11,6 @@ export class CartServiceService {
   private cartItems: ItemInCart[] = []
 
   private refresh$ = new BehaviorSubject<ItemInCart[]>(this.cartItems)
-  private priceRefresh$ = new BehaviorSubject<number>(0)
 
   cartItems$ = this.refresh$.asObservable();
 
@@ -45,9 +44,6 @@ export class CartServiceService {
       this.refresh$.next([...this.cartItems]);
     }
   }
-
-
-
 
 }
 export interface ItemInCart{

@@ -8,12 +8,12 @@ import { CartServiceService } from './cart/cart-service.service';
 })
 export class AppComponent implements OnInit{
   title = 'angular-green-grocers';
-  number = 0
+  numberOfProductsInBasket = 0
   constructor(private readonly cartService: CartServiceService) { }
 
   ngOnInit(): void {
     this.cartService.cartItems$.subscribe((items) => {
-      this.number = items.reduce((sum, item) => sum + item.quantity, 0);
+      this.numberOfProductsInBasket = items.reduce((sum, item) => sum + item.quantity, 0);
     });
 
   }
