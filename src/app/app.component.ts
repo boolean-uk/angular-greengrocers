@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { StoreService } from 'src/services/store.service';
+import { Item } from './models/item';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +9,6 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'angular-green-grocers';
+
+
 }

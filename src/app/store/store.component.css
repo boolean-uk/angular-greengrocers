@@ -1,0 +1,12 @@
+#storeDiv{
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+}
+
+.store--item-icon{
+ display: flex;
+ flex-direction: column;
+ margin-bottom: 10px;
+}
+
+
