@@ -1,4 +1,14 @@
-<button (click)="filterByType()">Show Vegetables/Fruits</button>
+<div class="buttons">
+  <button class="filter-button" (click)="toggleTypeFilter()">
+    {{ getTypeButtonText() }}
+  </button>
+  <button class="filter-button" (click)="togglePriceSort()">
+    Sort by Price {{ priceAscending ? "(Ascending)" : "(Descending)" }}
+  </button>
+  <button class="filter-button" (click)="toggleNameSort()">
+    Sort by Name {{ nameAscending ? "(Ascending)" : "(Descending)" }}
+  </button>
+</div>
 <div class="store--item-list" *ngIf="groceries">
   <app-store-item
     *ngFor="let grocery of groceries"
