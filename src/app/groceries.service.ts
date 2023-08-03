@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {firstValueFrom, Observable} from "rxjs";
+import {Observable, Subscription} from "rxjs";
 import { HttpClient } from '@angular/common/http';
 import { Item } from "./models/item";
 import {environment} from "../environments/environment";
@@ -10,13 +10,18 @@ import {environment} from "../environments/environment";
 export class GroceriesService {
   groceriesAvailable: Item[] = [];
   cart: Map<Item, number> = new Map<Item, number>;
-  totalPrice: number = 0
+  totalPrice: number = 0;
+  private subscription: Subscription | null = null;
 
   constructor(private readonly http: HttpClient) {
-    this.getGroceries().subscribe((items: Item[]) => {
+    this.subscription = this.getGroceries().subscribe((items: Item[]) => {
       items.forEach((item: Item) => this.groceriesAvailable.push(item))
-      // items.forEach((item: Item) => this.cart.set(item, 2))
     })
+  }
+
+  destructor() {
+    if(this.subscription)
+      this.subscription.unsubscribe();
   }
 
   getGroceries(): Observable<Item[]> {
