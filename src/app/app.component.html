@@ -4,6 +4,10 @@
 </header>
 <main id="cart">
   <h2>Your Cart</h2>
-  <!-- your cart here -->
-  <!-- your total here -->
+  <app-groceries-basket
+    (shoppingBasketChange)="updateShoppingBasket($event)"
+  ></app-groceries-basket>
+  <app-groceries-basket-total
+    [total]="shoppingBasket.total"
+  ></app-groceries-basket-total>
 </main>
