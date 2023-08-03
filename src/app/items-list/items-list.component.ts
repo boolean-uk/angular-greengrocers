@@ -13,7 +13,7 @@ export class ItemsListComponent {
 
   constructor(private readonly itemsService: ItemsService) { }
 
-  addToCard(itemId: string) {
-    this.itemsService.addItem(itemId)
+  addToCard(itemName: string) {
+    this.itemsService.addItem(itemName)
   }
 }

@@ -14,44 +14,42 @@ export class ItemsService {
 
   constructor(private readonly http: HttpClient) { }
 
-  addItem(itemId: string) {
+  addItem(id: string) {
     const currentBasket = this.itemCountsSubject.getValue()
-    const quantity = currentBasket.get(itemId) || 0
-    currentBasket.set(itemId, quantity + 1)
+    const quantity = currentBasket.get(id) || 0
+    currentBasket.set(id, quantity + 1)
     this.itemCountsSubject.next(currentBasket)
   }
 
-  removeItem(itemId: string) {
+  removeItem(id: string) {
     const currentBasket = this.itemCountsSubject.getValue()
-    const quantity = currentBasket.get(itemId) || 0
+    const quantity = currentBasket.get(id) || 0
     if (quantity <= 1) {
-      currentBasket.delete(itemId)
+      currentBasket.delete(id)
     } else {
-      currentBasket.set(itemId, quantity - 1)
+      currentBasket.set(id, quantity - 1)
     }
     this.itemCountsSubject.next(currentBasket)
   }
 
-  // getCostOfBasket(): Observable<number> {
-  //   return this.itemCounts$.pipe(
-  //     map((itemCounts: Map<string, number>) => {
-  //       let cost = 0
+  setItemCount(id: string, count: number) {
+    if (count < 0) {
+      console.error(`cannot set item count to a negative number`)
+      return
+    }
 
-  //       itemCounts.forEach(((quantity: number, itemId: string) => {
-  //         this.items$.pipe(
-  //           map(items => items.find(item => item.id === itemId)),
-  //           tap((items: Item[]) => cost += items[0]?.price * quantity)
-  //         )
-  //       }))
-  //       return cost
-  //     })
-  //   )
-  // }
+    const currentBasket = this.itemCountsSubject.getValue()
+    if (count === 0) {
+      currentBasket.delete(id)
+    } else {
+      currentBasket.set(id, count)
+    }
+    this.itemCountsSubject.next(currentBasket)
+  }
 
   getCostOfBasket(): Observable<number> {
     return this.itemCounts$.pipe(
       switchMap((itemCounts: Map<string, number>) => {
-        // Use the items$ observable to get the latest list of items from the API.
         return this.items$.pipe(
           map((items: Item[]) => {
             let totalCost = 0;
@@ -90,7 +88,7 @@ export class ItemsService {
         });
 
         return itemNamesWithCount;
-      })
+      }),
     );
   }
 }
