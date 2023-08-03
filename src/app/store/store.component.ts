@@ -20,4 +20,16 @@ export class StoreComponent implements OnInit{
     this.groceriesService.addItemToCart(item)
   }
 
+  sortItemsByPrice() {
+    if(this.items !== null) {
+      this.items = this.items.sort((a, b) => a.price - b.price)
+    }
+  }
+
+  sortItemsByName() {
+    if(this.items !== null) {
+      this.items = this.items.sort((a, b) => a.name.localeCompare(b.name))
+    }
+  }
+
 }

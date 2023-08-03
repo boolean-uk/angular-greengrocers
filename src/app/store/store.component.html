@@ -1,3 +1,7 @@
+<div style="text-align:center">
+  <button (click)="sortItemsByPrice()">Sort by price</button>
+  <button (click)="sortItemsByName()">Sort by name</button>
+</div>
 <ul class="item-list store--item-list">
     <li *ngFor="let item of items">
       <div class="store--item-icon">
