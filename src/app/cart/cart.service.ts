@@ -32,8 +32,8 @@ export class CartServiceService {
     this.cartItems$.next(this.cartItems);
   }
 
-  delete(item: Item) {
-    const existingItemIndex = this.cartItems.findIndex(cartItem => cartItem.item.id === item.id);
+  delete(id: string) {
+    const existingItemIndex = this.cartItems.findIndex(cartItem => cartItem.item.id === id);
     if (existingItemIndex !== -1) {
       this.cartItems.splice(existingItemIndex, 1);
       this.cartItems$.next(this.cartItems);
