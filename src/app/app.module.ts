@@ -10,6 +10,7 @@ import { ProductFilterComponent } from './product-filter/product-filter.componen
 import { FormsModule } from '@angular/forms';
 import { SortByPriceComponent } from './sort-by-price/sort-by-price.component';
 import { StoreComponent } from './store/store.component';
+import { SortByNameComponent } from './sort-by-name/sort-by-name.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { StoreComponent } from './store/store.component';
     ProductFilterComponent,
     SortByPriceComponent,
     StoreComponent,
+    SortByNameComponent,
   ],
   imports: [BrowserModule, HttpClientModule, ShopModule, FormsModule],
   providers: [],
