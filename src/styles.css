@@ -48,12 +48,31 @@ button {
   font-weight: bold;
   border-color: #326344;
   background-color: #89df97;
+}
+
+#store .item-button {
   border-radius: 5px;
 }
 
 #store button:hover {
   color: white;
   background-color: #326344;
+}
+
+#store .button-group {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+#store .button-group button:first-child {
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+
+#store .button-group button:last-child {
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
 }
 
 .store--item-list {

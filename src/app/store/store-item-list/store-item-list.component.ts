@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { Item } from '../../models/item';
@@ -9,6 +9,7 @@ import { StoreService } from '../store.service';
   templateUrl: './store-item-list.component.html',
 })
 export class StoreItemListComponent implements OnInit, OnDestroy {
+  @Input() items!: Item[] | null;
   storeItemList: Item[] = [];
   private onDestroy = new Subject<void>();
 
