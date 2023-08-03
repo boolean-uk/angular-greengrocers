@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { Item } from './models/item';
+import { ItemsService } from './items.service';
+import { StoreComponent } from './store/store.component';
 
 @Component({
   selector: 'app-root',

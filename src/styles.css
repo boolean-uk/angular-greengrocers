@@ -77,6 +77,16 @@ button {
   border-top: 2px solid #e7f4ea;
 }
 
+#checkout {
+  height: 15vh;
+  padding: 1rem;
+
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  grid-gap: 1rem;
+  justify-content: center;
+}
+
 app-cart {
   display: block;
   box-sizing: border-box;
@@ -98,6 +108,11 @@ app-cart {
 .cart--item-list {
   padding: 0;
   margin: 0;
+}
+
+#checkout h2 {
+  margin-bottom: 0;
+  text-align: center;
 }
 
 @media only screen and (max-width: 450px) {
@@ -186,4 +201,14 @@ app-total {
     border-top: 2px solid #00675b;
     border-bottom: 2px solid #00675b;
   }
+}
+
+.sort--buttons {
+  padding: 2px 0 0 0 ;
+  background-color: #e7f4ea;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
 }

@@ -1,0 +1,14 @@
+<div class="sort--buttons">
+  <button (click)="changeType()">Type: {{availableTypes[chosenTypeInd]}}</button>
+  <button (click)="changeChosenProperty('price')">Sort by price</button>
+  <button (click)="changeChosenProperty('name')">Sort by name</button>
+</div>
+
+<ul class="item-list store--item-list">
+  <li *ngFor="let item of items | typePipe: availableTypes[chosenTypeInd] | sortPipe: chosenProperty">
+    <div class="store--item-icon">
+      <img src="{{'../../assets/icons/' + item.id + '.svg'}}" alt="{{item.name}}" />
+    </div>
+    <button (click)="addItem(item)">Add to cart</button>
+  </li>
+</ul>

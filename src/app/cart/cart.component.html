@@ -1,0 +1,20 @@
+<div class="cart--item-list-container">
+  <ng-container *ngIf="this.getBindedChosenItems().length !== 0">
+    <ul class="item-list cart--item-list">
+      <li *ngFor="let item of this.getBindedChosenItems()">
+        <img
+        class="cart--item-icon"
+        src="{{'../../assets/icons/' + item.id + '.svg'}}"
+        alt="item.name"
+        />
+        <p>{{ item.name }}</p>
+        <button class="quantity-btn remove-btn center" (click)="removeItem(item)">-</button>
+        <span class="quantity-text center">{{ this.getItemCount(item) }}</span>
+        <button class="quantity-btn add-btn center" (click)="addItem(item)">+</button>
+      </li>
+    </ul>
+  </ng-container>
+  <ng-container *ngIf="this.getBindedChosenItems().length === 0">
+    <h3>Cart is empty</h3>
+  </ng-container>
+</div>
