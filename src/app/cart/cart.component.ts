@@ -18,12 +18,12 @@ export class CartComponent implements OnInit{
 
   async add(item: Item){
     this.storeService.addToCart(item);
-    this.storeService.message.next(this.storeService.getTotalPriceAfterAdding());
+    this.storeService.message$.next(this.storeService.getTotalPriceAfterAdding());
   }
 
   remove(item: Item){
     this.storeService.removeFromCart(item);
-    this.storeService.message.next(this.storeService.totalCost);
+    this.storeService.message$.next(this.storeService.totalCost);
   }
 }
 

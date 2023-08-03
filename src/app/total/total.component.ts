@@ -11,7 +11,7 @@ export class TotalComponent implements OnInit {
 
   constructor(private readonly storeService: StoreService) {}
   ngOnInit() {
-    this.storeService.message.subscribe((el) => {
+    this.storeService.message$.subscribe((el) => {
       this.totalPrice = el;
     });
   }

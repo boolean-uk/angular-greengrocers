@@ -1,7 +1,10 @@
+<button (click)="filter()">{{filtered}}</button>
+<button (click)="sortByPrice()">{{sorted}}</button>
 <div id = "storeDiv">
-  <div *ngFor="let i of items" class = "item-list store--item-list">
+  <div *ngFor="let i of items$ | async" class = "item-list store--item-list">
       <div class="store--item-icon">
         <img src="assets/icons/{{i.id}}.svg" [alt] = "i.id" class="item"/>
+        {{i.price}}
         <button (click) = "addItemToCart(i)" class="storeButton">Add to cart</button>
       </div>
     </div>
