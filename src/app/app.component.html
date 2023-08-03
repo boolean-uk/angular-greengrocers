@@ -1,9 +1,55 @@
 <header id="store">
   <h1>Greengrocers</h1>
-  <!-- your store here -->
+  <ul class="item-list store--item-list">
+    <li *ngFor="let item of itemList">
+      <div class="store--item-icon">
+        <img [src]="'assets/icons/' + item.id + '.svg'" [alt]="item.name" />
+      </div>
+      <button (click)="addToCart(item)">Add to cart</button>
+    </li>
+  </ul>
 </header>
+
 <main id="cart">
   <h2>Your Cart</h2>
-  <!-- your cart here -->
-  <!-- your total here -->
+  <div class="cart--item-list-container">
+    <ul class="item-list cart--item-list">
+      <li *ngFor="let cartItem of shoppingCart">
+        <img
+          class="cart--item-icon"
+          [src]="'assets/icons/' + cartItem.item.id + '.svg'"
+          [alt]="cartItem.item.name"
+        />
+        <p>{{ cartItem.item.name }}</p>
+        <button
+          class="quantity-btn remove-btn center"
+          (click)="decreaseQuantity(cartItem)"
+        >
+          -
+        </button>
+        <span class="quantity-text center">{{ cartItem.quantity }}</span>
+        <button
+          class="quantity-btn add-btn center"
+          (click)="increaseQuantity(cartItem)"
+        >
+          +
+        </button>
+      </li>
+    </ul>
+  </div>
+  <div>
+    <h3>Total</h3>
+  </div>
+  <div>
+    <button (click)="filterByType()">Filter by type</button>
+  </div>
+  <div>
+    <button (click)="sortByName()">Toggle sort by name</button>
+  </div>
+  <div>
+    <button (click)="sortByPrice()">Toggle sort by price</button>
+  </div>
+  <div>
+    <span class="total-number">{{ this.totalPrice() | currency }}</span>
+  </div>
 </main>
