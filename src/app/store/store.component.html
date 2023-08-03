@@ -1,7 +1,39 @@
+<div class="button-container">
+  <button
+    (click)="toggleShow('veggies')"
+    [class.active]="onlyVeggies"
+    type="button"
+  >
+    Show Veggies
+  </button>
+  <button
+    (click)="toggleShow('fruits')"
+    [class.active]="onlyFruits"
+    type="button"
+  >
+    Show Fruits
+  </button>
+  <button
+    (click)="toggleSort('price')"
+    [class.active]="sortBy === 'price'"
+    type="button"
+  >
+    Sort by Price
+  </button>
+  <button
+    (click)="toggleSort('name')"
+    [class.active]="sortBy === 'name'"
+    type="button"
+  >
+    Sort by Name
+  </button>
+</div>
+
 <ul class="item-list store--item-list">
-  <li *ngFor="let item of items">
+  <li *ngFor="let item of filteredItems">
     <div class="store--item-icon">
       <img src="assets/icons/{{ item.id }}.svg" alt="{{ item.name }}" />
+      <h3>{{ item.name }} {{ item.price | currency }}</h3>
     </div>
     <button (click)="addItemToCart(item)" type="button">Add to cart</button>
   </li>
