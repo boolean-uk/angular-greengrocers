@@ -187,3 +187,31 @@ app-total {
     border-bottom: 2px solid #00675b;
   }
 }
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.rounded-button {
+  padding: 12px 24px;
+  background-color: #28a745;
+  color: #fff;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  font-size: 12px;
+  margin-right: 20px;
+}
+
+.rounded-button-smaller {
+  padding: 12px 24px;
+  background-color: #28a745;
+  color: #fff;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  font-size: 8px;
+  margin-right: 20px;
+}
