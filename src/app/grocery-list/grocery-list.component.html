@@ -1,0 +1,10 @@
+ <ul class="item-list store--item-list">
+    <li *ngFor="let grocery of groceries | async">
+      <div class="store--item-icon">
+        <img [src]="'assets/icons/' + grocery.id + '.svg'" [alt]="grocery.id" />
+      </div>
+      <button>Add to cart</button>
+    </li>
+ </ul>
+
+
