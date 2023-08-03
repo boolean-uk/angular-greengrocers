@@ -13,6 +13,8 @@ export class GroceryListComponent {
   }
 
   groceries = this.groceryService.getGrocery()
+  isFruit: boolean = false
+  isVegetable: boolean = false
 
   addToCart(grocery: Item) {
     if(this.groceryService.groceryCart.has(grocery)) {
@@ -21,6 +23,28 @@ export class GroceryListComponent {
       return
     }
     this.groceryService.groceryCart.set(grocery, 1)
+  }
+
+  toggleFruit() {
+    if(this.isFruit) {
+      this.groceries = this.groceryService.getFruit()
+      const a = document.getElementById('vegetables')
+      // @ts-ignore
+      a.checked = false
+      return
+    }
+    this.groceries = this.groceryService.getGrocery()
+  }
+
+  toggleVegetable() {
+    if(this.isVegetable) {
+      this.groceries = this.groceryService.getVegetable()
+      const a = document.getElementById('fruits')
+      // @ts-ignore
+      a.checked = false
+      return
+    }
+    this.groceries = this.groceryService.getGrocery()
   }
 
 }

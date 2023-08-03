@@ -1,3 +1,22 @@
+<div>
+<span>Fruits only</span>
+<input
+  type="checkbox"
+  id="fruits"
+  [(ngModel)]="isFruit"
+  (change)="toggleFruit()"
+/>
+</div>
+<div>
+<span>Vegetables only
+<input
+  type="checkbox"
+  id="vegetables"
+  [(ngModel)]="isVegetable"
+  (change)="toggleVegetable()"
+/>
+  </span>
+</div>
  <ul class="item-list store--item-list">
     <li *ngFor="let grocery of groceries | async">
       <div class="store--item-icon">
