@@ -1,21 +1,20 @@
 import { Component, OnInit } from '@angular/core';
 import { CartServiceService } from './cart/cart-service.service';
+import { map } from 'rxjs';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit{
+export class AppComponent{
   title = 'angular-green-grocers';
-  numberOfProductsInBasket = 0
+
   constructor(private readonly cartService: CartServiceService) { }
 
-  ngOnInit(): void {
-    this.cartService.cartItems$.subscribe((items) => {
-      this.numberOfProductsInBasket = items.reduce((sum, item) => sum + item.quantity, 0);
-    });
-
-  }
+  numberOfProductsInBasket$ = this.cartService.cartItems$.pipe(
+    map(items => items.reduce((sum, item) => sum + item.quantity, 0))
+  );
 
 }
+

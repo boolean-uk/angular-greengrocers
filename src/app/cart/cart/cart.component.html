@@ -1,12 +1,14 @@
 
 <div class="total-container">
-        <strong>Total: </strong>{{ total | currency }}
+        <strong>Total: </strong>{{ total$ | async | currency }}
 </div>
-<div *ngIf="!cartItems || cartItems.length === 0">
-        <app-empt-cart />
-</div>
-<div class="item-card-list">
-        <app-cart-item *ngFor="let item of cartItems" [item]="item" />
+<div *ngIf="cartItems$ | async as cartItems">
+        <div *ngIf="cartItems.length === 0">
+                <app-empt-cart />
+        </div>
+        <div class="item-card-list">
+                <app-cart-item *ngFor="let item of cartItems" [item]="item" />
+        </div>
 </div>
       
 

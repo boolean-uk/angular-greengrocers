@@ -1,18 +1,17 @@
-<!-- cart-item.component.html -->
 <mat-card class="cart-item-card">
-    <mat-card-content>
-      <div class="cart-item-details">
-        <mat-icon class="delete-icon" (click)="deleteItem()">delete</mat-icon>
-    
-        <p><strong>{{ item.item.name }} </strong> x {{item.quantity}}</p>
-        <p>Price: {{ item.item.price * item.quantity | currency}}</p>
-      </div>
-      <div class="quantity-container">
-        <mat-form-field appearance="outline">
-
-          <input type="number" matInput [(ngModel)]="item.quantity" (ngModelChange)="onQuantityChange()">
-        </mat-form-field>
-      </div>
-    </mat-card-content>
-  </mat-card>
+  <mat-card-content>
+    <div class="cart-item-details">
+      <mat-icon class="delete-icon" (click)="deleteItem()">delete</mat-icon>
+  
+      <p><strong>{{ item.item.name }} </strong> x {{item.quantity}}</p>
+      <p>Price: {{ item.item.price * item.quantity | currency}}</p>
+    </div>
+    <div class="quantity-container">
+      <mat-form-field appearance="outline">
+        <mat-label>Quantity</mat-label>
+        <input type="number" matInput [(ngModel)]="item.quantity" (ngModelChange)="onQuantityChange()">
+      </mat-form-field>
+    </div>
+  </mat-card-content>
+</mat-card>
   

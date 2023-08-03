@@ -4,7 +4,7 @@
         <span>Greengrocers</span>
         <mat-icon >home</mat-icon>
       </div>
-      <mat-icon routerLink="/cart" class="navbarIcon cart" matBadge={{numberOfProductsInBasket}} matBadgeSize="small" matBadgeColor="accent">shopping_cart</mat-icon>
+      <mat-icon routerLink="/cart" class="navbarIcon cart" [matBadge]="numberOfProductsInBasket$ | async" matBadgeSize="small" matBadgeColor="accent">shopping_cart</mat-icon>
     </div>
 </mat-toolbar>
 

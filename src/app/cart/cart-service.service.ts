@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Item } from '../models/item';
-import { BehaviorSubject, scan, switchMap } from 'rxjs';
+import { BehaviorSubject, scan} from 'rxjs';
 
 
 @Injectable({
