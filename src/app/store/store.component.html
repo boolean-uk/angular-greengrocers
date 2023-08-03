@@ -1,0 +1,14 @@
+<div style="text-align:center">
+  <button (click)="sortItemsByPrice()">Sort by price</button>
+  <button (click)="sortItemsByName()">Sort by name</button>
+  <button (click)="filterByType()">{{shouldShowFruits ? "Show vegetables" : "Show fruits"}}</button>
+</div>
+<ul class="item-list store--item-list">
+    <li *ngFor="let item of items">
+      <div class="store--item-icon">
+        <img src="assets/icons/{{item.id}}.svg" alt="{{item.name}}" />
+      </div>
+      <button (click)="addToCart(item)">Add to cart</button>
+    </li>
+  </ul>
+  
