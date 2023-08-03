@@ -14,7 +14,8 @@ export class CartItemComponent {
   constructor(private readonly service: CartServiceService){}
 
   onQuantityChange() {
-    if(this.item.quantity <= 0) this.item.quantity = 1
+    if (this.item.quantity <= 0) this.item.quantity = 1
+    if(!Number.isInteger(this.item.quantity)) this.item.quantity = Math.floor(this.item.quantity)
     this.service.changeQuantity()
   }
 
