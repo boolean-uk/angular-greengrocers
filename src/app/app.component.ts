@@ -7,6 +7,6 @@ import { GrocersService } from 'src/grocers.service';
   styleUrls: ['./app.component.css'],
   providers: [GrocersService],
 })
-export class AppComponent {
+export class AppComponent{
   title = 'angular-green-grocers';
 }

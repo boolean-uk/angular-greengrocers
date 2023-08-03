@@ -1,3 +1,19 @@
+<div>
+<div class="container">
+    <button style="padding: 10px; background-color: #4CAF50; color: white; border: none; cursor: pointer;"
+            (click)="sortItemsByPrice() ">Sort by Price</button>
+    <button style="padding: 10px; background-color: #008CBA; color: white; border: none; cursor: pointer;"
+            (click)="sortItemsByName()">Sort by Name</button>
+    <button style="padding: 10px; background-color: #af4c96; color: white; border: none; cursor: pointer;"
+            (click)="filterItemsFruits()"> Filter fruits </button>
+    <button style="padding: 10px; background-color: #7f00ba; color: white; border: none; cursor: pointer;"
+            (click)="filterItemsVegetables()"> Filter vegetables</button>
+    <button style="padding: 10px; background-color: #ba0000; color: white; border: none; cursor: pointer;"
+            (click)="filterAll()"> All visible</button>
+</div>
+<div>
 <ul class="item-list store--item-list">
-    <app-store-item *ngFor="let item of store" [item]="item"/>
+    <app-store-item *ngFor="let item of filterAndSorted" [item]="item"/>
 </ul>
+</div>
+</div>
