@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import {environment} from "../../environments/environment";
 import {HttpClient} from "@angular/common/http";
 import {Item} from "../models/item";
-import { BehaviorSubject } from 'rxjs';
+import {BehaviorSubject, firstValueFrom} from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -20,7 +20,7 @@ export class ItemService {
 
   async getItems(): Promise<Item[]> {
     console.log("get works")
-    const response = await this.http.get<Item[]>(`${this.apiUrl}groceries`).toPromise();
+    const response = await firstValueFrom(this.http.get<Item[]>(`${this.apiUrl}groceries`));
     return response || [];
   }
 
@@ -74,7 +74,7 @@ export class ItemService {
 
   async getItemsByType(type: string): Promise<Item[]> {
     try {
-      const response = await this.http.get<Item[]>(`${this.apiUrl}groceries`).toPromise();
+      const response = await firstValueFrom(this.http.get<Item[]>(`${this.apiUrl}groceries`));
       if (Array.isArray(response)) {
         const itemsByType = response.filter((item) => item.type === type);
         return itemsByType;
