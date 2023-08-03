@@ -13,6 +13,7 @@ import { GrocerySorter } from '../grocery-sorter/grocery-sorter.component';
 export class GroceryListComponent {
 
   groceries$ = this.getGroceries(FilterType.ALL)
+  sorter: GrocerySorter | null = null
 
   constructor(private greengrocersService: GreengrocersService) {}
 
@@ -31,8 +32,8 @@ export class GroceryListComponent {
     this.groceries$ = this.getGroceries(filter)
   }
 
-  sortGroceries(items: Item[] | null, sorter: GrocerySorter) {
-    items?.sort(sorter)
+  setSorter(sorter: GrocerySorter) {
+    this.sorter = sorter
   }
 
 }

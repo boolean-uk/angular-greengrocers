@@ -1,11 +1,11 @@
-<ng-container *ngIf="{ groceries: groceries$ | async } as data">
+<ng-container
+  *ngIf="{ groceries: groceries$ | async | grocerySorter : sorter } as data"
+>
   <div class="options">
     <app-grocery-filter
       (onChange)="filterGroceries($event)"
     ></app-grocery-filter>
-    <app-grocery-sorter
-      (onChange)="sortGroceries(data.groceries, $event)"
-    ></app-grocery-sorter>
+    <app-grocery-sorter (onChange)="setSorter($event)"></app-grocery-sorter>
   </div>
   <div class="items">
     <app-grocery-item

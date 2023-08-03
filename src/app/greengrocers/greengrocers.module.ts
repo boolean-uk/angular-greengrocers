@@ -7,6 +7,7 @@ import { GrocerySorterComponent } from './grocery-sorter/grocery-sorter.componen
 import { GroceryComponent } from './grocery/grocery.component';
 import { CartModule } from '../cart/cart.module';
 import { RouterModule } from '@angular/router';
+import { GrocerySorterPipe } from './grocery-sorter/grocery-sorter.pipe';
 
 
 
@@ -16,12 +17,13 @@ import { RouterModule } from '@angular/router';
     GroceryItemComponent,
     GroceryFilterComponent,
     GrocerySorterComponent,
-    GroceryComponent
+    GroceryComponent,
+    GrocerySorterPipe
   ],
   imports: [
     CommonModule,
     CartModule,
-    RouterModule
+    RouterModule,
   ],
   exports: []
 })
