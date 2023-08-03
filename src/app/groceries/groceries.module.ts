@@ -13,6 +13,7 @@ import { FilterPipe } from './filter.pipe';
 import { SortPipe } from './sort.pipe';
 import { RouterModule } from '@angular/router';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 
 
@@ -34,6 +35,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     MatSelectModule,
     MatMenuModule,
     MatSnackBarModule,
+    MatTooltipModule,
     RouterModule
   ],
   exports: [
