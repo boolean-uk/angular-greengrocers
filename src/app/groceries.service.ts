@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Item } from './models/item';
 import {HttpClient} from '@angular/common/http';
-import { firstValueFrom } from 'rxjs';
+import { BehaviorSubject, firstValueFrom } from 'rxjs';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
@@ -11,6 +11,9 @@ export class GroceriesService {
 
   items: Promise<Item[]> = this.fetchItems()
   itemsInCart: Item[] = []
+  totalPrice: number = 0
+  behaviorSubject: BehaviorSubject<number> = new BehaviorSubject(0);
+
   constructor(private readonly http: HttpClient) {
   }
 
@@ -32,7 +35,8 @@ export class GroceriesService {
       item.quantity = 1
       this.itemsInCart.push(item)
     }
-    //console.log(this.itemsInCart)
+    this.totalPrice += item.price
+    this.behaviorSubject.next(this.totalPrice)
   }
 
   removeItemFromCart(item: Item) {
@@ -41,7 +45,8 @@ export class GroceriesService {
     } else {
       this.itemsInCart.splice(this.itemsInCart.indexOf(item), 1)
     }
-    // console.log(this.itemsInCart)
+    this.totalPrice -= item.price
+    this.behaviorSubject.next(this.totalPrice)
   }
   
 }
