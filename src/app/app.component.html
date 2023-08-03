@@ -1,9 +1,32 @@
 <header id="store">
   <h1>Greengrocers</h1>
-  <!-- your store here -->
+  <ul class="store--item-list">
+    <li *ngFor="let item of groceries">
+      <div class="store--item-icon">
+        <img [src]="'./src/assets/icons/' + item.id + '.svg'" alt="{{ item.name }}" />
+      </div>
+      <div>{{ item.name }}</div>
+      <div>{{ item.price | currency: 'USD': 'symbol' }}</div>
+      <button (click)="addToCart(item)">Add to Cart</button>
+    </li>
+  </ul>
 </header>
-<main id="cart">
-  <h2>Your Cart</h2>
-  <!-- your cart here -->
-  <!-- your total here -->
-</main>
+
+  <main id="cart">
+    
+    <h2>Your Cart</h2>
+    <ul class="cart--item-list">
+      <li *ngFor="let item of cart">
+        <div class="cart--item-icon">
+          <img [src]="'./src/assets/icons/' + item.id + '.svg'" alt="{{ item.name }}" />
+        </div>
+        <div>{{ item.name }}</div>
+        <div>
+          <button class="quantity-btn remove-btn" (click)="decreaseQuantity(item)">-</button>
+          <span class="quantity-text">{{ item.quantity }}</span>
+          <button class="quantity-btn add-btn" (click)="increaseQuantity(item)">+</button>
+        </div>
+        <div>{{ item.price | currency: 'USD': 'symbol' }}</div>
+      </li>
+    </ul>
+  </main>
