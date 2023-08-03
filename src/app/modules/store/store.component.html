@@ -1,0 +1,17 @@
+<div class="centered-buttons">
+  <button (click)="sortByVegetables()" style="margin: 5px">Vegetables</button>
+  <button (click)="sortByFruits()" style="margin: 5px">Fruits</button>
+</div>
+<ul class="store--item-list">
+  <li *ngFor="let item of items$ | async" class="store--item-icon">
+    <img
+      [src]="'assets/icons/' + item.id + '.svg'"
+      [alt]="item.name"
+      width="125"
+      height="125"
+    />
+    <p>{{ item.name }} = {{ item.price | currency: 'USD' }}</p>
+    <button (click)="addToCart(item)">Add to cart</button>
+  </li>
+</ul>
+<div *ngIf="(error$ | async) as error">{{ error }}</div>

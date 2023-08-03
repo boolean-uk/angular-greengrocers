@@ -1,0 +1,21 @@
+<div *ngIf="cartItems.length > 0; else emptyCart">
+  <ul class="cart--item-list">
+    <li *ngFor="let item of cartItems">
+      <img
+        [src]="'assets/icons/' + item.id + '.svg'"
+        [alt]="item.name"
+        class="cart--item-icon"
+      />
+      <p>{{ item.name }}</p>
+      <div class="quantity-controls">
+        <button class="add-btn" (click)="increaseQuantity(item)">+</button>
+        <span class="quantity-btn">{{ item.quantity }}</span>
+        <button class="remove-btn" (click)="decreaseQuantity(item)">-</button>
+      </div>
+    </li>
+  </ul>
+</div>
+
+<ng-template #emptyCart>
+  <p>Your cart is empty.</p>
+</ng-template>
