@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Item } from './models/item';
+import { Item } from '../models/item';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  selector: 'app-checkout',
+  templateUrl: './checkout.component.html',
+  styleUrls: ['./checkout.component.css']
 })
-export class AppComponent implements OnInit {
+export class CheckoutComponent implements OnInit {
   title = 'angular-green-grocers';
   groceries: Item[] = [
     { id: '001-beetroot', name: 'Beetroot', price: 1.99, type: 'vegetable' },
@@ -43,55 +43,15 @@ export class AppComponent implements OnInit {
     );
   }
 
-  addToCart(item: any) {
-    const existingItem = this.cart.find((cartItem) => cartItem.id === item.id);
-
-    if (existingItem) {
-      existingItem.quantity++;
-    } else {
-      this.cart.push({ ...item, quantity: 1 });
-    }
-  }
-
   decreaseQuantity(item: any): void {
     const existingItem = this.cart.find((cartItem) => cartItem.id === item.id);
-  
+
     if (existingItem && existingItem.quantity > 0) {
       existingItem.quantity--;
       if (existingItem.quantity === 0) {
         this.removeFromCart(item);
       }
     }
-  }
-
-  filterByType(type: string | null): void {
-    this.selectedType = type;
-    this.sortGroceriesByType();
-  }
-
-  sortGroceriesByPrice(): void {
-    this.groceries.sort((a, b) => a.price - b.price);
-  }
-  sortGroceriesByName(): void {
-    this.groceries.sort((a, b) => a.name.localeCompare(b.name));
-  }
-
-  sortGroceriesByType(): void {
-    this.groceries.sort((a, b) => {
-      if (this.selectedType && a.type === this.selectedType) {
-        return -1; 
-      } else if (this.selectedType && b.type === this.selectedType) {
-        return 1; 
-      }
-  
-      if (a.type === 'fruit' && b.type === 'vegetable') {
-        return -1; 
-      } else if (a.type === 'vegetable' && b.type === 'fruit') {
-        return 1; 
-      } else {
-        return 0; 
-      }
-    });
   }
 
   removeFromCart(item: Item): void {
@@ -105,7 +65,6 @@ export class AppComponent implements OnInit {
       existingItem.quantity++;
     }
   }
-
   getTotalPrice() {
     return this.cart.reduce((total, item) => total + item.price * item.quantity, 0);
   }

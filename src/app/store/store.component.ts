@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Item } from './models/item';
+import { Item } from '../models/item';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  selector: 'app-store',
+  templateUrl: './store.component.html',
+  styleUrls: ['./store.component.css']
 })
-export class AppComponent implements OnInit {
+export class StoreComponent implements OnInit {
   title = 'angular-green-grocers';
   groceries: Item[] = [
     { id: '001-beetroot', name: 'Beetroot', price: 1.99, type: 'vegetable' },
@@ -53,17 +53,6 @@ export class AppComponent implements OnInit {
     }
   }
 
-  decreaseQuantity(item: any): void {
-    const existingItem = this.cart.find((cartItem) => cartItem.id === item.id);
-  
-    if (existingItem && existingItem.quantity > 0) {
-      existingItem.quantity--;
-      if (existingItem.quantity === 0) {
-        this.removeFromCart(item);
-      }
-    }
-  }
-
   filterByType(type: string | null): void {
     this.selectedType = type;
     this.sortGroceriesByType();
@@ -72,6 +61,7 @@ export class AppComponent implements OnInit {
   sortGroceriesByPrice(): void {
     this.groceries.sort((a, b) => a.price - b.price);
   }
+
   sortGroceriesByName(): void {
     this.groceries.sort((a, b) => a.name.localeCompare(b.name));
   }
@@ -83,7 +73,7 @@ export class AppComponent implements OnInit {
       } else if (this.selectedType && b.type === this.selectedType) {
         return 1; 
       }
-  
+
       if (a.type === 'fruit' && b.type === 'vegetable') {
         return -1; 
       } else if (a.type === 'vegetable' && b.type === 'fruit') {
@@ -92,21 +82,5 @@ export class AppComponent implements OnInit {
         return 0; 
       }
     });
-  }
-
-  removeFromCart(item: Item): void {
-    this.cart = this.cart.filter((cartItem) => cartItem.id !== item.id);
-  }
-
-  increaseQuantity(item: any) {
-    const existingItem = this.cart.find((cartItem) => cartItem.id === item.id);
-
-    if (existingItem) {
-      existingItem.quantity++;
-    }
-  }
-
-  getTotalPrice() {
-    return this.cart.reduce((total, item) => total + item.price * item.quantity, 0);
   }
 }

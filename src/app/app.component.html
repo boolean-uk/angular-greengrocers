@@ -1,9 +1,48 @@
+<div class="filter-and-sort-buttons">
+  <button (click)="filterByType(null)">Show All</button>
+  <button (click)="filterByType('fruit')">Fruits</button>
+  <button (click)="filterByType('vegetable')">Vegetables</button>
+  <button (click)="sortGroceriesByName()">Sort by Name</button>
+  <button (click)="sortGroceriesByPrice()">Sort by Price</button>
+</div>
+
 <header id="store">
   <h1>Greengrocers</h1>
-  <!-- your store here -->
+  <ul class="store--item-list">
+    <li *ngFor="let item of groceries">
+      <ng-container *ngIf="!selectedType || item.type === selectedType">
+      <div class="store--item-icon">
+        <img [src]="'assets/icons/' + item.id + '.svg'" alt="{{ item.name }}" />
+      </div>
+      <div>{{ item.name }}</div>
+      <div>{{ item.price | currency: 'USD': 'symbol' }}</div>
+      <button (click)="addToCart(item)">Add to Cart</button>
+    </ng-container>
+    </li>
+  </ul>
 </header>
-<main id="cart">
-  <h2>Your Cart</h2>
-  <!-- your cart here -->
-  <!-- your total here -->
-</main>
+
+  <main id="cart">
+    
+    <h2>Your Cart</h2>
+    <ul class="cart--item-list">
+      <div *ngIf="cart.length === 0" class="empty-cart">Your cart is empty.</div>
+      <div *ngIf="cart.length > 0" class="total-section"></div>
+      <li *ngFor="let item of cart">
+        <div class="cart--item-icon">
+          <img [src]="'assets/icons/' + item.id + '.svg'" alt="{{ item.name }}" />
+        </div>
+        <div>{{ item.name }}</div>
+        <div>
+          <button class="quantity-btn remove-btn" (click)="decreaseQuantity(item)">-</button>
+          <span class="quantity-text">{{ item.quantity }}</span>
+          <button class="quantity-btn add-btn" (click)="increaseQuantity(item)">+</button>
+        </div>
+        <div>{{ item.price | currency: 'USD': 'symbol' }}</div>
+      </li>
+    </ul>
+  
+    <div class="total-section">
+      <app-total [total]="getTotalPrice()"></app-total>
+    </div>
+  </main>

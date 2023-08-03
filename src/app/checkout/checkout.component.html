@@ -1,0 +1,22 @@
+<main id="cart">
+    <h2>Your Cart</h2>
+    <ul class="cart--item-list">
+      <div *ngIf="cart.length === 0" class="empty-cart">Your cart is empty.</div>
+      <div *ngIf="cart.length > 0" class="total-section"></div>
+      <li *ngFor="let item of cart">
+        <div class="cart--item-icon">
+          <img [src]="'assets/icons/' + item.id + '.svg'" alt="{{ item.name }}" />
+        </div>
+        <div>{{ item.name }}</div>
+        <div>
+          <button class="quantity-btn remove-btn" (click)="decreaseQuantity(item)">-</button>
+          <span class="quantity-text">{{ item.quantity }}</span>
+          <button class="quantity-btn add-btn" (click)="increaseQuantity(item)">+</button>
+        </div>
+        <div>{{ item.price | currency: 'USD': 'symbol' }}</div>
+      </li>
+    </ul>
+    <div class="total-section">
+      <app-total [total]="getTotalPrice()"></app-total>
+    </div>
+  </main>
