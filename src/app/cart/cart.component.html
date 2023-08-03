@@ -1,16 +1,22 @@
-<div *ngIf="(cart | json) == '{}'">
+<ng-container *ngIf="isCartEmpty()">
   <p>Cart is empty</p>
-</div>
-<div *ngIf="(cart | json) != '{}'">
-  <div *ngFor="let id of cart | keyvalue">
-    <img src='assets\icons\{{id.key}}.svg' alt='{{ id.key }}'
-    height="15px"
-    width="15px">
-    {{ id.value[0].name }}
-    <span class="item-quantity">
-      <button (click)="minusItem(id.value[0])">-</button>
-      {{ id.value.length }}
-      <button (click)="plusItem(id.value[0])">+</button>
-    </span>
- </div>
-</div>
+</ng-container>
+
+<ng-container *ngIf="!isCartEmpty()">
+    <div *ngFor="let id of cart | keyvalue" class="cart">
+      <span>
+        <img src='assets\icons\{{id.key}}.svg' alt='{{ id.key }}'
+        height="15px"
+        width="15px">
+        {{ id.value[0].name }}
+      </span>
+      <span class="item-quantity">
+        <button (click)="minusItem(id.value[0])" id="minus">-</button>
+        <span class="item-quantity-box">
+          {{ id.value.length }}
+        </span>
+        <button (click)="plusItem(id.value[0])" id="plus">+</button>
+      </span>
+   </div>
+</ng-container>
+

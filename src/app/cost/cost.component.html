@@ -1,3 +1,8 @@
-<div>
-  <p class="total-cost">Total {{total | currency: 'GBP'}}</p>
-</div>
+<ng-container >
+  <p class="total-cost">
+    Total
+    <span>
+      {{total | currency: 'GBP'}}
+    </span>
+  </p>
+</ng-container>

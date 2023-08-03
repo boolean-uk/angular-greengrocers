@@ -15,6 +15,10 @@ export class CartComponent {
     this.cart = this.groceryService.cart
   }
 
+  isCartEmpty(): boolean{
+    return this.groceryService.isCartEmpty()
+  }
+
   minusItem(item: Item){
     this.groceryService.removeFromCart(item)
     console.log("item deleted", this.cart)

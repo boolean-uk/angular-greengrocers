@@ -68,4 +68,8 @@ export class GroceryService {
     this.totalSubject.next(totalCost);
   }
 
+  isCartEmpty(): boolean{
+    return Object.keys(this.myCart).length === 0
+  }
+
 }
