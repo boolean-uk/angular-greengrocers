@@ -1,7 +1,7 @@
 
 <div class="total-container">
         <strong>Total: </strong>{{ total$ | async | currency }}
-        <button mat-raised-button color="warn" (click)="deleteAll()" style="margin-left: 10px;">Empty Cart</button>
+        <button mat-raised-button color="warn" (click)="deleteAll()" style="margin-left: 10px;" matTooltip="Delete all items">Empty Cart</button>
 </div>
 <div *ngIf="cartItems$ | async as cartItems">
         <div *ngIf="cartItems.length === 0">
