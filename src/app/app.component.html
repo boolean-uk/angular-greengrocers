@@ -1,6 +1,11 @@
 <header id="store">
   <h1>Greengrocers</h1>
-  <app-groceries-list></app-groceries-list>
+  <div class="filter-buttons">
+    <button (click)="filterByType('')">Show All</button>
+    <button (click)="filterByType('fruit')">Fruits</button>
+    <button (click)="filterByType('vegetable')">Vegetables</button>
+  </div>
+  <app-groceries-list [filterType]="selectedFilter"></app-groceries-list>
 </header>
 <main id="cart">
   <h2>Your Cart</h2>

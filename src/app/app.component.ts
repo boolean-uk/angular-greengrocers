@@ -8,10 +8,15 @@ import { ShoppingBasket } from './groceries/models/basket';
 })
 export class AppComponent {
   title = 'angular-green-grocers';
+  selectedFilter: string = '';
 
   shoppingBasket: ShoppingBasket = { items: [], total: 0 };
 
   updateShoppingBasket(shoppingBasket: ShoppingBasket) {
     this.shoppingBasket = shoppingBasket;
+  }
+
+  filterByType(filterType: string) {
+    this.selectedFilter = filterType;
   }
 }

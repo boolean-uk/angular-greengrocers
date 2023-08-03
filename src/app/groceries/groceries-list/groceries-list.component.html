@@ -1,11 +1,13 @@
 <ul class="item-list store--item-list myul">
-  <li *ngFor="let grocery of groceries | async">
+  <li *ngFor="let grocery of filteredGroceries$ | async">
     <div class="store--item-icon">
       <img
         [src]="'assets/icons/' + grocery.id + '.svg'"
         alt="{{ grocery.name }}"
       />
     </div>
+    {{ grocery.name }}
+
     <button (click)="addToCart(grocery)">Add to cart</button>
   </li>
 </ul>
