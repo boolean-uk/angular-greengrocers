@@ -3,10 +3,9 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 import { GroceriesModule } from './groceries/groceries.module';
-import { GroceriesListComponent } from './src/app/groceries/groceries-list/groceries-list.component';
 
 @NgModule({
-  declarations: [AppComponent, GroceriesListComponent],
+  declarations: [AppComponent],
   imports: [BrowserModule, GroceriesModule],
   providers: [],
   bootstrap: [AppComponent],
