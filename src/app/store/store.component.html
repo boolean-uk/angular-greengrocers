@@ -6,7 +6,7 @@
 <ul class="item-list store--item-list">
     <li *ngFor="let item of items">
       <div class="store--item-icon">
-        <img src="assets/icons/{{item.id}}.svg" alt="beetroot" />
+        <img src="assets/icons/{{item.id}}.svg" alt="{{item.name}}" />
       </div>
       <button (click)="addToCart(item)">Add to cart</button>
     </li>

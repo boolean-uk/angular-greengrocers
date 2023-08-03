@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Item } from './models/item';
-import {HttpClient} from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject, firstValueFrom } from 'rxjs';
 import { environment } from 'src/environments/environment';
 
@@ -17,14 +17,15 @@ export class GroceriesService {
   constructor(private readonly http: HttpClient) {
   }
 
-  getItemsArray(): Promise<Item[]>{ //async?
+  getItemsArray(): Promise<Item[]>{ 
     return this.items
   }
 
   async fetchItems() : Promise<Item[]> {
     const response = await firstValueFrom(
-      this.http.get<Item[]>(`${environment.apiUrl}`));
-      //console.log(response)
+      this.http.get<Item[]>(`${environment.apiUrl}`
+      ));
+
       return response
   }
 
@@ -40,7 +41,7 @@ export class GroceriesService {
   }
 
   removeItemFromCart(item: Item) {
-    if(item.quantity>1){
+    if(item.quantity > 1){
       item.quantity -= 1
     } else {
       this.itemsInCart.splice(this.itemsInCart.indexOf(item), 1)
