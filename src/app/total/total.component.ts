@@ -9,7 +9,7 @@ import { CartService } from '../services/cart.service';
 export class TotalComponent {
   constructor(private readonly cartService: CartService) {}
 
-  getTotalSum(): Number {
+  getTotalSum(): number {
     return this.cartService.calculateTotalSum()
   }
 

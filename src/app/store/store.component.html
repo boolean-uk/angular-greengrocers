@@ -1,4 +1,6 @@
 <!-- <style> @import url("./../../styles.css");</style> -->
+<button (click)="sortItemsByPrice()">Sort by price</button>
+<button (click)="sortItemsByName()">Sort by name</button>
 <ul class="item-list store--item-list">
     <app-item *ngFor="let item of items | async"
     [item]="item"
