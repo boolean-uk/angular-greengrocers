@@ -40,6 +40,11 @@ export class CartServiceService {
     }
   }
 
+  deleteAll() {
+    this.cartItems.splice(0);
+    this.cartItems$.next(this.cartItems)
+  }
+
 }
 
 export interface ItemInCart {

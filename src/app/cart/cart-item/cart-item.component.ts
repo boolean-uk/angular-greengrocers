@@ -20,4 +20,6 @@ export class CartItemComponent {
   deleteItem() {
     this.service.delete(this.item.item)
   }
+
+
 }

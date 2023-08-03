@@ -1,15 +1,17 @@
 
 <div class="total-container">
         <strong>Total: </strong>{{ total$ | async | currency }}
+        <button mat-raised-button color="warn" (click)="deleteAll()" style="margin-left: 10px;">Empty Cart</button>
 </div>
 <div *ngIf="cartItems$ | async as cartItems">
         <div *ngIf="cartItems.length === 0">
                 <app-empt-cart />
         </div>
-        <div class="item-card-list">
+        <div class="item-card-list" *ngIf="cartItems.length !== 0">
                 <app-cart-item *ngFor="let item of cartItems" [item]="item" />
         </div>
 </div>
+
       
 
   

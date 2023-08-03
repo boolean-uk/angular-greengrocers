@@ -13,4 +13,7 @@ export class CartComponent{
   cartItems$: Observable<ItemInCart[]> = this.cartService.cartItems$;
   total$: Observable<number> = this.cartService.totalPrice$;
 
-}
+  deleteAll() {
+    this.cartService.deleteAll()
+  }
+}   

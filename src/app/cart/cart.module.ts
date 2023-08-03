@@ -9,6 +9,8 @@ import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { MatIconModule } from '@angular/material/icon';
 import { EmptCartComponent } from './empt-cart/empt-cart.component'
+import { MatButtonModule } from '@angular/material/button';
+
 
 
 @NgModule({
@@ -24,7 +26,8 @@ import { EmptCartComponent } from './empt-cart/empt-cart.component'
     MatInputModule,
     FormsModule,
     RouterModule,
-    MatIconModule
+    MatIconModule,
+    MatButtonModule
   ],
   exports: [
     CartComponent
