@@ -1,0 +1,4 @@
+<app-cart-item
+  *ngFor="let item of (cart$ | async)?.items"
+  [cartItem]="item"
+></app-cart-item>
