@@ -1,0 +1,10 @@
+<div class="cart">
+  <h2>Your Cart</h2>
+  <div *ngIf="cart().length===0">Cart is empty</div>
+  <app-cart-item *ngFor="let item of cart()" [cart-item]="item"></app-cart-item>
+
+  <p style="font-weight: bold">Total: {{total() | currency:"USD"}}</p>
+</div>
+
+
+<button routerLink="/store"> BACK TO STORE</button>
