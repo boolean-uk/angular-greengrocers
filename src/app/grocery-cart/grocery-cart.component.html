@@ -1,0 +1,16 @@
+<div class="cart--item-list-container">
+  <ul class="item-list cart--item-list">
+    <li *ngFor="let item of cart.keys()">
+      <img
+        class="cart&#45;&#45;item-icon"
+        [src]="'assets/icons/' + item.id + '.svg'"
+        [alt]="item"
+      />
+      <p>{{item.name}}</p>
+      <button class="quantity-btn remove-btn center" (click)="lessItems(item)">-</button>
+      <span class="quantity-text center">{{cart.get(item)}}</span>
+      <button class="quantity-btn add-btn center" (click)="moreItems(item)">+</button>
+    </li>
+    <h2 *ngIf="cart.size===0">is empty</h2>
+  </ul>
+</div>
