@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { GroceriesService } from '../groceries.service';
+import { GroceriesService } from '../services/groceries.service';
 
 @Component({
   selector: 'app-total',
