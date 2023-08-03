@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CartService } from '../services/cart.service';
 import { Item } from '../models/item';
-import { BehaviorSubject, Observable, Subject, switchMap } from 'rxjs';
 
 @Component({
   selector: 'app-cart',
@@ -17,9 +16,5 @@ export class CartComponent implements OnInit {
     this.cartService
       .getCartItems()
       .subscribe((items) => (this.cartItems$ = Array.from(items)));
-  }
-
-  clearCart() {
-    this.cartService.clearCart();
   }
 }
