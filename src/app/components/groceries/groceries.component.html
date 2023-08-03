@@ -20,7 +20,7 @@
 
 <div class="groceries">
   <app-grocery-item
-    *ngFor="let grocery of groceries$ | async"
+    *ngFor="let grocery of getGroceries() | async"
     [item]="grocery"
     class="groceries-item">
   </app-grocery-item>
