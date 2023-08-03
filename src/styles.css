@@ -1,9 +1,11 @@
 body {
   font-family: "Trebuchet MS", "Lucida Sans", Arial, sans-serif;
+  margin: 0;
 }
 
 h1,
 h2 {
+  margin-top: 1rem;
   margin-bottom: 1rem;
 }
 
@@ -21,7 +23,6 @@ button {
 /* Store */
 
 #store {
-  height: 40vh;
   padding: 1rem;
 
   overflow-y: scroll;
@@ -66,7 +67,6 @@ button {
 /* Cart */
 
 #cart {
-  height: 45vh;
   padding: 1rem;
 
   display: grid;
@@ -77,7 +77,7 @@ button {
   border-top: 2px solid #e7f4ea;
 }
 
-app-cart {
+.cart {
   display: block;
   box-sizing: border-box;
   min-width: 320px;

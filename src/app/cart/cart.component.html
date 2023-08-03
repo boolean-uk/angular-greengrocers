@@ -1,0 +1,9 @@
+<ng-container *ngIf="item">
+  <div class="cart_item">
+    <img [src]='"/assets/icons/" + item.id + ".svg"'/>
+    <span class="item_name">{{item.name}}</span>
+    <button class="btn-" (click)="removeQuantity()">-</button>
+    <span>{{quantity}}</span>
+    <button class="btn+" (click)="addQuantity()">+</button>
+  </div>
+</ng-container>

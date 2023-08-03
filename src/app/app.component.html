@@ -1,9 +1,18 @@
 <header id="store">
   <h1>Greengrocers</h1>
-  <!-- your store here -->
+  <div class="groceries_container">
+    <app-item *ngFor="let item of groceriesAvailable" [item]="item" (addToCart)="addToCart($event)"></app-item>
+  </div>
 </header>
 <main id="cart">
   <h2>Your Cart</h2>
-  <!-- your cart here -->
-  <!-- your total here -->
+  <div class="cart" *ngIf="cart.size">
+    <app-cart *ngFor="let item of cart.keys()"
+              [item]="item" [quantity]="cart.get(item)"
+              (incrementQuantity)="incrementQuantity($event)"
+              (decrementQuantity)="decrementQuantity($event)"
+    ></app-cart>
+  </div>
+
+  Total price: {{totalPrice}}
 </main>
