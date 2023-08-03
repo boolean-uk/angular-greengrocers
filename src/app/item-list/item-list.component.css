@@ -39,6 +39,12 @@ mat-icon {
   margin-top: 7px
 }
 
+.add-to-cart:hover{
+  background-color: transparent;
+  color: darkgreen;
+}
+
+
 .toggle-group {
   display: flex;
   flex-direction: column;
@@ -65,3 +71,4 @@ mat-icon {
 .special{
   width: 70px;
 }
+
