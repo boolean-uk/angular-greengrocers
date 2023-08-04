@@ -1,0 +1,14 @@
+<ul class="item-list store--item-list">
+  <li *ngFor="let product of productList">
+    <div class="store--item-icon">
+      <img [src]="'assets/icons/' + product.id + '.svg'" [alt]="product.name" />
+      <h4><br>
+      {{product.name}}<br>
+      £ {{product.price}}
+      </h4>
+      
+    </div>
+    <button (click)="addToCart(product)">Add to cart</button>
+
+  </li>
+</ul>

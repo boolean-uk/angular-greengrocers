@@ -1,0 +1,16 @@
+<div class="cart--item-list-container">
+  <ul class="item-list cart--item-list">
+    <li *ngFor="let product of productList">
+      <img
+        class="cart--item-icon"
+        [src]="'assets/icons/' + product.id + '.svg'"
+        [alt]="product.name"
+      />
+      <p>{{ product.name }}</p>
+      <button class="quantity-btn remove-btn center" (click)="decreaseInCart(product)">-</button>
+      <span class="quantity-text center">{{ productService.productsInCart.get(product) }}</span>
+      <button class="quantity-btn add-btn center" (click)="increaseInCart(product)">+</button>
+      
+    </li>
+  </ul>
+</div>
