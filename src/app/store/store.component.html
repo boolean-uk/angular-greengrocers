@@ -1,0 +1,9 @@
+<div class="store--filter">
+  <app-product-filter />
+  <app-sort-by-price (sortDirection)="onSortDirectionChanged($event)" />
+  <app-sort-by-name (sortOrder)="onNameOrderChanged($event)" />
+</div>
+<app-groceries-list
+  [sortDirection]="currentSortDirection"
+  [sortOrder]="currentNameOrder"
+/>

@@ -30,3 +30,8 @@ You will be fetching a list of groceries from an external API. [You can read the
 - Covert the app to be multipage.
   - A page for the store
   - A checkout page
+
+# Images
+
+![Store](./images/store.jpg)
+![Checkout](./images/checkout.jpg)

@@ -1,0 +1,8 @@
+<ng-template [ngIf]="grocery">
+  <li>
+    <div class="store--item-icon">
+      <img [src]="generateImagePath(grocery)" [alt]="grocery.name" />
+    </div>
+    <button class="add-to-cart-btn" (click)="addToCart()">Add to cart</button>
+  </li>
+</ng-template>
