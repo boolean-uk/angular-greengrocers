@@ -1,0 +1,14 @@
+<h2 mat-dialog-title>Purchase Summary</h2>
+<mat-dialog-content>
+  <p>Total Price: {{ data.totalPrice | currency }}</p>
+  <p>Items in Cart:</p>
+  <ul>
+    <li *ngFor="let item of data.cartItems">
+      <strong>{{ item.item.name }}</strong> x {{ item.quantity }}
+    </li>
+  </ul>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-raised-button (click)="onCancel()">Cancel</button>
+  <button mat-raised-button color="primary" (click)="onConfirmPurchase()">Confirm Purchase</button>
+</mat-dialog-actions>

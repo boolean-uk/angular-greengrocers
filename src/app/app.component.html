@@ -1,9 +1,11 @@
-<header id="store">
-  <h1>Greengrocers</h1>
-  <!-- your store here -->
-</header>
-<main id="cart">
-  <h2>Your Cart</h2>
-  <!-- your cart here -->
-  <!-- your total here -->
-</main>
+<mat-toolbar color="primary" class="navbar">
+    <div class="navbar-icons">
+      <div routerLink="/store" class="navbarIcon navbar-left">
+        <span>Greengrocers</span>
+        <mat-icon >home</mat-icon>
+      </div>
+      <mat-icon routerLink="/cart" class="navbarIcon cart" [matBadge]="numberOfProductsInBasket$ | async" matBadgeSize="small" matBadgeColor="accent">shopping_cart</mat-icon>
+    </div>
+</mat-toolbar>
+
+<router-outlet></router-outlet>

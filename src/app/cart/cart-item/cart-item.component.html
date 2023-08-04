@@ -1,0 +1,19 @@
+<mat-card class="cart-item-card">
+  <mat-card-content>
+    <div class="cart-item-details">
+      <button mat-mini-fab color="warn" (click)="deleteItem()" matTooltip="Delete from cart" style="margin-bottom: 10px;">
+        <mat-icon class="delete-icon" >delete</mat-icon>
+      </button>
+
+      <p><strong>{{ item.item.name }} </strong> x {{item.quantity}}</p>
+      <p>Price: {{ item.item.price * item.quantity | currency}}</p>
+    </div>
+    <div class="quantity-container">
+      <mat-form-field appearance="outline">
+        <mat-label>Quantity</mat-label>
+        <input type="number" min="1" matInput [(ngModel)]="item.quantity" (ngModelChange)="onQuantityChange()">
+      </mat-form-field>
+    </div>
+  </mat-card-content>
+</mat-card>
+  

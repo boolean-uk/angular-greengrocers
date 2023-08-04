@@ -1,0 +1,20 @@
+<div *ngIf="{ total: total$ | async, cartItems: cartItems$ | async } as data">
+        <div class="total-container">
+                <strong>Total: </strong>{{ total$ | async | currency }}
+                <button mat-raised-button color="warn" (click)="deleteAll()" style="margin-left: 10px;" matTooltip="Delete all items">Empty Cart</button>
+                <button mat-raised-button color="primary" style="margin-left: 10px;" matTooltip="Buy all items in the cart" (click)="openCheckoutDialog(data.total, data.cartItems)">Buy</button>
+        </div>
+</div>
+
+<div *ngIf="cartItems$ | async as cartItems">
+        <div *ngIf="cartItems.length === 0">
+                <app-empt-cart />
+        </div>
+        <div class="item-card-list" *ngIf="cartItems.length !== 0">
+                <app-cart-item *ngFor="let item of cartItems" [item]="item" />
+        </div>
+</div>
+
+      
+
+  

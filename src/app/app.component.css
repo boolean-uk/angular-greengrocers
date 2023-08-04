@@ -1,0 +1,17 @@
+.navbarIcon {
+    cursor: pointer;
+  }
+  
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px;
+    margin-bottom: 20px;
+  }
+  
+  .navbar-icons {
+    display: flex;
+    gap: 10px;
+  }
+
+  
