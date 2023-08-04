@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Item } from '../models/item';
 import { BehaviorSubject, scan } from 'rxjs';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Injectable({
   providedIn: 'root'
@@ -16,6 +17,7 @@ export class CartServiceService {
       return cartItems.reduce((sum, item) => sum + item.item.price * item.quantity, 0);
     }, 0)
   );
+
 
   addToCart(item: Item) {
     const existingItemIndex = this.cartItems.findIndex(cartItem => cartItem.item.id === item.id);

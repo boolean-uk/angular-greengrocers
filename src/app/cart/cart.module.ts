@@ -11,6 +11,9 @@ import { MatIconModule } from '@angular/material/icon';
 import { EmptCartComponent } from './empt-cart/empt-cart.component'
 import { MatButtonModule } from '@angular/material/button';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatDialogModule } from '@angular/material/dialog';
+import { CheckoutComponent } from './checkout/checkout.component';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 
 
@@ -18,18 +21,21 @@ import { MatTooltipModule } from '@angular/material/tooltip';
   declarations: [
     CartItemComponent,
     CartComponent,
-    EmptCartComponent
+    EmptCartComponent,
+    CheckoutComponent
   ],
   imports: [
     CommonModule,
     MatCardModule,
     MatFormFieldModule,
+    MatSnackBarModule,
     MatInputModule,
     FormsModule,
     RouterModule,
     MatIconModule,
     MatButtonModule,
-    MatTooltipModule
+    MatTooltipModule,
+    MatDialogModule
   ],
   exports: [
     CartComponent
