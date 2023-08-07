@@ -15,7 +15,7 @@ export class StoreComponent {
   
 
   addToCart(item: Item) {
-    if(!this.storeService.hasOwnProperty(item.name)){
+    if(!this.storeService.itemsInCart.hasOwnProperty(item.name)){
       this.storeService.itemsInCart[item.name] = 0;
     }
     this.storeService.itemsInCart[item.name]++
