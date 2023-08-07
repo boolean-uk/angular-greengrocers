@@ -1,0 +1,6 @@
+<li *ngIf="item">
+    <div class="store--item-icon">
+        <img src="assets/icons/{{item.id}}.svg" alt="{{item.name}}" />
+    </div>
+    <button (click)="clicked()">Add to cart</button>
+</li>

@@ -1,0 +1,9 @@
+<button (click)="sortItemsByPrice()">Sort by price</button>
+<button (click)="sortItemsByName()">Sort by name</button>
+<button (click)="showVegetables()">Show vegetables</button>
+<button (click)="showFruits()">Show fruits</button>
+<button (click)="refreshStore()">Show all</button>
+<ul class="item-list store--item-list">
+    <app-store-item *ngFor="let item of items |async" [item]="item" (addToCart)="addToCart($event)" />
+</ul>
+

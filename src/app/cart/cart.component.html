@@ -1,0 +1,12 @@
+<div class="cart--item-list-container">
+    <ul class="item-list cart--item-list">
+    <div *ngIf="itemsInCart">
+        <div *ngFor="let item of items | async">
+            <ng-container *ngIf="this.itemsInCart.hasOwnProperty(item.name)">
+                <app-cart-item [item]="item" [quantity]="this.itemsInCart[item.name]" 
+                (addToCart)="addToCart($event)" (removeFromCart)="removeFromCart($event)"/>
+            </ng-container>
+        </div>
+    </div>
+    </ul>
+</div>
