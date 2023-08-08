@@ -1,3 +1,4 @@
 export const environment = {
-  apiUrl: 'https://boolean-api-server.fly.dev/',
+  apiFruits: 'https://boolean-api-server.fly.dev/groceries?type=fruit',
+  apiVegetables: 'https://boolean-api-server.fly.dev/groceries?type=vegetable',
 };
