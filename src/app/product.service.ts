@@ -40,7 +40,7 @@ export class ProductService {
 
     const newQuantity = currentQuantity -1
     if (newQuantity >= 0){
-      currentQuantity  - 1;
+      // currentQuantity  - 1;
       this.productsInCart.set(toDecrease, newQuantity);
     }
     else if (newQuantity <= 0){

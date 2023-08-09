@@ -11,10 +11,14 @@ export class ProductListComponent {
 
   constructor(private productService : ProductService){
     this.getCart()
+    console.log('product-list constructor done');
+    
   }
 
   async getCart(){
     this.productList = await this.productService.getProducts();
+    console.log('product-list getCart done');
+
   }
 
 
