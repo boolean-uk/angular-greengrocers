@@ -1,0 +1,17 @@
+<div class="sort--buttons">
+  <button (click)="toggleChangeSortType()">Sorting by: {{sort}}</button>
+  <button (click)="toggleFilterByType()">
+    Filter: {{filterType}}
+  </button>
+</div>
+<ul class="item-list store--item-list">
+  <li *ngFor="let item of items | sortPipe: this.sort">
+    <div class="store--item-icon">
+      <img 
+      src="{{'../../assets/icons/' + item.id + '.svg'}}" 
+      alt="{{item.name}}" />
+    </div>
+    <button (click)="addItem(item)">Pack</button>
+  </li>
+</ul>
+
